@@ -2,17 +2,8 @@
 $servername = "localhost";
 $usernamedb = "root";
 $password = "pnpdbpassword1";
-$firstName = "Alana";
-$lastName = "Ceci";
-$email = "livelaughlove98@yahoo.com";
 $usernamePerson = "cc98";
-$phone= 4204204209;
-$rating = 5;
-$numOfRating = 10000;
-$gender = True;
-$description = "Alana was born and raised in East Missisisspspsi. Her goal in life to host partayss that remind her of home";
-$birthdate = "19980621";
-$numOfPlaces = 2;
+
 
 
 echo "<table style='border: solid 1px black;'>";
@@ -42,12 +33,12 @@ try {
 	    // set the PDO error mode to exception
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    echo "Connected successfully"; 
-		
-	    $sql = "INSERT INTO Users VALUES ('{$usernamePerson}', '{$firstName}', '{$lastName}','{$email}','{$password}','{$phone}','{$rating}','{$numOfRating}','{$gender}','{$description}','{$birthdate}','{$numOfPlaces}')";
+
+	    $sql = "INSERT INTO Places VALUES ('{$usernamePerson}', '{$_POST["building"]}', '{$_POST["adr"]}','{$_POST["aptNum"]}','{$_POST["city"]}','{$_POST["country"]}','{$_POST["province"]}','{$_POST["postalCode"]}','{$_POST["spaceType"]}','{$_POST["description"]}','{$_POST["price"]}','0','{$_POST["pets"]}', '{$_POST["alcohol"]}','{$_POST["wheelchair"]}','{$_POST["outdoors"]}')";
 	    
 	    $conn->exec($sql);
 
-	    $stmt = $conn->prepare("SELECT * FROM Users");
+	    $stmt = $conn->prepare("SELECT * FROM Places");
 
 	    $stmt->execute();
 		
