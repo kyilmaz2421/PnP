@@ -1,0 +1,16 @@
+pnp bugs
+
+sql
+	the phone numbers that are in the default db come out to be the same
+
+html
+
+css
+
+js
+
+php
+
+
+
+
