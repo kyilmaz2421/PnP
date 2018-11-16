@@ -5,3 +5,43 @@
 h1 {
 	font-size: 3em;
 }
+
+.header{
+	border-style: solid;
+	border-width: 2px;
+}
+
+.userOptions{
+	padding-top: 1%;
+}
+
+#post{
+	float: right;
+}
+
+#myProfile{
+	float: right;
+}
+.mainView{
+	width: 78%;
+	height: 75%;
+	border-style: solid;
+	border-width: 1px;
+	position: absolute;
+    top: 25%;
+	right: 0;
+	margin-right: 0.5%;
+	overflow-y: scroll;
+	margin-bottom: 0.5%;
+}
+
+.sideFilter{
+	width: 19.8%;
+	height: 75%;
+	border-style: solid;
+	border-width: 1px;
+	position: absolute;
+	top: 25%;
+	left: 2;
+	margin-bottom: 0.5%;
+}
