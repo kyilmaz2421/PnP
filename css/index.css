@@ -1,39 +1,68 @@
 * {box-sizing: border-box}
 
+body {
+  background-color: #82E0AA;
+  color : #154360;
+  margin: 0;
+}
+
+header {
+  background-color: #154360;
+  color: #FCF3CF;
+  padding: 12px;
+  padding-left: 35px;
+}
+
+form {
+  width: 49.8%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px;
+}
+
 /* Full-width input fields */
-  input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=date], input[type=email], input[type=tel] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
-  background: #f1f1f1;
+  background: #D5F5E3;
 }
 
 input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
+  /*background-color: #ddd;*/
   outline: none;
 }
 
 hr {
-  border: 1px solid #f1f1f1;
+  border: 1px solid #154360;
   margin-bottom: 25px;
 }
 
 /* Set a style for all buttons */
 button {
-  background-color: #4CAF50;
+  background-color: #28B463;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 button:hover {
   opacity:1;
+}
+
+header > h1 {
+  font-size: 40px; 
+  display: inline-block;
+}
+
+header > p {
+  display: inline-block;
 }
 
 /* Extra styles for the cancel button */
@@ -44,7 +73,8 @@ button:hover {
 
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn, .signupbtn {
-  float: left;
+  float: right;
+  /*display: inline-block*/
   width: 50%;
 }
 
