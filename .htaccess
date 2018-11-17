@@ -10,4 +10,4 @@ RewriteEngine On
   </IfModule>
 </FilesMatch>	
 
-CacheDisable /local_files
+#CacheDisable /local_files
