@@ -7,8 +7,8 @@ $lastName = "Ceci";
 $email = "livelaughlove98@yahoo.com";
 $usernamePerson = "cc98";
 $phone= 4204204209;
-$rating = 5;
-$numOfRating = 10000;
+$rating = 0;
+$numOfRating = 0;
 $gender = True;
 $description = "Alana was born and raised in East Missisisspspsi. Her goal in life to host partayss that remind her of home";
 $birthdate = "19980621";
@@ -43,7 +43,7 @@ try {
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    echo "Connected successfully"; 
 		
-	    $sql = "INSERT INTO Users VALUES ('{$usernamePerson}', '{$firstName}', '{$lastName}','{$email}','{$password}','{$phone}','{$rating}','{$numOfRating}','{$gender}','{$description}','{$birthdate}','{$numOfPlaces}')";
+	    $sql = "INSERT INTO places VALUES ('{$usernamePerson}', '{$firstName}', '{$lastName}','{$email}','{$password}','{$phone}','{$rating}','{$numOfRating}','{$gender}','{$description}','{$birthdate}','{$numOfPlaces}')";
 	    
 	    $conn->exec($sql);
 

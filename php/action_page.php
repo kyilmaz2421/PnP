@@ -43,9 +43,9 @@ try {
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    echo "Connected successfully"; 
 		
-	    $sql = "INSERT INTO Users VALUES ('{$usernamePerson}', '{$firstName}', '{$lastName}','{$email}','{$password}','{$phone}','{$rating}','{$numOfRating}','{$gender}','{$description}','{$birthdate}','{$numOfPlaces}')";
+	    // $sql = "INSERT INTO Users VALUES ('{$usernamePerson}', '{$firstName}', '{$lastName}','{$email}','{$password}','{$phone}','{$rating}','{$numOfRating}','{$gender}','{$description}','{$birthdate}','{$numOfPlaces}')";
 	    
-	    $conn->exec($sql);
+	    // $conn->exec($sql);
 
 	    $stmt = $conn->prepare("SELECT * FROM Users");
 
