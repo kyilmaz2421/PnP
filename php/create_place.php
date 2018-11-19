@@ -34,18 +34,21 @@ try {
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    echo "Connected successfully"; 
 
-	    $sql = "INSERT INTO Places VALUES ('{$usernamePerson}', '{$_POST["building"]}', '{$_POST["adr"]}','{$_POST["aptNum"]}','{$_POST["city"]}','{$_POST["country"]}','{$_POST["province"]}','{$_POST["postalCode"]}','{$_POST["spaceType"]}','{$_POST["description"]}','{$_POST["price"]}','0','{$_POST["pets"]}', '{$_POST["alcohol"]}','{$_POST["wheelchair"]}','{$_POST["outdoors"]}')";
+	    $sql = "INSERT INTO Places VALUES ('{$usernamePerson}', '{$_POST["building"]}', '{$_POST["adr"]}','{$_POST["aptNum"]}','{$_POST["city"]}','{$_POST["province"]}','{$_POST["country"]}','{$_POST["postalCode"]}','{$_POST["spaceType"]}','{$_POST["description"]}','{$_POST["price"]}','0','{$_POST["pets"]}', '{$_POST["alcohol"]}','{$_POST["wheelchair"]}','{$_POST["smoking"]}','{$_POST["outdoors"]}', '1')";
 	    
-	    $conn->exec($sql);
+		$conn->exec($sql);
 
-	    $stmt = $conn->prepare("SELECT * FROM Places");
+		header('Location: http://localhost/pnp/postSuccess.html');
+		exit();
 
-	    $stmt->execute();
+	    // $stmt = $conn->prepare("SELECT * FROM Places");
+
+	    // $stmt->execute();
 		
-	    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-    		foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
-        		echo $v;
-   		 }
+	    // $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+    	// 	foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
+        // 		echo $v;
+   		//  }
 	   
     }
 catch(PDOException $e)
