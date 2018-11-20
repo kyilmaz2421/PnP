@@ -22,37 +22,39 @@
 	<div class="leftRightNavBar">  </div>
 </section>
 
-<!-- Left half of main section -->
-<div id="half">
-	<!-- About You box: -->
-	<div>
-		About You
-	</div>
-	<!-- Your Places box: -->
-	<div>
-		Your Places
-	</div>
-</div>
-
-<!-- Right half of main section -->
-<div id="half">
-	
-	<div class="tab">
-	  <button class="tablinks" onclick="openView(event, 'PastBookings')" id="defaultOpen">Past Bookings</button>
-	  <button class="tablinks" onclick="openView(event, 'UpcomingBookings')">Upcoming Bookings</button>
+<div id="mainBody">
+	<!-- Left half of main section -->
+	<div id="half" style="border-right:solid 1px">
+		<!-- About You box: -->
+		<div id="aboutYou">
+			<h3>About You</h3>
+		</div>
+		<!-- Your Places box: -->
+		<div id="yourPlaces" style="border-top:solid 1px">
+			<h3>Your Places</h3>
+		</div>
 	</div>
 
-	<!-- Tab content -->
-	<div id="PastBookings" class="tabcontent">
-	  <h3>Past Bookings</h3>
-	  <!-- Show all past bookings here (from DB) -->
-	</div>
+	<!-- Right half of main section -->
+	<div id="half">
+		
+		<div class="tab">
+		  <button class="tablinks" onclick="openView(event, 'PastBookings')" id="defaultOpen">Past Bookings</button>
+		  <button class="tablinks" onclick="openView(event, 'UpcomingBookings')">Upcoming Bookings</button>
+		</div>
 
-	<div id="UpcomingBookings" class="tabcontent">
-	  <h3>Upcoming Bookings</h3>
-	  <!-- Show all upcoming bookings here (from DB) -->
-	</div>
+		<!-- Tab content -->
+		<div id="PastBookings" class="tabcontent">
+		  <h3>Past Bookings</h3>
+		  <!-- Show all past bookings here (from DB) -->
+		</div>
 
+		<div id="UpcomingBookings" class="tabcontent">
+		  <h3>Upcoming Bookings</h3>
+		  <!-- Show all upcoming bookings here (from DB) -->
+		</div>
+
+	</div>
 </div>
 
 
