@@ -21,6 +21,62 @@
 	<div class="leftRightNavBar">  </div>
 </section>
 
+<!-- Left half of main section -->
+<div id="half">
+	<!-- About You box: -->
+	<div>
+		About You
+	</div>
+	<!-- Your Places box: -->
+	<div>
+		Your Places
+	</div>
+</div>
+
+<!-- Right half of main section -->
+<div id="half">
+	
+	<div class="tab">
+	  <button class="tablinks" onclick="openView(event, 'PastBookings')" id="defaultOpen">Past Bookings</button>
+	  <button class="tablinks" onclick="openView(event, 'UpcomingBookings')">Upcoming Bookings</button>
+	</div>
+
+	<!-- Tab content -->
+	<div id="PastBookings" class="tabcontent">
+	  <h3>Past Bookings</h3>
+	  <!-- Show all past bookings here (from DB) -->
+	</div>
+
+	<div id="UpcomingBookings" class="tabcontent">
+	  <h3>Upcoming Bookings</h3>
+	  <!-- Show all upcoming bookings here (from DB) -->
+	</div>
+
+</div>
+
+
+
+<script>
+	window.onload = function(){
+			document.getElementById("defaultOpen").click();
+	}
+
+	function openView(evt, toView) {
+	    var i, tabcontent, tablinks;
+	    tabcontent = document.getElementsByClassName("tabcontent");
+	    for (i = 0; i < tabcontent.length; i++) {
+	        tabcontent[i].style.display = "none";
+	    }
+	    tablinks = document.getElementsByClassName("tablinks");
+	    for (i = 0; i < tablinks.length; i++) {
+	        tablinks[i].className = tablinks[i].className.replace(" active", "");
+	    }
+	    document.getElementById(toView).style.display = "block";
+	    evt.currentTarget.className += " active";
+	}
+</script>
+
+
 </body>
 
 </html>
