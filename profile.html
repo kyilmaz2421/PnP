@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PnP - My Profile</title>
+
+<link rel="stylesheet" type="text/css" href="css/general.css">
+<link rel="stylesheet" type="text/css" href="css/profile.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+<header>
+  <h1>PnP</h1>
+  <p> - - - Place n Party</p>
+</header>
+
+<body>
+
+<section class="navBar">
+	<div class="leftRightNavBar"> 
+		<button id="backToView" class="backbtn"><i class="left"></i> Back To Viewing Page</button>
+	</div>
+	<div class="pageTitle">My Profile</div>
+	<div class="leftRightNavBar">  </div>
+</section>
+
+<div id="mainBody">
+	<!-- Left half of main section -->
+	<div id="half" style="border-right:solid 1px">
+		<!-- About You box: -->
+		<div id="aboutYou">
+			<h3>About You</h3>
+		</div>
+		<!-- Your Places box: -->
+		<div id="yourPlaces" style="border-top:solid 1px">
+			<h3>Your Places</h3>
+		</div>
+	</div>
+
+	<!-- Right half of main section -->
+	<div id="half">
+		
+		<div class="tab">
+		  <button class="tablinks" onclick="openView(event, 'PastBookings')" id="defaultOpen">Past Bookings</button>
+		  <button class="tablinks" onclick="openView(event, 'UpcomingBookings')">Upcoming Bookings</button>
+		</div>
+
+		<!-- Tab content -->
+		<div id="PastBookings" class="tabcontent">
+		  <h3>Past Bookings</h3>
+		  <!-- Show all past bookings here (from DB) -->
+		</div>
+
+		<div id="UpcomingBookings" class="tabcontent">
+		  <h3>Upcoming Bookings</h3>
+		  <!-- Show all upcoming bookings here (from DB) -->
+		</div>
+
+	</div>
+</div>
+
+
+
+<script>
+	window.onload = function(){
+			document.getElementById("defaultOpen").click();
+	}
+
+	function openView(evt, toView) {
+	    var i, tabcontent, tablinks;
+	    tabcontent = document.getElementsByClassName("tabcontent");
+	    for (i = 0; i < tabcontent.length; i++) {
+	        tabcontent[i].style.display = "none";
+	    }
+	    tablinks = document.getElementsByClassName("tablinks");
+	    for (i = 0; i < tablinks.length; i++) {
+	        tablinks[i].className = tablinks[i].className.replace(" active", "");
+	    }
+	    document.getElementById(toView).style.display = "block";
+	    evt.currentTarget.className += " active";
+	}
+</script>
+
+
+</body>
+
+</html>

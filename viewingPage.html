@@ -12,19 +12,26 @@
 
 	<!--Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="css/view.css">
+	<link rel="stylesheet" type="text/css" href="css/general.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
 </head>
 <body>
-	<section class= "header">
+	<header>
+	  <h1>PnP</h1>
+	  <p> - - - Place n Party</p>
+	</header>
+	<!-- OLD HEADER (ALANA): -->
+	<!-- <section class= "header">
 		<h2 id= "pnpTitle">
 			PnP
 			<h4 id = "subscript"> 
 				Place and Party 
 			</h4>
 		</h2>
-	</section>
+	</section> -->
 
-	<section class = "userOptions">
+	<section class = "navBar">
 		<button id="myProfile"> My Profile </button>
 		<button id="post"> Post a Place </button>
 	</section>
@@ -32,12 +39,73 @@
 	<section class = "pageBody"> 
 		
 		<section class = "sideFilter">
-			Filters
+			<h3>Filters</h3>
+			<ul>
+				<li>Type of Space: 
+					<br> <input type="radio" name="TypeOfSpace"> Home
+					<br> <input type="radio" name="TypeOfSpace"> Loft
+					<br> <input type="radio" name="TypeOfSpace"> Large Space
+					<br> <input type="radio" name="TypeOfSpace"> Backyard/Deck
+					<br> <input type="radio" name="TypeOfSpace"> Rooftop/Penthouse
+
+
+				</li>
+				<li>Price Per Night
+					<br> <input type="radio" name="pPNight"> &lt; 100 
+					<br> <input type="radio" name="pPNight"> &lt; 200
+					<br> <input type="radio" name="pPNight"> &lt; 300
+					<br> <input type="radio" name="pPNight"> &lt; 400	
+					<br> <input type="radio" name="pPNight"> &lt; 500	
+				</li>
+
+				<li>Rating
+					<br> <input type="radio" name="pPNight"> &gt; 3
+					<br> <input type="radio" name="pPNight"> &gt; 4	
+					<br> <input type="radio" name="pPNight"> &gt; 5
+
+				</li>	
+				<li>Pets Permitted: 
+					<br> <input type="radio" name="pets"> Yes
+					<br> <input type="radio" name="pets"> No	
+
+
+				<li>Alcohol Permitted: 
+					<br> <input type="radio" name="alcoholPermitted"> Yes
+					<br> <input type="radio" name="alcoholPermitted"> No
+				<li>WheelchairAccessible:
+					<br> <input type="radio" name="WheelchairAccessible"> Yes
+					<br> <input type="radio" name="WheelchairAccessible"> No
+
+
+			</ul>
+
 		</section>
 
 		<section class = "mainView">
-			Parties
+			<section class="placeContainer">
+				<div id="placeImage">
+						<img id= "image" src="house.jpeg" alt="House">
+				</div>
 			
+				<div id="details">
+					<div>Address:</div>
+					<div>Description:</div>
+					<div>Price per night:</div>
+				</div>
+			
+				<div id = "userInfo">
+					<div id = "user">  
+							User:
+					</div>
+					<div id = "rating">
+							Rating: 
+					</div>
+				</div>
+			
+				<div id="bookButton">
+					<button id = "bookPlace"> Book </button>
+				</div>
+			</section>
 
 		</section>
 

@@ -12,16 +12,35 @@
 
 	<!--Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="css/view.css">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
 </head>
 <body>
-<nav>
+<!-- <nav>
     <h1>PnP</h1>
-</nav>
+</nav> -->
 <form action="php/create_place.php" method="post" style="border:1px solid #ccc">
-<div>
+<!-- <div>
     <h1>Post A Place</h1>
-</div>
+</div> -->
+<!-- NEW HEADER (CONSISTENT W/ OTHER PAGES): -->
+<header>
+  <h1>PnP</h1>
+  <p> - - - Place n Party</p>
+</header>
+
+    <section class="navBar">
+        <div class="leftRightNavBar"> 
+            <!-- <button id="backToView" class="backbtn"><i class="left"></i> Cancel</button> -->
+            <button type="button" class="cancelbtn">Cancel</button>
+        </div>
+        <div class="pageTitle">Post A Place</div>
+        <div class="leftRightNavBar" style="text-align: right"> 
+            <button type="submit" class="postbtn">Submit Place</button>
+        </div>
+    </section>
+
     <div class="container">
       <hr>
       <p>Please fill in this form to post a new place.</p>
