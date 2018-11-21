@@ -17,6 +17,9 @@ print_r($loginCredentialsArray);
 $unameEntry = $loginCredentialsArray['username'];
 $passwordEntry = $loginCredentialsArray['password'];
 
+echo $unameEntry;
+echo $passwordEntry;
+
 try {
 	    
 	    // connect to db
@@ -25,9 +28,14 @@ try {
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    echo "Connected successfully"; 
 
-	    // query db if it has user's entries	    
-	    $dbUsername = $conn->query("SELECT Username FROM Users");
-	    $dbPassword = $conn->query("SELECT Password FROM Users");
+	    // query db if it has user's entries
+	    $sql1 = "SELECT * FROM Users WHERE Username='"  . $unameEntry . "'";
+
+	    $dbUsername = $conn->query($sql1);
+
+	    // echo $dbUsername;
+
+	    // $dbPassword = $conn->query("SELECT Password FROM Users WHERE Password=" . $passwordEntry);
 
 		var_dump($dbUsername);
 
