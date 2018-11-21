@@ -31,9 +31,6 @@ try {
 	    // query db if it has user's entries
 	    $sql1 = "SELECT * FROM Users WHERE Username='"  . $unameEntry . "'";
 
-	   
-
-
 	    $dbUsername = $conn->query($sql1);
 
 	    // echo $dbUsername;
