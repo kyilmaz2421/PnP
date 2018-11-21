@@ -15,7 +15,15 @@
 	<link rel="stylesheet" type="text/css" href="css/general.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
+	<script type="text/javascript" src="jquery.js"></script>          
+	<script type="text/javascript">
+    // Check if the page has loaded completely                                         
+    $(document).ready( function() { 
+        $('main').load('getPlace.php'); 
+    }); 
+</script> 
 </head>
+
 <body>
 	<header>
 	  <h1>PnP</h1>
@@ -81,7 +89,7 @@
 
 		</section>
 
-		<section class = "mainView">
+		<section class = "mainView" id = "main">
 			<section class="placeContainer">
 				<div id="placeImage">
 						<img id= "image" src="img/house.jpeg" alt="House">
