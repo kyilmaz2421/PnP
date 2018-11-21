@@ -5,28 +5,6 @@ $password = "pnpdbpassword1";
 $usernamePerson = "cc98";
 
 
-
-echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th></tr>";
-
-class TableRows extends RecursiveIteratorIterator { 
-    function __construct($it) { 
-        parent::__construct($it, self::LEAVES_ONLY); 
-    }
-
-    function current() {
-        return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
-    }
-
-    function beginChildren() { 
-        echo "<tr>"; 
-    } 
-
-    function endChildren() { 
-        echo "</tr>" . "\n";
-    } 
-}
-
 try {
 
 	    $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
@@ -50,11 +28,6 @@ try {
     }
 catch(PDOException $e)
     {
-    	echo "Connection failed: " . $e->getMessage();
+    	exit();
     }
-
-	echo "<h2>PHP is Fun!</h2>";
-	echo "Hello world!<br>";
-	echo "I'm about to learn PHP!<br>";
-	echo "This ", "string ", "was ", "made ", "with multiple parameters.";
 ?>
