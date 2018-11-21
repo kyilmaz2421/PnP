@@ -4,3 +4,28 @@ form {
   vertical-align: top;
   padding: 20px;
 }
+
+#formHolder {
+  margin: 0px;
+  padding: 0px;
+}
+
+#rightForm {
+  border-left:1px solid #154360;
+}
+
+
+/* Make forms centered on small screens */
+@media screen and (max-width: 1042px) {
+  #formHolder {
+    text-align: center;
+  }
+  #rightForm {
+    border-left: 0;
+  }
+  form {
+    width: 100%;
+    text-align: left;
+    border-left: 0;
+  }
+}
