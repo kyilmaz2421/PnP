@@ -1,0 +1,11 @@
+update everyone's dbs
+fix the math problem
+    and we might have to change db
+    if this is the case, don't update everyone's db
+add the sessions for users
+get ajax call for search working
+test on gemini
+figure out our presentation stuff
+calendar
+user specific content
+beautification
