@@ -10,15 +10,11 @@ $passwordEntry="";
 $loginCredentialsArray = [];
 
 // put username and password entered into loginCredArr
-echo $_SERVER['QUERY_STRING'];
-parse_str($_SERVER['QUERY_STRING'], $loginCredentialsArray);
-print_r($loginCredentialsArray);
+// print_r($_SERVER);
+print_r($_POST);
 
-$unameEntry = $loginCredentialsArray['username'];
-$passwordEntry = $loginCredentialsArray['password'];
-
-echo $unameEntry;
-echo $passwordEntry;
+$unameEntry = $_POST['username'];
+$passwordEntry = $_POST['password'];
 
 try {
 	    
@@ -26,21 +22,35 @@ try {
 	    $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
 	    // set the PDO error mode to exception
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	    echo "Connected successfully"; 
+	    // echo "Connected successfully"; 
 
 	    // query db if it has user's entries
 	    $sql1 = "SELECT * FROM Users WHERE Username='"  . $unameEntry . "'";
 
-	    $dbUsername = $conn->query($sql1);
+	    // a single array with the user name at index 0 if users exists
+	    // otherwise empty
+	    $dbUsername = $conn->query($sql1)->fetchAll(PDO::FETCH_COLUMN);
 
-	    // echo $dbUsername;
+		echo '<br>';
 
-	    // $dbPassword = $conn->query("SELECT Password FROM Users WHERE Password=" . $passwordEntry);
+	    // when size is 1 user exists
+		if(sizeof($dbUsername) === 1) {
+			echo 'user exists';
+		} else {
+			echo 'user not in db';
+		}
 
-		var_dump($dbUsername);
+		echo '<br>';
 
-		
-	   
+		$sql2 = "SELECT * FROM Users WHERE Password='"  . $passwordEntry . "'";
+
+		$dbPassword = $conn->query($sql2)->fetchAll(PDO::FETCH_COLUMN);
+
+		if(sizeof($dbPassword) === 1) {
+			echo 'password exists';
+		} else {
+			echo 'password not in db';
+		}
     }
 catch(PDOException $e)
     {
