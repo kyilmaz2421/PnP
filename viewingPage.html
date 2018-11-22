@@ -15,13 +15,14 @@
 	<link rel="stylesheet" type="text/css" href="css/general.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-	<script type="text/javascript" src="jquery.js"></script>          
+	        
 	<script type="text/javascript">
-    // Check if the page has loaded completely                                         
-    $(document).ready( function() { 
-        $('main').load('getPlace.php'); 
-    }); 
-</script> 
+
+    // // Check if the page has loaded completely                                         
+    // $(document).ready( function() { 
+    //     $('main').load('getPlace.php'); 
+    // }); 
+	</script> 
 </head>
 
 <body>
@@ -111,7 +112,9 @@
 				</div>
 			
 				<div id="bookButton">
-					<button id = "bookPlace"> Book </button>
+				<form  method="POST" action="http://localhost/pnp/php/getPlace.php">
+					<button type="submit"  name= "test" id = "bookPlace"> Book </button>
+				</form>
 				</div>
 			</section>
 
