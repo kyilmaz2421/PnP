@@ -1,20 +1,28 @@
 <?php
+$servername = "localhost";
+$usernamedb = "root";
+$password = "pnpdbpassword1";
+$usernamePerson = "cc98";
 
-    $servername = "localhost";
-    $usernamedb = "root";
-    $password = "pnpdbpassword1";
-    $usernamePerson = "cc98";
-    $database="pnpdb";
-    $mysqli = new mysqli($servername, $usernamedb, $password, $database);
-    @mysql_select_db($username) or die("Connection faled");
-        $query ="SELECT * FROM Users";
-        $result= $mysqli->query($query); //content of table stored in array $result
-        $num=$mysqli->mysqli_num_rows($result); //number of rows
-        $i=0;
-        while($i<$num){
-            
-            $i++;
-        }
+try{ 
+    echo "conecef3w4ted suces2do2";
+    $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
+        // set the PDO error mode to exception
+	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "conected suces2do2";
+     $results = $conn->fetch("SELECT * FROM Places");
+    $resultsArray = $results->fetch_assoc();
+
+    while($row = $result->fetch_assoc()){
+       echo $row;
+     }
+    
+}
+
+catch(PDOException $e){
+    echo "u       ck";
+    exit();
+}
 
 
 ?>
