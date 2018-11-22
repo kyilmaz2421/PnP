@@ -40,24 +40,10 @@ try {
 
 		header('Location: http://localhost/pnp/postSuccess.html');
 		exit();
-
-	    // $stmt = $conn->prepare("SELECT * FROM Places");
-
-	    // $stmt->execute();
-		
-	    // $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-    	// 	foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
-        // 		echo $v;
-   		//  }
 	   
     }
 catch(PDOException $e)
     {
     	echo "Connection failed: " . $e->getMessage();
     }
-
-	echo "<h2>PHP is Fun!</h2>";
-	echo "Hello world!<br>";
-	echo "I'm about to learn PHP!<br>";
-	echo "This ", "string ", "was ", "made ", "with multiple parameters.";
 ?>
