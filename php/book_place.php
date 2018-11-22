@@ -2,7 +2,7 @@
 $servername = "localhost";
 $usernamedb = "root";
 $password = "pnpdbpassword1";
-$usernamePerson = "cc98";
+$usernamePerson = "bilbo";
 
 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
@@ -15,10 +15,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 			   exit();
 		}
 }		  
-
-
-try {
-	    
+try {   
 	    // connect to db
 	    $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
 	    // set the PDO error mode to exception
@@ -27,8 +24,16 @@ try {
 	  	    // query db if it has user's entries
 		$sql1 = "SELECT * FROM Users WHERE Username='"  . $usernamePerson . "'";
 
-		$dbUsername = $conn->query($sql1);
-		echo $dbUsername;
+
+		// foreach ($conn->query($sql1) as $row) {
+		// 	echo $row['FirstName '] . "\t";
+		// }
+		$stmt = $conn->query($sql1);
+		foreach ($stmt as $row)
+		{
+			echo $row['FirstName'] . "\n";
+		}
+
     }
 catch(PDOException $e)
     {
