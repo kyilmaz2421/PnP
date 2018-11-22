@@ -5,36 +5,40 @@ $password = "pnpdbpassword1";
 $usernamePerson = "bilbo";
 
 
-if($_SERVER['REQUEST_METHOD'] === "POST"){
-	$username = false;
-		if(isset($_POST['bookDate'])){
-			  echo $username = $_POST['bookDate'];
-		}
-		else{
-				echo "fuck";
-			   exit();
-		}
-}		  
+	  
 try {   
-	    // connect to db
+
+		if($_SERVER['REQUEST_METHOD'] === "POST"){
+			$bookDate = False;
+			if(isset($_POST['bookDate'])){
+				 $bookDate == explode("-", $_POST['bookDate']);
+			}
+		}	
 	    $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
-	    // set the PDO error mode to exception
-	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	  	    // query db if it has user's entries
-		$sql1 = "SELECT * FROM Users WHERE Username='"  . $usernamePerson . "'";
-
-
-		// foreach ($conn->query($sql1) as $row) {
-		// 	echo $row['FirstName '] . "\t";
-		// }
-		$stmt = $conn->query($sql1);
-		foreach ($stmt as $row)
-		{
-			echo $row['FirstName'] . "\n";
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $conn->prepare('SELECT * FROM Places WHERE Username = :username AND PlaceID = :placeId');
+		$stmt->execute(['username' => $usernamePerson, 'placeId' => $placeId]);
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		if($result === False){
+		echo "Query doesnt exist";
 		}
+		$entryNum = 0;
+		$createDate = explode("-", $_POST['creationDate']);
 
-    }
+		if(( (int)$bookDate[0])-((int)$createdate[0] )===0){
+			if(((int)$bookDate[1] )-((int)$createdate[1] )===0){
+				if(((int)$bookDate[2] )-((int)$createdate[2] )===0){
+					$entryNum = 0;
+				}		
+		
+			}
+		}	
+
+		$availabilities = str_split($result['Availabilities']);
+}
+
 catch(PDOException $e)
     {
     	echo "Connection failed: " . $e->getMessage();
