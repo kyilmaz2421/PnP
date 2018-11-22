@@ -20,7 +20,7 @@
 <!-- <nav>
     <h1>PnP</h1>
 </nav> -->
-<form action="php/create_place.php" method="post" style="border:1px solid #ccc">
+<form action="php/create_place.php" method="post">
 <!-- <div>
     <h1>Post A Place</h1>
 </div> -->
@@ -33,7 +33,7 @@
     <section class="navBar">
         <div class="leftRightNavBar"> 
             <!-- <button id="backToView" class="backbtn"><i class="left"></i> Cancel</button> -->
-            <button type="button" class="cancelbtn">Cancel</button>
+            <a href="viewingPage.html"><button type="button" class="cancelbtn">Cancel</button></a>
         </div>
         <div class="pageTitle">Post A Place</div>
         <div class="leftRightNavBar" style="text-align: right"> 
@@ -138,11 +138,17 @@
     </p>
 
     <div class="clearfix">
-            <button type="button" class="cancelbtn">Cancel</button>
-            <button type="submit" class="postbtn">Submit Place</button>
+            <!-- <button type="button" class="cancelbtn">Cancel</button>
+            <button type="submit" class="postbtn">Submit Place</button> -->
+
+            <div style="text-align: center; float: none; display: flex; justify-content: center">
+                <div style="width: 25%; padding-right: 10px">
+                    <a href="viewingPage.html"><button type="button" class="cancelbtn" style="width: 100%;">Cancel</button></a>
+                </div>
+                <button type="submit" class="postbtn" style="width: 25%; padding-left: 10px">Submit Place</button>
+            </div>
     </div>
 
-    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
     </div>
   </form>
 
