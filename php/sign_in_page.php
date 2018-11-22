@@ -34,12 +34,11 @@ try {
 	    $dbUsername = $conn->query($sql1);
 
 	    // echo $dbUsername;
+	    echo "this shows up";
 
 	    // $dbPassword = $conn->query("SELECT Password FROM Users WHERE Password=" . $passwordEntry);
 
-		var_dump($dbUsername);
-
-		
+		var_dump($dbUsername);		
 	   
     }
 catch(PDOException $e)

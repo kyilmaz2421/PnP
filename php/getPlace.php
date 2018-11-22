@@ -18,6 +18,7 @@ try{
     if($result === False){
     echo "Query doesnt exist";
     }
+
     print_r($result['Desciption']);
 }
 
