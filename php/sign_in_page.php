@@ -33,9 +33,12 @@ try {
 
 		echo '<br>';
 
+		$isUser = False;
+		$hasPass = False;
 	    // when size is 1 user exists
 		if(sizeof($dbUsername) === 1) {
 			echo 'user exists';
+			$isUser = True;
 		} else {
 			echo 'user not in db';
 		}
@@ -48,8 +51,18 @@ try {
 
 		if(sizeof($dbPassword) === 1) {
 			echo 'password exists';
+			$hasPass = True;
 		} else {
 			echo 'password not in db';
+		}
+
+		// redirect user if they are in db
+		if($isUser && $hasPass) {
+			header("Location: http://localhost/pnp/viewingPage.html");
+			exit;
+		} else {
+			header("Location: http://localhost/pnp/index.html");
+			exit;
 		}
     }
 catch(PDOException $e)

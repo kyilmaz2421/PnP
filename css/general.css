@@ -107,10 +107,6 @@ header > p {
 .cancelbtn {
   padding: 14px 20px;
   background-color: #f44336;
-}
-
-/* Float cancel and signup buttons and add an equal width */
-.cancelbtn {
   float: left;
   width: 50%;
 }
