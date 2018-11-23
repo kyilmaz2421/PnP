@@ -11,16 +11,15 @@
   <h1>PnP</h1>
   <p> - - - Place n Party</p>
 </header>
-<form method="POST" action="http://localhost/pnp/book_place.php">
 <div id="Calander">
 <TABLE BORDER=3 CELLSPACING=3 CELLPADDING=3> 
        
         <TR> 
         <TD COLSPAN="1" ALIGN=center><button> < </button></TD>
-        <TD COLSPAN="5" ALIGN=center>January 1st</TD>
-        <TD COLSPAN="1" ALIGN=center><button>></button></TD>
+        <TD id="dateSelected" COLSPAN="5" ALIGN=center>January 1st</TD>
+        <TD COLSPAN="1" ALIGN=center><button onclick="changeMonth()">></button></TD>
         </TR>
-        
+        <button onclick=""></button>
         <TR id=> 
         <TD ALIGN=center>Sun</TD>
         <TD ALIGN=center>Mon</TD>
@@ -93,31 +92,38 @@
         </TR>
         
         </TABLE>
+<<<<<<< HEAD
     </div>  
     <input type="date" id="bookDate" name="date" required>
     <button type="submit" name="username" class="postbtn" >Confirm Booking</button>
+=======
+    </div> 
+<form method="POST" action="http://localhost/pnp/php/book_place.php">     
+    <input type="date" id="booking" name="bookDate" required>
+    <button type="submit" class="postbtn">Confirm Booking</button>
+>>>>>>> 1585a9aa7f60dbd791bf4372dab3a93f224926ee
 </form>
 
 </body>
 
 <script type="text/javascript">
-    // method="POST" action="http://localhost/7/output.php"
-     function addData(input){
-       var nameValue = document.getElementById("input").value;
-       nameValue= input;
-       var json = {};
-       json.username = nameValue;
-       console.log(json); 
+    // // method="POST" action="http://localhost/7/output.php"
+    //  function addData(input){
+    //    var nameValue = document.getElementById("input").value;
+    //    nameValue= input;
+    //    var json = {};
+    //    json.username = nameValue;
+    //    console.log(json); 
  
-       const url = "http://localhost/7/output.php";
-        fetch(url, {
-               method: "POST",
-               headers: {
-                 "Content-Type": "application/json"
-               },
-               body: JSON.stringify(json)
-             })
-     }      
-      //});
+    //    const url = "http://localhost/pnp/book_place.php";
+    //     fetch(url, {
+    //            method: "POST",
+    //            headers: {
+    //              "Content-Type": "application/json"
+    //            },
+    //            body: JSON.stringify(json)
+    //          })
+    //  }      
+    //   //});
    </script>
 </html>
