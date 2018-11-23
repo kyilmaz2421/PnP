@@ -14,13 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="css/view.css">
 	<link rel="stylesheet" type="text/css" href="css/general.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-	
-	<script type="text/javascript">
-	// Check if the page has loaded completely                                         
-    // $(document).ready( function() { 
-    //     $('main').load('getPlace.php'); 
-    // });
-	</script> 
+
 </head>
 
 <body>
@@ -44,7 +38,7 @@
 	</section>
 	
 	<section class = "pageBody"> 
-	<form>
+	<form id="selectFilter" method="POST">
 		<section class = "sideFilter">
 			<h3>Filters</h3>
 			<ul>
@@ -58,40 +52,43 @@
 
 				</li>
 				<br>
-				
+
 				<li>Price Per Night
-					<br> <input type="radio" name="pPNight" value="50"> &lt; 50 
-					<br> <input type="radio" name="pPNight" value="100"> &lt; 100
-					<br> <input type="radio" name="pPNight" value="150"> &lt; 150
-					<br> <input type="radio" name="pPNight" value="200"> &lt; 200	
-					<br> <input type="radio" name="pPNight" value="250"> &lt; 250	
+					<br> <input type="radio" checked="checked" name="price" value="50"> &lt; 50 
+					<br> <input type="radio" name="price" value="100"> &lt; 100
+					<br> <input type="radio" name="price" value="150"> &lt; 150
+					<br> <input type="radio" name="price" value="200"> &lt; 200	
+					<br> <input type="radio" name="price" value="250"> &gt; 250 
 				</li>
 
 				<br>
 				<li>Rating
-					<br> <input type="radio" name="pPNight" value="3"> &gt; 3
-					<br> <input type="radio" name="pPNight" value="4"> &gt; 4	
-					<br> <input type="radio" name="pPNight" value="5"> &gt; 5
+					<br> <input type="radio" checked="checked" name="rating" value="0"> &gt; 0 (all)
+					<br> <input type="radio" name="rating" value="1"> &gt; 1
+					<br> <input type="radio" name="rating" value="2"> &gt; 2
+					<br> <input type="radio" name="rating" value="3"> &gt; 3
+					<br> <input type="radio" name="rating" value="4"> &gt; 4	
+					<br> <input type="radio" name="rating" value="5"> &gt; 5
 				</li>	
 				<li>Pets Permitted: 
 					<br> <input type="radio" name="pets" value="True"> Yes
-					<br> <input type="radio" name="pets" value="False"> No	
+					<br> <input type="radio" checked="checked" name="pets" value="False"> No	
 				<li>Alcohol Permitted: 
 					<br> <input type="radio" name="alcoholPermitted" value="True"> Yes
-					<br> <input type="radio" name="alcoholPermitted" value="False"> No
+					<br> <input type="radio" checked="checked" name="alcoholPermitted" value="False"> No
 				<li>WheelchairAccessible:
 					<br> <input type="radio" name="WheelchairAccessible" value="True"> Yes
-					<br> <input type="radio" name="WheelchairAccessible" value="False"> No
+					<br> <input type="radio" checked="checked" name="WheelchairAccessible" value="False"> No
 				<li>Smoking Permitted:
-						<br> <input type="radio" name="smoking" value="True"> Yes
-						<br> <input type="radio" name="smoking" value="False"> No
+					<br> <input type="radio" name="smoking" value="True"> Yes
+					<br> <input type="radio" checked="checked" name="smoking" value="False"> No
 				<li>Outdoor Access:
-						<br> <input type="radio" name="outdoors" value="True"> Yes
-						<br> <input type="radio" name="outdoors" value="False"> No
+					<br> <input type="radio" name="outdoors" value="True"> Yes
+					<br> <input type="radio" checked="checked" name="outdoors" value="False"> No
 					
 			</ul>
-			<button type="submit" onclick="loadData(value)" name="searchQuery">Set Filters</button>
-		</form>	
+			<button type="submit" onclick="loadData()" name="searchQuery">Filter</button>
+		</form >	
 		
 	</section>
 
@@ -101,7 +98,34 @@
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text" lang="javascript"> 
-	onload 
-</script>
+<script type="text/javascript">
+
+function loadData(){
+var data = new Array(8);
+for (i = 0; i < 8; i++) {
+data.push(document.getElementById("selectFilter").elements[i].value);
+}
+console.log(data);
+$.ajax({
+  type: 'post',
+  url: 'http://localhost/pnp/getPlace.php',
+  data: {
+    space: data[0],
+	price: data[1],
+	rating: data[2],
+	pets: data[3],
+	alcohol: data[4],
+	wheelchair: data[5],
+	smoking: data[6],
+	outdoor: data[7]
+  },
+  success: function (response) {
+   // We get the element having id of display_info and put the response inside it
+   $( '#display_info' ).html(response);
+  }
+  });
+ }
+	
+</script> 
+
 </html>
