@@ -11,7 +11,7 @@ try{
     // set the PDO error mode to exception
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare('SELECT * FROM Places WHERE Username = :username AND PlaceID = :placeId');
+    $stmt = $conn->prepare('SELECT * FROM Places WHERE TypeOfSpace= :space AND PlaceID = :placeId');
     $stmt->execute(['username' => $usernamePerson, 'placeId' => $placeId]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     
