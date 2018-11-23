@@ -113,7 +113,7 @@ if(document.getElementById("selectFilter").elements[i].checked){
 console.log(data);
 $.ajax({
   type: 'post',
-  url: 'http://localhost/pnp/getPlace.php',
+  url: 'http://localhost/pnp/php/getPlace.php',
   data: {
     space: data[0],
 	price: data[1],
@@ -126,7 +126,7 @@ $.ajax({
   },
   success: function (response) {
    // We get the element having id of display_info and put the response inside it
-   $( '#display_info' ).html(response);
+   $( '#main' ).html(response);
   }
   });
  }
