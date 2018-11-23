@@ -105,8 +105,8 @@
 
 function loadData(){
 var data = new Array(8);
-for (i = 0; i < data.length; i++) {
-if($(document.getElementById("selectFilter").elements[i].value).is("select")){
+for (i = 0; i < document.getElementById("selectFilter").elements.length; i++) {
+if(document.getElementById("selectFilter").elements[i].checked){
 	data.push(document.getElementById("selectFilter").elements[i].value);
 }
 }
