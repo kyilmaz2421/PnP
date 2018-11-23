@@ -116,6 +116,15 @@ header > p {
   width: 50%;
 }
 
+/*Log Out button for the top of every page*/
+.logoutbtn {
+  background-color: #347076;
+  width: 90px;
+  height: 50px;
+  float: right;
+  margin-right: 35px;
+}
+
 /* Add padding to container elements */
 .container {
   padding: 16px;
