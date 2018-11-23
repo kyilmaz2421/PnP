@@ -105,8 +105,13 @@
 
 function loadData(){
 var data = new Array(8);
+<<<<<<< HEAD
 for (i = 0; i < data.length; i++) {
 if(document.getElementById('selectFilter').checked){
+=======
+for (i = 0; i < document.getElementById("selectFilter").elements.length; i++) {
+if(document.getElementById("selectFilter").elements[i].checked){
+>>>>>>> 17c6890c21b9792dc608861d3070501ee12c7807
 	data.push(document.getElementById("selectFilter").elements[i].value);
 }
 }
