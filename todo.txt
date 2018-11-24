@@ -9,3 +9,9 @@ figure out our presentation stuff
 calendar
 user specific content
 beautification
+
+
+
+
+NOV 24
+need to add rating to search filters

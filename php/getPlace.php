@@ -26,6 +26,8 @@ $placeId = "995629BC7AF715D9A88B35FB28EE18D23C87F1AF707E1F685EC100839CFC84D9";
             // Prepare the sql statement
             // keep in mind this is a security flaw
             // !!! fix before release TODO
+
+            
             $s0 = "SELECT * FROM Places WHERE TypeOfSpace ='" . $space . "'" ;
             $s1 = " AND PricePerNight <=". $price . "";
             $s2 = " AND Pets =" . $pets . "";
