@@ -1,6 +1,7 @@
 <?php 
-session_start();
-  include("../server_config.php");
+
+  include("server_config.php");
+  include("session.php");
 
   ValidCredentials();
 

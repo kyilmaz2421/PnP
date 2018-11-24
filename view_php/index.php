@@ -1,6 +1,7 @@
 <?php
-session_start();
-   include("server_config.php");
+  include("../php/session.php");
+  // echo (isset($_SESSION['login_user']));
+  include("../php/server_config.php");
 
 ?>
 <!DOCTYPE html>
@@ -12,8 +13,8 @@ session_start();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <!-- StyleSheets -->
-  <link rel="stylesheet" type="text/css" href="css/general.css">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="../css/general.css">
+  <link rel="stylesheet" type="text/css" href="../css/index.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
@@ -99,7 +100,7 @@ session_start();
                 e.preventDefault();
                 $.ajax({
                    type: "POST",
-                   url: 'php/sign_in_page.php',
+                   url: '../php/sign_in_page.php',
                    data: {
                       username: $("#username").val(),
                       password: $("#password").val()

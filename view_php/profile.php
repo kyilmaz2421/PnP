@@ -1,6 +1,6 @@
 <?php
-session_start();
-	include("session.php");
+
+	include("../php/session.php");
 	echo ($_SESSION['login_user']);
 ?>
 <!DOCTYPE html>
@@ -8,8 +8,8 @@ session_start();
 <head>
 <title>PnP - My Profile</title>
 
-<link rel="stylesheet" type="text/css" href="css/general.css">
-<link rel="stylesheet" type="text/css" href="css/profile.css">
+<link rel="stylesheet" type="text/css" href="../css/general.css">
+<link rel="stylesheet" type="text/css" href="../css/profile.css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
 <header>
