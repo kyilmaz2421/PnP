@@ -8,8 +8,11 @@ html
 css
 
 js
+	added jquery - Wahoo!
 
 php
+	not clear why signup php needs the db declared in the function
+	this function code isn't entirely clear either. 
 
 
 
