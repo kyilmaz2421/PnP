@@ -47,10 +47,39 @@ try {
 ';
 }
 
-catch(PDOException $e){
-    echo "        u       ck";
-    exit();
-}
+        try{ 
+        
+            $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
+            // set the PDO error mode to exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+            // Prepare the sql statement
+            // keep in mind this is a security flaw
+            // !!! fix before release TODO
+
+            
+            $s0 = "SELECT * FROM Places WHERE TypeOfSpace ='" . $space . "'" ;
+            $s1 = " AND PricePerNight <=". $price . "";
+            $s2 = " AND Pets =" . $pets . "";
+            $s3 = " AND Alcohol =" . $alc . "";
+            $s4 = " AND Wheelchair =" . $wheelchair . "";
+            $s5 = " AND Smoking =" . $smoking . "";
+            $s6 = " AND OutdoorAccess =" . $outdoors . "";
+
+            $sql = $s0 . $s1 . $s2 . $s3 . $s4 . $s5 . $s6;
+
+          
+            // Get result set from db
+            $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+            // display search result for user
+            print_r ($result);
+
+        } catch(PDOException $e) {
+            echo $e;
+            exit();
+        }
+    }
+}
 
 ?>

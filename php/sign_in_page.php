@@ -1,73 +1,76 @@
-<?php
-// connection vars
-$servername = "localhost";
-$usernamedb = "root";
-$password = "pnpdbpassword1";
+<?php 
 
-// querys string field vars
-$unameEntry = "";
-$passwordEntry="";
-$loginCredentialsArray = [];
+  include("server_config.php");
+  include("session.php");
 
-// put username and password entered into loginCredArr
-// print_r($_SERVER);
-print_r($_POST);
+  ValidCredentials();
 
-$unameEntry = $_POST['username'];
-$passwordEntry = $_POST['password'];
+	function ValidCredentials() {
+    	$success = false;
 
-try {
-	    
-	    // connect to db
-	    $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
-	    // set the PDO error mode to exception
-	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	    // echo "Connected successfully"; 
+		try {
 
-	    // query db if it has user's entries
-	    $sql1 = "SELECT * FROM Users WHERE Username='"  . $unameEntry . "'";
+			$unameEntry = null;
+			$passwordEntry = null;
 
-	    // a single array with the user name at index 0 if users exists
-	    // otherwise empty
-	    $dbUsername = $conn->query($sql1)->fetchAll(PDO::FETCH_COLUMN);
+			if(isset($_POST['username'])) {
+				$unameEntry = $_POST['username'];
+			}
 
-		echo '<br>';
+			if(isset($_POST['password'])) {
+				$passwordEntry = $_POST['password'];
+			}
 
-		$isUser = False;
-		$hasPass = False;
-	    // when size is 1 user exists
-		if(sizeof($dbUsername) === 1) {
-			echo 'user exists';
-			$isUser = True;
-		} else {
-			echo 'user not in db';
-		}
+			// echo 'herez';
 
-		echo '<br>';
+			$db = new PDO("mysql:host=localhost;dbname=pnpdb", "root", "pnpdbpassword1");
 
-		$sql2 = "SELECT * FROM Users WHERE Password='"  . $passwordEntry . "'";
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		$dbPassword = $conn->query($sql2)->fetchAll(PDO::FETCH_COLUMN);
+			// query db if it has user's entries
+			$sql1 = "SELECT * FROM Users WHERE Username='"  . $unameEntry . "'";
 
-		if(sizeof($dbPassword) === 1) {
-			echo 'password exists';
-			$hasPass = True;
-		} else {
-			echo 'password not in db';
-		}
+			// a single array with the user name at index 0 if users exists otherwise empty
+			$dbUsername = $db->query($sql1)->fetchAll(PDO::FETCH_COLUMN);
 
-		// redirect user if they are in db
-		if($isUser && $hasPass) {
-			header("Location: http://localhost/pnp/viewingPage.html");
-			exit;
-		} else {
-			header("Location: http://localhost/pnp/index.html");
-			exit;
-		}
-    }
-catch(PDOException $e)
-    {
-    	echo "Connection failed: " . $e->getMessage();
-    }
+			$isUser = False;
+			$hasPass = False;
 
+			// when size is 1 user exists
+			if(sizeof($dbUsername) === 1) {
+				$isUser = True;
+				// echo 'isuers';
+			} 
+
+			$sql2 = "SELECT * FROM Users WHERE Password='"  . $passwordEntry . "'";
+
+			$dbPassword = $db->query($sql2)->fetchAll(PDO::FETCH_COLUMN);
+
+			if(sizeof($dbPassword) === 1) {
+				// echo 'haspass';
+				$hasPass = True;
+
+			} else {
+				// echo ' no pass';
+			}
+
+			// redirect user if they are in db
+			if($isUser && $hasPass) {
+				$_SESSION['login_user'] = $unameEntry;
+				// header("Location: http://localhost/pnp/viewingPage.html");
+				$success = True;
+				
+				echo 'ValidCredentials';
+
+				// exit;
+			} else {
+			 	$error = "Your Login Name or Password is invalid";
+			 	// echo ($error);
+			}
+
+			} catch (PDOException $e) {
+				echo $e->getMessage();
+				return $success;
+			}
+	}
 ?>

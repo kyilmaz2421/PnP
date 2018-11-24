@@ -21,14 +21,14 @@
       <hr>
 
       <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required>
+      <input id="username" type="text" placeholder="Enter Username" name="username" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
+      <input id="password" type="password" placeholder="Enter Password" name="password" required>
 
       <div class="clearfix">
         <!-- <button type="button" class="cancelbtn">Cancel</button> -->
-        <button type="submit" class="signupbtn">Sign In</button>
+        <button type="submit" onclick="userExists()"class="signupbtn">Sign In</button>
       </div>
     </div>
   </form>
@@ -77,6 +77,34 @@
     </div>
   </form>
 </div>
+
+    <script type="text/JavaScript">
+
+      function userExists() {
+          var u = document.getElementById('username');
+          var p = document.getElementById('password');
+
+
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("txtHint").innerHTML = this.responseText;
+              }
+          
+
+          xmlhttp.open("POST", "php/is_user.php?q=" + str, true);
+          xmlhttp.send();
+          }
+
+
+      }
+
+      function invCred() {
+         var d = document.getElementsByClassName('clearfix');
+
+          d[0].insertAdjacentHTML('afterend', '<h3 style="color: red">Invalide Credentials</h3>');
+      }
+    </script>
 
 </body>
 </html>
