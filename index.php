@@ -1,4 +1,5 @@
 <?php
+session_start();
    include("server_config.php");
 
 ?>
@@ -106,7 +107,7 @@
                    success: function(data)
                    {
                       if (data === 'ValidCredentials') {
-                        window.location = 'viewingPage.html';
+                        window.location = 'viewingPage.php';
                       }
                       else {
                           // alert(data);

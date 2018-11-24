@@ -1,5 +1,7 @@
 <?php
-
+session_start();
+	include("session.php");
+	echo ($_SESSION['login_user']);
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +92,7 @@
 	  <a href="index.html"><button class="logoutbtn">Log Out</button></a>
 	</header>
 	<section class = "navBar">
-		<a href="profile.html"><button id="myProfile"> My Profile </button></a>
+		<a href="profile.php"><button id="myProfile"> My Profile </button></a>
 		<a href="post.html"><button id="post"> Post a Place </button></a>
 	</section>
 	

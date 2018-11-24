@@ -1,10 +1,6 @@
 <?php 
-	// echo 'her';
-	// print_r ($_POST);
-	// print_r ($_SERVER["DOCUMENT_ROOT"]);
+session_start();
   include("../server_config.php");
-
-  // session_start();
 
   ValidCredentials();
 
@@ -62,7 +58,9 @@
 				$_SESSION['login_user'] = $unameEntry;
 				// header("Location: http://localhost/pnp/viewingPage.html");
 				$success = True;
+				
 				echo 'ValidCredentials';
+
 				// exit;
 			} else {
 			 	$error = "Your Login Name or Password is invalid";

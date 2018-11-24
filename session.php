@@ -1,16 +1,20 @@
 <?php
-   include('config.php');
+   // include('server_config.php');
    session_start();
    
-   $user_check = $_SESSION['login_user'];
-   
-   $ses_sql = mysqli_query($db,"select username from admin where username = '$user_check' ");
-   
-   $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
-   
-   $login_session = $row['username'];
+   $user_check = isset($_SESSION['login_user']);
+
+   $db = new PDO("mysql:host=localhost;dbname=pnpdb", "root", "pnpdbpassword1");
+
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	// query db if it has user's entries
+	$sql1 = "SELECT * FROM Users WHERE Username='"  . $user_check . "'";
+
+	$dbUsername = $db->query($sql1)->fetchAll(PDO::FETCH_COLUMN);
+
    
    if(!isset($_SESSION['login_user'])){
-      header("location:login.php");
+      header("location:index.php");
    }
 ?>
