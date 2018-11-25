@@ -2,50 +2,21 @@
 $servername = "localhost";
 $usernamedb = "root";
 $password = "pnpdbpassword1";
-$usernamePerson = "cc98";
-try {
+$usernamePerson = "dgand";
+$placeId = "995629BC7AF715D9A88B35FB28EE18D23C87F1AF707E1F685EC100839CFC84D9";
 
-	    $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
-	    // set the PDO error mode to exception
-	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        echo  $space = $_POST['space'];
-        echo $price= $_POST['price'];
-        echo  $rating = $_POST['rating'];
-        echo  $pets = $_POST['pets'];
-        $alcohol = $_POST['alcohol'];
-        $wheelchair = $_POST['wheelchair'];
-        $smoking = $_POST['smoking'];
-        $outdoor= $_POST['outdoor'];
-        $stmt = $conn->prepare('SELECT * FROM Places WHERE TypeOfSpace = :space AND PricePerNight = :price AND Rating = :rating AND Pets = :pets AND Alcohol= :alcohol AND Wheelchair= :wheelchair AND OutdoorAccess= :outdoor');
-        $stmt->execute(['space' => $space, 'price' => $price, 'rating' => $rating, 'pets' => $pets, 'alcohol' => $alcohol, 'wheelchair' => $wheelchair, 'outdoor' => $outdoor]);
-		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-        echo '  <section class="placeContainer">
-                <div id="placeImage">
-                        <img id= "image" src="img/house.jpeg" alt="House">
-                </div>
-            
-                <div id="details">
-                    <div>Address:</div>
-                    <div>Description: $space </div>
-                    <div>Price per night: $price </div>
-                </div>
-            
-                <div id = "userInfo">
-                    <div id = "user">  
-                            User:
-                    </div>
-                    <div id = "rating">
-                            Rating: $rating
-                    </div>
-                </div>
-            </section>
-            <form  method="POST" action="http://localhost/pnp/php/getPlace.php">
-                <button type="submit"  name= "test" id = "bookPlace"> Book </button>
-            </form>
-        </section>
-';
-}
+    // handle error thrown for dev
+    if(isset($_SERVER['REQUEST_METHOD'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $space = $_POST['spaceType'];
+
+            $price = intval($_POST["price"]); 
+            $rating = floatval($_POST["rating"]);
+            $pets = $_POST["pets"];
+            $alc = $_POST["alcohol"];
+            $wheelchair = $_POST["wheelchair"];
+            $smoking = $_POST["smoking"];
+            $outdoors = $_POST["outdoors"];
 
         try{ 
         
@@ -57,16 +28,22 @@ try {
             // keep in mind this is a security flaw
             // !!! fix before release TODO
 
-            
-            $s0 = "SELECT * FROM Places WHERE TypeOfSpace ='" . $space . "'" ;
-            $s1 = " AND PricePerNight <=". $price . "";
-            $s2 = " AND Pets =" . $pets . "";
-            $s3 = " AND Alcohol =" . $alc . "";
-            $s4 = " AND Wheelchair =" . $wheelchair . "";
-            $s5 = " AND Smoking =" . $smoking . "";
-            $s6 = " AND OutdoorAccess =" . $outdoors . "";
+            $sql = "";
+            if($space === "0") {
+                $sql = "SELECT * FROM Places";
+            } else {
+                 $s0 = "SELECT * FROM Places WHERE TypeOfSpace ='" . $space . "'" ;
+                $s1 = " AND PricePerNight <=". $price . "";
+                $s2 = " AND Pets =" . $pets . "";
+                $s3 = " AND Alcohol =" . $alc . "";
+                $s4 = " AND Wheelchair =" . $wheelchair . "";
+                $s5 = " AND Smoking =" . $smoking . "";
+                $s6 = " AND OutdoorAccess =" . $outdoors . "";
 
-            $sql = $s0 . $s1 . $s2 . $s3 . $s4 . $s5 . $s6;
+                $sql = $s0 . $s1 . $s2 . $s3 . $s4 . $s5 . $s6;
+            }
+            
+           
 
           
             // Get result set from db
