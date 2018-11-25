@@ -47,6 +47,8 @@
 			}
 		});
 	});
+
+	$("#submit").click();
 });
 
 $("#query").click(function(){
@@ -113,8 +115,8 @@ $("#query").click(function(){
 			<h3>Filters</h3>
 			<ul>
 				<li>Type of Space: 
-					<br><input type="radio" name="spaceType" value="0"> No selection
-					<br><input type="radio" checked="checked" name="spaceType" value="Home"> Home
+					<br><input type="radio" checked="checked" name="spaceType" value="0"> No selection
+					<br><input type="radio" name="spaceType" value="Home"> Home
 					<br><input type="radio" name="spaceType" value="Apartment"> Apartment
 					<br><input type="radio" name="spaceType" value="Loft"> Loft
 					<br><input type="radio" name="spaceType" value="Large Space"> Large Space (i.e warehouse, gym)
