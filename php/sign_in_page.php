@@ -57,6 +57,23 @@
 			// redirect user if they are in db
 			if($isUser && $hasPass) {
 				$_SESSION['login_user'] = $unameEntry;
+				$_SESSION['login_firstName'] = $db->query( "SELECT FirstName FROM Users WHERE Username='bilbo';" )->fetchAll(PDO::FETCH_COLUMN)[0];
+				$_SESSION['login_lastName'] = $db->query( "SELECT LastName FROM Users WHERE Username='bilbo';" )->fetchAll(PDO::FETCH_COLUMN)[0];
+				$_SESSION['login_email'] = $db->query( "SELECT Email FROM Users WHERE Username='bilbo';" )->fetchAll(PDO::FETCH_COLUMN)[0];
+				$_SESSION['login_phoneNumber'] = $db->query( "SELECT Phone FROM Users WHERE Username='bilbo';" )->fetchAll(PDO::FETCH_COLUMN)[0];
+				// To properly format the phone number:
+					$_SESSION['login_phoneNumFormatted'] = substr(( $_SESSION['login_phoneNumber']), 0,3) . '-' . substr(( $_SESSION['login_phoneNumber']), 3,3) . '-' . substr(( $_SESSION['login_phoneNumber']), 6,4);
+				$_SESSION['login_gender'] = $db->query( "SELECT Gender FROM Users WHERE Username='bilbo';" )->fetchAll(PDO::FETCH_COLUMN)[0];
+				// To properly format the gender into a string we can show the user:
+					if($_SESSION['login_gender'] === 1) {
+						$_SESSION['login_genderFormatted'] = "Female";
+					} else {
+						$_SESSION['login_genderFormatted'] = 'Male';
+					}
+				$_SESSION['login_birthdate'] = $db->query( "SELECT Birthdate FROM Users WHERE Username='bilbo';" )->fetchAll(PDO::FETCH_COLUMN)[0];
+				// To properly format the Birthdate:
+					$_SESSION['login_bdayFormatted'] = substr(( $_SESSION['login_birthdate']), 0,4) . '/' . substr(( $_SESSION['login_birthdate']), 4,2) . '/' . substr(( $_SESSION['login_birthdate']), 6,2);
+				$_SESSION['login_description'] = $db->query( "SELECT Description FROM Users WHERE Username='bilbo';" )->fetchAll(PDO::FETCH_COLUMN)[0];
 				// header("Location: http://localhost/pnp/viewingPage.html");
 				$success = True;
 				
