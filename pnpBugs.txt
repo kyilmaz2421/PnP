@@ -4,6 +4,7 @@ sql
 	the phone numbers that are in the default db come out to be the same
 
 html
+	When resizing profile page, make sure attributes stay aligned with their respective title.
 
 css
 

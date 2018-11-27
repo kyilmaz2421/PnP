@@ -111,7 +111,7 @@
                         window.location = 'viewingPage.php';
                       }
                       else {
-                          // alert(data);
+                          alert(data);
                          $(".clearfix").after("<h3 style='color: red;'>Invalid Credentials</h3>");
                       }
                    }

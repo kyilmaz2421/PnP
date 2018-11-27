@@ -1,7 +1,7 @@
 <?php
 
 	include("../php/session.php");
-	echo ($_SESSION['login_user']);
+	// include("../php/sign_in_page.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,10 @@
 <header>
   <h1>PnP</h1>
   <p> - - - Place n Party</p>
-  <a href="index.php"><button class="logoutbtn">Log Out</button></a>
+  <div style="float: right"> 
+  	<?php echo ($_SESSION['login_lastName'])?>,  <?php echo ($_SESSION['login_firstName']) ?>
+	<a href="index.php"><button class="logoutbtn">Log Out</button></a>
+  </div>
 </header>
 
 <body>
@@ -25,8 +28,7 @@
 		<!-- Back button to viewing page:  -->
 		<a href="viewingPage.php"><button id="backToView" class="backbtn"><i class="left"></i> Back To Viewing Page</button></a>
 	</div>
-	<div class="pageTitle">My Profile</div>
-	<div class="leftRightNavBar">  </div>
+	<div class="pageTitle"> My Profile 
 </section>
 
 <div id="mainBody">
@@ -35,16 +37,28 @@
 		<!-- About You box: -->
 		<div id="aboutYou">
 			<h3 style="font-size: 31px">About You</u></h3>
-			<p>
+			<p style="font-size: 19px">
 				<!-- Show user all of their account info: -->
-				<b>Username:</b> _ _ _ <br>
-				<b>First Name:</b> ___ <br>
-				<b>Last Name:</b> _____ <br>
-				<b>E-Mail:</b> ____ <br>
-				<b>Phone Number:</b> ___ <br>
-				<b>Gender:</b> ___ <br>
-				<b>Birthdate:</b> ____ <br>
-				<b>About You:</b> ___ 
+				<div style="width: 40%; text-align: right; display: inline-block; font-size: 19px"> 
+					<b>Username:</b> <br>
+					<b>First Name:</b> <br>
+					<b>Last Name:</b> <br>
+					<b>E-Mail:</b> <br>
+					<b>Phone Number:</b> <br>
+					<b>Gender:</b> <br>
+					<b>Birthdate:</b> <br>
+					<b>About You:</b> <br>
+				</div>
+				<div style="width: 40%; text-align: left; display: inline-block; font-size: 19px"> 
+					<?php echo ($_SESSION['login_user']) ?> <br>
+					<?php echo ( $_SESSION['login_firstName']) ?> <br>
+					<?php echo ( $_SESSION['login_lastName']) ?> <br>
+					<?php echo ( $_SESSION['login_email']) ?> <br>
+					<?php echo ( $_SESSION['login_phoneNumFormatted']) ?> <br>
+					<?php echo ( $_SESSION['login_genderFormatted'])?> <br>
+					<?php echo ( $_SESSION['login_bdayFormatted']) ?> <br>
+					<?php echo ( $_SESSION['login_description']) ?> 
+				</div>
 			</p>
 		</div>
 		<!-- Your Places box: -->

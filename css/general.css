@@ -121,7 +121,7 @@ header > p {
   background-color: #347076;
   width: 90px;
   height: 50px;
-  float: right;
+  /*float: right;*/
   margin-right: 35px;
 }
 

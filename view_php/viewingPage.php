@@ -1,7 +1,6 @@
 <?php
 // session_start();
 	include("../php/session.php");
-	echo ($_SESSION['login_user']);
 ?>
 
 <!DOCTYPE html>
@@ -100,7 +99,10 @@ $("#query").click(function(){
 	<header>
 	  <h1>PnP</h1>
 	  <p> - - - Place n Party</p>
-	  <a href="index.php"><button class="logoutbtn">Log Out</button></a>
+	  <div style="float: right"> 
+	  	<?php echo ($_SESSION['login_lastName'])?>,  <?php echo ($_SESSION['login_firstName']) ?>
+		<a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a>
+	  </div>
 	</header>
 	<section class = "navBar">
 		<a href="profile.php"><button id="myProfile"> My Profile </button></a>
