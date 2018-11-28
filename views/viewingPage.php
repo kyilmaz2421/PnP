@@ -98,6 +98,14 @@ $("#query").click(function(){
 		}
 	});
 	 
+	function showBooking(){
+                    if(document.getElementById('book').style.display==='none'){
+                    document.getElementById('book').style.display= 'block';
+                    }
+                    else{
+                    document.getId('book').style.display.value = 'none';
+                    }
+                } 
 
 	$("#main").load("php/getPlace.php", {query});
 		
