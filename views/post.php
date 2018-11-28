@@ -1,6 +1,6 @@
 <?php 
     include("../php/sign_in_page.php");
-    
+
     // If no session is started, redirect to index page:
     if(!isset($_SESSION['login_user'])) {
         header("Location: ../index.php");
@@ -33,7 +33,12 @@
 <header>
   <h1>PnP</h1>
   <p> - - - Place n Party</p>
-  <a href="../index.php"><button class="logoutbtn">Log Out</button></a>
+
+  <div style="float: right"> 
+    <?php echo ($_SESSION['login_lastName'])?>,  <?php echo ($_SESSION['login_firstName']) ?>
+    <a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a>
+  </div>
+
 </header>
 
 <form action="../php/create_place.php" method="post">
@@ -54,7 +59,6 @@
     </section>
 
     <div class="container">
-      <hr>
       <p>Please fill in this form to post a new place.</p>
     <p>
       <label for="photos"><b>Photos: </b></label>
