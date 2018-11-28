@@ -23,7 +23,7 @@
 <header>
   <h1>PnP</h1>
   <p> - - - Place n Party</p>
-  <a href="index.html"><button class="logoutbtn">Log Out</button></a>
+  <a href="../index.php"><button class="logoutbtn">Log Out</button></a>
 </header>
 
 <form action="../php/create_place.php" method="post">

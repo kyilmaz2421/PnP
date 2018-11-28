@@ -14,7 +14,7 @@ try {
 	    
 		$conn->exec($sql);
 
-		header('Location: http://localhost/pnp/postSuccess.html');
+		header('Location: http://localhost/pnp/views/postSuccess.php');
 		exit();
 	   
     }
