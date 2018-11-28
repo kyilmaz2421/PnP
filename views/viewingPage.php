@@ -60,33 +60,33 @@
 });
 
 $("#query").click(function(){
-	var formArr = new Array();
-	for (i = 0; i < document.getElementById('#selectFilter').length; i++) {
-		if(document.getElementById('selectFilter')[i].checked){
-			formArr.push(document.getElementById("selectFilter").elements[i].value);
-		}
-	}
+	// var formArr = new Array();
+	// for (i = 0; i < document.getElementById('#selectFilter').length; i++) {
+	// 	if((document.getElementById('selectFilter')[i].checked)||(i===0)){
+	// 		formArr.push(document.getElementById("selectFilter").elements[i].value);
+	// 	}
+	// }
 
-	var query =  {
-		bookDate: formArr[0]
-	    space: formArr[1],
-		price: formArr[2],
-		rating: formArr[3],
-		pets: formArr[4],
-		alcohol: formArr[5],
-		wheelchair: formArr[6],
-		smoking: formArr[7],
-		outdoor: formArr[8]
-	  }; 
+	//  var query =  {
+	// 	bookDate: formArr[0]
+	//  space: formArr[1],
+	// 	price: formArr[2],
+	// 	rating: formArr[3],
+	// 	pets: formArr[4],
+	// 	alcohol: formArr[5],
+	// 	wheelchair: formArr[6],
+	// 	smoking: formArr[7],
+	// 	outdoor: formArr[8]
+	//   }; 
 
-	console.log(formArr);
-	console.log(query);
+	// console.log(formArr);
+	// console.log(query);
 
 
 	$.ajax({
 	  type: 'POST',
 	  url: 'http://localhost/pnp/php/getPlace.php',
-	  data: query,
+	  data: form.serialize(),
 	  success: function (response) {
 	   // We get the element having id of display_info and put the response inside it
 			if(response === 'NotFalse') {
@@ -98,20 +98,7 @@ $("#query").click(function(){
 			}
 		}
 	});
-	 
-	function showBooking(){
-                    if(document.getElementById('book').style.display==='none'){
-                    document.getElementById('book').style.display= 'block';
-                    }
-                    else{
-                    document.getId('book').style.display.value = 'none';
-                    }
-                } 
-
 	$("#main").load("php/getPlace.php", {query});
-		
-
-	
 });
 </script> 
 
@@ -130,6 +117,7 @@ $("#query").click(function(){
 	</section>
 	
 	<section class = "pageBody"> 
+
 	<form id="query" method="post" action="../php/getPlace.php">
 		<section class = "sideFilter">
 			<h3>Filters</h3>

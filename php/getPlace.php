@@ -57,17 +57,30 @@ $usernamePerson = $_SESSION['login_user'];
 
             // display search result for user
             print_r ($result);
+<<<<<<< HEAD
             // if(count($result) == 0){
             //     echo "No results match your search...party pooper :(";
             // }
             // for($x=0, $n=count($result); $x<$n; $x++){
             //     echo "HEY";
+=======
+
+        //     if(count($result) == 0){
+        //         echo "No results match your search...party pooper :(";
+        //     }
+        //     for($x=0, $n=count($result); $x<$n; $x++){
+        //         echo
+>>>>>>> 132b5ffacbb9d154522eaf38d1a2166c35d03fef
         //             '<section class="placeContainer"
 		// 				<div id="placeImage">
 		// 					img!
 		// 				</div>
 		// 				<div class="details">
+<<<<<<< HEAD
 		// 					<div> Address: $result[$x]["Address"] </div>
+=======
+		// 					<div> Address: {$result[$x]["Address"]} </div>
+>>>>>>> 132b5ffacbb9d154522eaf38d1a2166c35d03fef
 		// 					<div>Description: $result[$x]["Desciption"]
 		// 					</div>
 		// 					<div>Price per night: $result[$x]["PricePerNight"]</div>
@@ -93,7 +106,11 @@ $usernamePerson = $_SESSION['login_user'];
 		// 			</section>
 
 		// </section>';
+<<<<<<< HEAD
             //}
+=======
+        //     }
+>>>>>>> 132b5ffacbb9d154522eaf38d1a2166c35d03fef
 
         } catch(PDOException $e) {
             echo $e;
