@@ -1,9 +1,14 @@
 <?php
+// session_start();
+	include("../php/session.php");
+	echo ($_SESSION['login_user']);
+?>
+<?php
 $servername = "localhost";
 $usernamedb = "root";
 $password = "pnpdbpassword1";
-$usernamePerson = "dgand";
-$placeId = "995629BC7AF715D9A88B35FB28EE18D23C87F1AF707E1F685EC100839CFC84D9";
+$usernamePerson = $_SESSION['login_user'];
+//$placeId = "995629BC7AF715D9A88B35FB28EE18D23C87F1AF707E1F685EC100839CFC84D9";
 
     // handle error thrown for dev
     if(isset($_SERVER['REQUEST_METHOD'])) {
@@ -32,15 +37,16 @@ $placeId = "995629BC7AF715D9A88B35FB28EE18D23C87F1AF707E1F685EC100839CFC84D9";
             if($space === "0") {
                 $sql = "SELECT * FROM Places";
             } else {
-                 $s0 = "SELECT * FROM Places WHERE TypeOfSpace ='" . $space . "'" ;
-                $s1 = " AND PricePerNight <=". $price . "";
-                $s2 = " AND Pets =" . $pets . "";
-                $s3 = " AND Alcohol =" . $alc . "";
-                $s4 = " AND Wheelchair =" . $wheelchair . "";
-                $s5 = " AND Smoking =" . $smoking . "";
-                $s6 = " AND OutdoorAccess =" . $outdoors . "";
+                 $s0 = "SELECT * FROM Places WHERE Username not = '" . $usernamePerson . "'" ;
+                $s1 = "AND TypeOfSpace ='" . $space . "'" ; 
+                $s2 = " AND PricePerNight <=". $price . "";
+                $s3 = " AND Pets =" . $pets . "";
+                $s4 = " AND Alcohol =" . $alc . "";
+                $s5 = " AND Wheelchair =" . $wheelchair . "";
+                $s6 = " AND Smoking =" . $smoking . "";
+                $s7 = " AND OutdoorAccess =" . $outdoors . "";
 
-                $sql = $s0 . $s1 . $s2 . $s3 . $s4 . $s5 . $s6;
+                $sql = $s0 . $s1 . $s2 . $s3 . $s4 . $s5 . $s6 . $s7;
             }
             
            
