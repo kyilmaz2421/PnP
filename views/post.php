@@ -1,4 +1,6 @@
 <?php 
+    include("../php/sign_in_page.php");
+    
     // If no session is started, redirect to index page:
     if(!isset($_SESSION['login_user'])) {
         header("Location: ../index.php");
