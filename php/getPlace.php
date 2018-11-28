@@ -50,7 +50,44 @@ $placeId = "995629BC7AF715D9A88B35FB28EE18D23C87F1AF707E1F685EC100839CFC84D9";
             $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
             // display search result for user
-            print_r ($result);
+            //print_r ($result)
+            if(count($result) == 0){
+                echo "No results match your search...party pooper :(";
+            }
+            for($x=0, $n=count($result); $x<$n; $x++){
+                echo
+                    '<section class="placeContainer"
+						<div id="placeImage">
+							img!
+						</div>
+						<div class="details">
+							<div> Address: $result[$x]["Address"] </div>
+							<div>Description: $result[$x]["Desciption"]
+							</div>
+							<div>Price per night: $result[$x]["PricePerNight"]</div>
+						</div>
+					
+						<div class = "userInfo">
+							<div>  
+									User: $result[$x]["FirstName"] $result[$x]["LastName"]
+									Rating: $result[$x]["Rating"]
+							</div>
+						</div>            
+							
+						<div class="bookButton">
+							<button id = bookButton onclick = "showBooking()"> Book </button>
+								<div id= "book" style = "display: none">
+									<form method = "POST" action = "php/book_place.php">
+										Preferred Date:
+									<input type= "date" id="booking" name="bookDate" required>
+										<button type = "submit" id = "submitDate"> Check Date </button>
+									</form>
+								</div>
+						</div>
+					</section>
+
+		</section>';
+            }
 
         } catch(PDOException $e) {
             echo $e;
