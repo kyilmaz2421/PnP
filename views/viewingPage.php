@@ -1,6 +1,15 @@
 <?php
-// session_start();
-	include("../php/session.php");
+	// session_start();
+	// include("../php/session.php");
+	include("../php/sign_in_page.php");
+
+	$_SESSION['redirect'] = FALSE; //for debugging purposes
+
+	// If no session is started, redirect to index page:
+	if(!isset($_SESSION['login_user'])) {
+		header("Location: ../index.php");
+		$_SESSION['redirect'] = TRUE; //for debugging purposes
+	}
 ?>
 
 <!DOCTYPE html>
@@ -116,6 +125,11 @@ $("#query").click(function(){
 		<section class = "sideFilter">
 			<h3>Filters</h3>
 			<ul>
+				<li>Date: 
+					<br><input type="date" name="date" style="width:80%">
+				</li>
+				<br>
+
 				<li>Type of Space: 
 					<br><input type="radio" checked="checked" name="spaceType" value="0"> No selection
 					<br><input type="radio" name="spaceType" value="Home"> Home

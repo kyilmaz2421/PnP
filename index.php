@@ -1,7 +1,31 @@
 <?php
-  //include("php/session.php");
+  // include("php/session.php");
+  include("php/sign_in_page.php");
   // echo (isset($_SESSION['login_user']));
-  include("php/server_config.php");
+  // include("php/server_config.php");
+
+
+  if(isset($_SESSION['logout']) && $_SESSION['logout'] == TRUE){
+        unset($_SESSION['login_user']);
+        unset($_SESSION['login_firstName']);
+        unset($_SESSION['login_lastName']);
+        unset($_SESSION['login_email']);
+        unset($_SESSION['login_phoneNumFormatted']);
+        unset($_SESSION['login_phoneNumber']);
+        unset($_SESSION['login_genderFormatted']);
+        unset($_SESSION['login_gender']);
+        unset($_SESSION['login_bdayFormatted']);
+        unset($_SESSION['login_birthdate']);
+        unset($_SESSION['login_description']);
+        echo "You have been successfully logged out.";
+
+        session_destroy();
+        session_unset();
+    }
+
+    if($_SESSION['redirect'] == TRUE){
+        echo "You must login before accessing the page you tried to access.";
+    }
 
 ?>
 <!DOCTYPE html>

@@ -13,8 +13,8 @@
 
 	$dbUsername = $db->query($sql1)->fetchAll(PDO::FETCH_COLUMN);
 
-   
-   if(!isset($_SESSION['login_user'])){
-      header("location:index.php");
-   }
+   // Cannot have this for now since we are not successfully killing the sessions so we can never go to index page:
+   // if(!isset($_SESSION['login_user'])){
+   //    header("location:index.php");
+   // }
 ?>

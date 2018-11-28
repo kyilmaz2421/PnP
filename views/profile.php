@@ -1,7 +1,14 @@
 <?php
+	// include("../php/session.php");
+	include("../php/sign_in_page.php");
 
-	include("../php/session.php");
-	// include("../php/sign_in_page.php");
+	$_SESSION['redirect'] = FALSE; //for debugging purposes
+
+	// If no session is started, redirect to index page:
+	if(!isset($_SESSION['login_user'])) {
+		header("Location: ../index.php");
+		$_SESSION['redirect'] = TRUE; //for debugging purposes
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,9 +25,9 @@
 
   <div style="float: right"> 
   	<?php echo ($_SESSION['login_lastName'])?>,  <?php echo ($_SESSION['login_firstName']) ?>
-	<a href="index.php"><button class="logoutbtn">Log Out</button></a>
+	<a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a>
   </div>
-  <a href="../index.php"><button class="logoutbtn">Log Out</button></a>
+  <!-- <a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a> -->
 
 </header>
 
