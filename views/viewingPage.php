@@ -2,9 +2,7 @@
 	// session_start();
 	// include("../php/session.php");
 	include("../php/sign_in_page.php");
-
 	$_SESSION['redirect'] = FALSE; //for debugging purposes
-
 	// If no session is started, redirect to index page:
 	if(!isset($_SESSION['login_user'])) {
 		header("Location: ../index.php");
@@ -32,9 +30,7 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-
 	$(document).ready(function(){
-
 	var form = $('#query');
 	form.submit( function (ev) {
 		ev.preventDefault();
@@ -44,7 +40,6 @@
 			data: form.serialize(),
 			success: function(response){
 				document.getElementById('main').innerText=response;
-
 			},
 			error: function(xhr, desc, err) {
 				alert(err);
@@ -55,10 +50,8 @@
 			}
 		});
 	});
-
 	$("#submit").click();
 });
-
 $("#query").click(function(){
 	// var formArr = new Array();
 	// for (i = 0; i < document.getElementById('#selectFilter').length; i++) {
@@ -66,10 +59,9 @@ $("#query").click(function(){
 	// 		formArr.push(document.getElementById("selectFilter").elements[i].value);
 	// 	}
 	// }
-
 	//  var query =  {
 	// 	bookDate: formArr[0]
-	//  space: formArr[1],
+	//  space: formArr[1],
 	// 	price: formArr[2],
 	// 	rating: formArr[3],
 	// 	pets: formArr[4],
@@ -77,18 +69,15 @@ $("#query").click(function(){
 	// 	wheelchair: formArr[6],
 	// 	smoking: formArr[7],
 	// 	outdoor: formArr[8]
-	//   }; 
-
+	//   }; 
 	// console.log(formArr);
 	// console.log(query);
-
-
 	$.ajax({
-	  type: 'POST',
-	  url: 'http://localhost/pnp/php/getPlace.php',
-	  data: form.serialize(),
-	  success: function (response) {
-	   // We get the element having id of display_info and put the response inside it
+	  type: 'POST',
+	  url: 'http://localhost/pnp/php/getPlace.php',
+	  data: form.serialize(),
+	  success: function (response) {
+	   // We get the element having id of display_info and put the response inside it
 			if(response === 'NotFalse') {
 				alert('NotFalse');
 				alert(query)
