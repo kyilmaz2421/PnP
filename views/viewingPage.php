@@ -38,6 +38,7 @@
 	var form = $('#query');
 	form.submit( function (ev) {
 		ev.preventDefault();
+		
 		$.ajax({
 			type: form.attr('method'),
 			url: form.attr('action'),
@@ -99,12 +100,11 @@ $("#query").click(function(){
 		}
 	});
 	 
-
 	$("#main").load("php/getPlace.php", {query});
 		
-
-	
 });
+
+
 </script> 
 
 <body>
