@@ -8,7 +8,7 @@ $servername = "localhost";
 $usernamedb = "root";
 $password = "pnpdbpassword1";
 $usernamePerson = $_SESSION['login_user'];
-//$placeId = "995629BC7AF715D9A88B35FB28EE18D23C87F1AF707E1F685EC100839CFC84D9";
+
 
     // handle error thrown for dev
     if(isset($_SERVER['REQUEST_METHOD'])) {
