@@ -15,6 +15,9 @@ php
 	not clear why signup php needs the db declared in the function
 	this function code isn't entirely clear either. 
 
+		the rating db query is hard because its doesnt get the xact value
+
+	must check that the sql response is good
 
 
 

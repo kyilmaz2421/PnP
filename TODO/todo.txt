@@ -15,3 +15,14 @@ beautification
 
 NOV 24
 need to add rating to search filters
+
+
+Nov 28
+understand everyone's local changes and how to merge them
+update everyone's repo
+update everyone's db
+reassess
+reenergize
+repurpose
+redistribute tasks
+execute
