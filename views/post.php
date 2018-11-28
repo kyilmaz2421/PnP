@@ -1,3 +1,13 @@
+<?php 
+    include("../php/sign_in_page.php");
+
+    // If no session is started, redirect to index page:
+    if(!isset($_SESSION['login_user'])) {
+        header("Location: ../index.php");
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +26,36 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+	$(document).ready(function(){
+
+var form = $('#query');
+form.submit( function (ev) {
+    ev.preventDefault();
+    $.ajax({
+        type: form.attr('method'),
+        url: form.attr('action'),
+        data: form.serialize(),
+        success: function(response){
+            document.getElementById('main').innerText=response;
+
+        },
+        error: function(xhr, desc, err) {
+            alert(err);
+            alert(desc);
+            var err = eval("(" + xhr.responseText + ")");
+            console.log('err:'+err);
+            xhr.abort();
+        }
+    });
+});
+
+$("#submit").click();
+});   
+</script>
 <body>
 <!-- <nav>
     <h1>PnP</h1>
@@ -23,7 +63,12 @@
 <header>
   <h1>PnP</h1>
   <p> - - - Place n Party</p>
-  <a href="../index.php"><button class="logoutbtn">Log Out</button></a>
+
+  <div style="float: right"> 
+    <?php echo ($_SESSION['login_lastName'])?>,  <?php echo ($_SESSION['login_firstName']) ?>
+    <a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a>
+  </div>
+
 </header>
 
 <form action="../php/create_place.php" method="post">
@@ -44,18 +89,12 @@
     </section>
 
     <div class="container">
-      <hr>
       <p>Please fill in this form to post a new place.</p>
     <p>
       <label for="photos"><b>Photos: </b></label>
-      <input type="file" placeholder="Add Photos" name="photos1" >
-      <input type="file" placeholder="Add Photos" name="photos2" >
-      <input type="file" placeholder="Add Photos" name="photos3" >
-    </p> 
-
-    <p>
-      <label for="building"><b>Building Number: </b></label>
-      <input type="number" placeholder="Building Number" name="building" required>
+      <input type="file" accept="image/*" placeholder="Add Photos" name="photos1" >
+      <input type="file" accept="image/*" placeholder="Add Photos" name="photos2" >
+      <input type="file" accept="image/*" placeholder="Add Photos" name="photos3" >
     </p> 
     
     <p>
