@@ -106,7 +106,7 @@ $("#query").click(function(){
 	</header>
 	<section class = "navBar">
 		<a href="profile.php"><button id="myProfile"> My Profile </button></a>
-		<a href="post.html"><button id="post"> Post a Place </button></a>
+		<a href="post.php"><button id="post"> Post a Place </button></a>
 	</section>
 	
 	<section class = "pageBody"> 
