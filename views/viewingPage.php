@@ -68,14 +68,15 @@ $("#query").click(function(){
 	}
 
 	var query =  {
-	    space: formArr[0],
-		price: formArr[1],
-		rating: formArr[2],
-		pets: formArr[3],
-		alcohol: formArr[4],
-		wheelchair: formArr[5],
-		smoking: formArr[6],
-		outdoor: formArr[7]
+		bookDate: formArr[0]
+	    space: formArr[1],
+		price: formArr[2],
+		rating: formArr[3],
+		pets: formArr[4],
+		alcohol: formArr[5],
+		wheelchair: formArr[6],
+		smoking: formArr[7],
+		outdoor: formArr[8]
 	  }; 
 
 	console.log(formArr);
@@ -132,12 +133,11 @@ $("#query").click(function(){
 	<form id="query" method="post" action="../php/getPlace.php">
 		<section class = "sideFilter">
 			<h3>Filters</h3>
-			<ul>
-				<li>Date: 
-					<br><input type="date" name="date" style="width:80%">
+			<ul>	
+				<li> Date Of booking:
+				<input Type="date" name="bookDate">
 				</li>
 				<br>
-
 				<li>Type of Space: 
 					<br><input type="radio" checked="checked" name="spaceType" value="0"> No selection
 					<br><input type="radio" name="spaceType" value="Home"> Home
@@ -190,9 +190,7 @@ $("#query").click(function(){
 		</form >	
 		
 	</section>
-
 		<section class = "mainView" id = "main">
-
 	</section>
 
 </body>
