@@ -11,8 +11,8 @@
 	<!-- fix this so that it doesn't use the href__-->
 
 	<!--Custom CSS -->
-	<link rel="stylesheet" type="text/css" href="css/view.css">
-    <link rel="stylesheet" type="text/css" href="css/general.css">
+	<link rel="stylesheet" type="text/css" href="../css/view.css">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
 </head>
@@ -26,7 +26,7 @@
   <a href="index.html"><button class="logoutbtn">Log Out</button></a>
 </header>
 
-<form action="php/create_place.php" method="post">
+<form action="../php/create_place.php" method="post">
 <!-- <div>
     <h1>Post A Place</h1>
 </div> -->
@@ -35,7 +35,7 @@
     <section class="navBar">
         <div class="leftRightNavBar"> 
             <!-- <button id="backToView" class="backbtn"><i class="left"></i> Cancel</button> -->
-            <a href="viewingPage.html"><button type="button" class="cancelbtn">Cancel</button></a>
+            <a href="viewingPage.php"><button type="button" class="cancelbtn">Cancel</button></a>
         </div>
         <div class="pageTitle">Post A Place</div>
         <div class="leftRightNavBar" style="text-align: right"> 
@@ -145,7 +145,7 @@
 
             <div style="text-align: center; float: none; display: flex; justify-content: center">
                 <div style="width: 25%; padding-right: 10px">
-                    <a href="viewingPage.html"><button type="button" class="cancelbtn" style="width: 100%;">Cancel</button></a>
+                    <a href="viewingPage.php"><button type="button" class="cancelbtn" style="width: 100%;">Cancel</button></a>
                 </div>
                 <button type="submit" class="postbtn" style="width: 25%; padding-left: 10px">Submit Place</button>
             </div>

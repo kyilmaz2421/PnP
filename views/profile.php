@@ -15,10 +15,13 @@
 <header>
   <h1>PnP</h1>
   <p> - - - Place n Party</p>
+
   <div style="float: right"> 
   	<?php echo ($_SESSION['login_lastName'])?>,  <?php echo ($_SESSION['login_firstName']) ?>
 	<a href="index.php"><button class="logoutbtn">Log Out</button></a>
   </div>
+  <a href="../index.php"><button class="logoutbtn">Log Out</button></a>
+
 </header>
 
 <body>
