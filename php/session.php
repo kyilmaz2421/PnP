@@ -15,6 +15,6 @@
 
    
    if(!isset($_SESSION['login_user'])){
-      header("location:index.php");
+      header("location: http://localhost/pnp/index.php");
    }
 ?>
