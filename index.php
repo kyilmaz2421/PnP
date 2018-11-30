@@ -132,7 +132,7 @@
                    success: function(data)
                    {
                       if (data === 'ValidCredentials') {
-                        window.location = '/pnp/views/viewingPage.php';
+                        window.location = 'http://localhost/pnp/views/viewingPage.php';
                       }
                       else {
                           alert(data);
