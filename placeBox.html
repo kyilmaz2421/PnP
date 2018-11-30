@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                 <title>
+                    PlaceBox
+                </title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            
+                <!-- Bootstrap CSS -->
+                <!-- fix this so that it doesn't use the href__-->
+            
+                <!--Custom CSS -->
+                <link rel="stylesheet" type="text/css" href="css/placeBox.css">
+            
+            </head>
+
+            <script>
+                   function showBooking(){
+                    if(document.getElementById('book').style.display==='none'){
+                    document.getElementById('book').style.display.value = 'block';
+                    }
+                    else{
+                    document.getId('book').style.display.value = 'none';
+                    }
+                }     
+            </script>
+
+<body>  
+
+<section class="placeContainer">
+    <div id="placeImage">
+        img!
+    </div>
+
+    <div class="details">
+        <div>Address: 34 Abilene Drive, Toronto, ON </div>
+        <div>Description: Cute little bungalow where I live</div>
+        <div>Price per night: $100</div>
+    </div>
+
+    <div class = "userInfo">
+        <div>  
+                User: aceci
+                Rating: 5
+        </div>
+    </div>            
+        
+    <div class="bookButton">
+        <button id = bookButton onclick = 'showBooking()'> Book </button>
+            <div class="book" style = "display: none">
+                <form method = "POST" action = "php/book_place.php">
+                <input type= "date" id="booking" name="bookDate" required>
+                    <button type = "submit" id = "submitDate"> Check Date </button>
+                </form>
+            </div>
+    </div>
+
+</section>
+
+</body>
+</html>
