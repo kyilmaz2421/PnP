@@ -16,3 +16,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /?$1 [L,QSA]
 
 #CacheDisable /local_files
+
+AddType application/x-httpd-php .php

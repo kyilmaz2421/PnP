@@ -40,7 +40,7 @@
 			url: form.attr('action'),
 			data: form.serialize(),
 			success: function(response){
-				document.getElementById('main').innerText=response;
+				document.getElementById('main').innerHTML=response;
 			},
 			error: function(xhr, desc, err) {
 				alert(err);
@@ -53,6 +53,7 @@
 	});
 	$("#submit").click();
 });
+<<<<<<< HEAD
 $("#query").click(function(){
 	// var formArr = new Array();
 	// for (i = 0; i < document.getElementById('#selectFilter').length; i++) {
@@ -92,6 +93,53 @@ $("#query").click(function(){
 	$("#main").load("php/getPlace.php", {query});
 		
 });
+=======
+// $("#query").click(function(){
+// 	var form = $('#query');
+// 	ev.preventDefault();
+// 	$.ajax({
+// 	  type: 'POST',
+// 	  url: 'http://localhost/pnp/php/getPlace.php',
+// 	  data: form.serialize(),
+// 	  success: function (response) {
+// 	   // We get the element having id of display_info and put the response inside it
+// 			if(response === 'NotFalse') {
+// 				alert('NotFalse');
+// 				alert(query)
+// 			} else {
+// 				$( '#main' ).html(response);
+// 				alert(query);
+// 			}
+// 		}
+// 	});
+//$("#main").load("php/getPlace.php", {query});
+// });
+
+
+// window.onload = function(){
+// 		// Pick a default tab to have open on first page load:
+// 		var form = $('#query');
+// 		//document.getElementById("defaultOpen").click();
+// 		// document.fillMyPlaces();
+// 		$.ajax({
+// 		  type: 'POST',
+// 		  url: 'http://localhost/pnp/php/getPlace.php',
+// 		  data: form.serialize(),
+// 		  success: function (response) {
+// 		   // We get the element having id of display_info and put the response inside it
+// 				if(response === 'NotFalse') {
+// 					alert('NotFalse');
+// 				} else {
+// 					$( '#myPlaces' ).html(response);
+// 				}
+// 			}
+// 		});
+		 
+// 		$("#main").load("php/getPlace.php", {query});
+// 	}
+
+
+>>>>>>> 475cbd040f7e4794d8b19fd2582d1c2d1f18150e
 </script> 
 
 <body>
