@@ -55,17 +55,17 @@ $usernamePerson = $_SESSION['login_user'];
           for($x=0, $n=count($result); $x<$n; $x++){
               echo '<section id="placeContainer"
 				<div id="placeImage">
-					<img src = "/Applications/XAMPP/xamppfiles/htdocs/pnp/img/house.jpeg" alt = "house"/>
+					<img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
 					</div>
                         <div class="details">
-                            <div> Address: '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
-						<div>Description: '. $result[$x]["Desciption"] .'
+                            <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
+						<div> '. $result[$x]["Desciption"] .'
 						</div>
-					<div>Price per night:  $ '. $result[$x]["PricePerNight"] .' CAD </div>
+					<div> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
                     </div> 
                     <div class = "userInfo">
                         <div>  
-                                User: '. $result[$x]["Username"] .'
+                                Hosted by: '. $result[$x]["Username"] .'
                         </div>
                         <div>
                             Rating: '. $result[$x]["Rating"] .'
