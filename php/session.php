@@ -14,7 +14,7 @@
 	$dbUsername = $db->query($sql1)->fetchAll(PDO::FETCH_COLUMN);
 
    
-   if(!isset($_SESSION['login_user'])){
-      header("location: http://localhost/pnp/index.php");
-   }
+//   if(!isset($_SESSION['login_user'])){
+//      header("location: http://localhost/pnp/index.php");
+//   }
 ?>
