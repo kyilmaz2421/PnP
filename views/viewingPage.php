@@ -34,6 +34,7 @@
 	var form = $('#query');
 	form.submit( function (ev) {
 		ev.preventDefault();
+		
 		$.ajax({
 			type: form.attr('method'),
 			url: form.attr('action'),

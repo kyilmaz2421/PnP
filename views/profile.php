@@ -19,6 +19,8 @@
 <link rel="stylesheet" type="text/css" href="../css/profile.css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <header>
   <h1>PnP</h1>
   <p> - - - Place n Party</p>
@@ -72,8 +74,10 @@
 			</p>
 		</div>
 		<!-- Your Places box: -->
-		<div id="yourPlaces" style="border-top:solid 1px">
+		<div style="border-top:solid 1px">
 			<h3 style="font-size: 31px">Your Places</h3>
+			<div id="myPlaces"> 
+			</div>
 		</div>
 	</div>
 
@@ -105,7 +109,27 @@
 	window.onload = function(){
 		// Pick a default tab to have open on first page load:
 		document.getElementById("defaultOpen").click();
+		// document.fillMyPlaces();
+		$.ajax({
+		  type: 'POST',
+		  url: 'http://localhost/pnp/php/getMyPlaces.php',
+		//   data: query,
+		  success: function (response) {
+		   // We get the element having id of display_info and put the response inside it
+				if(response === 'NotFalse') {
+					alert('NotFalse');
+				} else {
+					$( '#myPlaces' ).html(response);
+				}
+			}
+		});
+		 
+		$("#myPlaces").load("php/getMyPlaces.php", {query});
 	}
+
+	// function fillMyPlaces() {
+		
+	// }
 
 	function openView(evt, toView) {
 	    var i, tabcontent, tablinks;
