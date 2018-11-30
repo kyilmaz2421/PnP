@@ -164,7 +164,6 @@
 					<br> <input type="radio" name="alcohol" value="0"> No
 					<br> <input type="radio" checked="checked" name="alcohol" value="-1"> Any
 				<li>WheelchairAccessible:
-
 					<br> <input type="radio" name="wheelchair" value="1"> Yes
 					<br> <input type="radio" name="wheelchair" value="-1"> No
 					<br> <input type="radio" checked="checked" name="wheelchair" value="-1"> Any

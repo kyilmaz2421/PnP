@@ -34,15 +34,15 @@ $usernamePerson = $_SESSION['login_user'];
             if($space === "0") {
                 $sql = "SELECT * FROM Places";
             } else {
-                $s0 = "SELECT * FROM Places WHERE TypeOfSpace = '". $space ."' ";
-                //AND PricePerNight <= '". $space ."' AND Pets ='". $pets ."' AND Alcohol = '". $alc ."' AND Wheelchair = '". $wheelchair ."' 
+                $s0 = "SELECT * FROM Places WHERE PricePerNight = '". $price."' ";
+                //AND PricePerNight <= '". $space ."' AND Pets ='". $pets ."' AND Alcohol = '". $alc ."' AND Wheelchair = '". $wheelchair ."'  
                 // $s1 = "TypeOfSpace ='" . $space . "'" ; 
-                // $s2 = " AND PricePerNight <=". $price . "";
-                // $s3 = " AND Pets =" . $pets . "";
-                // $s4 = " AND Alcohol =" . $alc . "";
-                // $s5 = " AND Wheelchair =" . $wheelchair . "";
-                // $s6 = " AND Smoking =" . $smoking . "";
-                // $s7 = " AND OutdoorAccess =" . $outdoors . "";
+                // $s2 = " AND PricePerNight <=' ". $price . " '";
+                // $s3 = " AND Pets = ' " . $pets . " ' ";
+                // $s4 = " AND Alcohol = ' " . $alc . " ' ";
+                // $s5 = " AND Wheelchair = ' " . $wheelchair . " ' ";
+                // $s6 = " AND Smoking = ' " . $smoking . " ' ";
+                // $s7 = " AND OutdoorAccess = ' " . $outdoors . " ' ";
                 //. $s1 . $s2 . $s3 . $s4 . $s5 . $s6 . $s7
                 $sql = $s0;
             }
