@@ -15,10 +15,10 @@ $usernamePerson = $_SESSION['login_user'];
             $price = intval($_POST["price"]); 
             $rating = floatval($_POST["rating"]);
             $pets = $_POST["pets"];
-            $alc = $_POST["alcohol"];
-            $wheelchair = $_POST["wheelchair"];
-            $smoking = $_POST["smoking"];
-            $outdoors = $_POST["outdoors"];
+            $alc = intval($_POST["alcohol"]);
+            $wheelchair = intval($_POST["wheelchair"]);
+            $smoking = intval($_POST["smoking"]);
+            $outdoors = intval($_POST["outdoors"]);
 
         try{ 
         
@@ -34,16 +34,17 @@ $usernamePerson = $_SESSION['login_user'];
             if($space === "0") {
                 $sql = "SELECT * FROM Places";
             } else {
-                $s0 = "SELECT * FROM Places WHERE" ;
-                $s1 = "TypeOfSpace ='" . $space . "'" ; 
-                $s2 = " AND PricePerNight <=". $price . "";
-                $s3 = " AND Pets =" . $pets . "";
-                $s4 = " AND Alcohol =" . $alc . "";
-                $s5 = " AND Wheelchair =" . $wheelchair . "";
-                $s6 = " AND Smoking =" . $smoking . "";
-                $s7 = " AND OutdoorAccess =" . $outdoors . "";
-
-                $sql = $s0 . $s1 . $s2 . $s3 . $s4 . $s5 . $s6 . $s7;
+                $s0 = "SELECT * FROM Places WHERE TypeOfSpace = '". $space ."' ";
+                //AND PricePerNight <= '". $space ."' AND Pets ='". $pets ."' AND Alcohol = '". $alc ."' AND Wheelchair = '". $wheelchair ."' 
+                // $s1 = "TypeOfSpace ='" . $space . "'" ; 
+                // $s2 = " AND PricePerNight <=". $price . "";
+                // $s3 = " AND Pets =" . $pets . "";
+                // $s4 = " AND Alcohol =" . $alc . "";
+                // $s5 = " AND Wheelchair =" . $wheelchair . "";
+                // $s6 = " AND Smoking =" . $smoking . "";
+                // $s7 = " AND OutdoorAccess =" . $outdoors . "";
+                //. $s1 . $s2 . $s3 . $s4 . $s5 . $s6 . $s7
+                $sql = $s0;
             }
             // Get result set from db
             $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -52,38 +53,33 @@ $usernamePerson = $_SESSION['login_user'];
               echo "No results match your search...party pooper :(";
              }
           for($x=0, $n=count($result); $x<$n; $x++){
-              echo '<section class="placeContainer"
+              echo '<section id="placeContainer"
 				<div id="placeImage">
-					img!
+					<img src = "/Applications/XAMPP/xamppfiles/htdocs/pnp/img/house.jpeg" alt = "house"/>
 					</div>
-						<div class="details">
-							<div> Address: '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
+                        <div class="details">
+                            <div> Address: '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
 						<div>Description: '. $result[$x]["Desciption"] .'
 						</div>
 					<div>Price per night:  $ '. $result[$x]["PricePerNight"] .' CAD </div>
                     </div> 
                     <div class = "userInfo">
                         <div>  
-                                User: aceci
-                                Rating: 5
+                                User: '. $result[$x]["Username"] .'
+                        </div>
+                        <div>
+                            Rating: '. $result[$x]["Rating"] .'
                         </div>
                     </div>            
-                        
                     <div class="bookButton">
-                        <button id = bookButton onclick = \'showBooking()\'> Book </button>
-                            <div id= "book" style = "display: none">
-                                <form method = "POST" action = "php/book_place.php">
-                                    Preferred Date:
-                                <input type= "date" id="booking" name="bookDate" required>
-                                    <button type = "submit" id = "submitDate"> Check Date </button>
-                                </form>
-                            </div>
-                    </div>
+                    <button id = bookButton onclick = \'showBooking()\'> Book </button>
+                        <div id= "book" style = "display: none">
+                            <form method = "POST" action = "php/book_place.php">                        
+                        </div>
+                </div>
                 </section>';
 				
             } 
-         //  myprint_r($result);
-            
         } catch(PDOException $e) {
             echo $e;
             exit();
@@ -91,20 +87,5 @@ $usernamePerson = $_SESSION['login_user'];
     }
 }
 
-function myprint_r($my_array) {
-    if (is_array($my_array)) {
-        echo "<table border=1 cellspacing=0 cellpadding=3 width=100%>";
-        echo '<tr><td colspan=2 style="background-color:#333333;"><strong><font color=white>ARRAY</font></strong></td></tr>';
-        foreach ($my_array as $k => $v) {
-                echo '<tr><td valign="top" style="width:40px;background-color:#F0F0F0;">';
-                echo '<strong>' . $k . "</strong></td><td>";
-                myprint_r($v);
-                echo "</td></tr>";
-        }
-        echo "</table>";
-        return;
-    }
-     echo $my_array;
-}
 
 ?>
