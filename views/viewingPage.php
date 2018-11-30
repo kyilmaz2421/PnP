@@ -92,8 +92,6 @@ $("#query").click(function(){
 	$("#main").load("php/getPlace.php", {query});
 		
 });
-
-
 </script> 
 
 <body>
