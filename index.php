@@ -108,12 +108,12 @@
 
         <div class="clearfix">
           <!-- <button type="button" class="cancelbtn">Cancel</button> -->
-          <button type="submit" class="signupbtn">Sign Up</button>
+          <button id="signup-form" type="submit" class="signupbtn">Sign Up</button>
         </div>
       </div>
     </form>
   </div>
-
+	<!-- ajax call to db to login existing user -->
       <script type="text/JavaScript">
               $( document ).ajaxComplete(function() {
                   // alert("complete");
@@ -142,7 +142,6 @@
                });
              });
       </script>
-
 </body>
 </html>
 

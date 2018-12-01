@@ -167,13 +167,13 @@ $("#query").click(function(){
 				</li>
 				<br>
 				<li>Type of Space: 
-					<br><input type="radio" checked="checked" name="spaceType" value="0"> No selection
 					<br><input type="radio" name="spaceType" value="Home"> Home
 					<br><input type="radio" name="spaceType" value="Apartment"> Apartment
 					<br><input type="radio" name="spaceType" value="Loft"> Loft
-					<br><input type="radio" name="spaceType" value="Large Space"> Large Space (i.e warehouse, gym)
+					<br><input type="radio" name="spaceType" value="Large Space"> Large Space
 					<br><input type="radio" name="spaceType" value="Backyard/Deck"> Backyard/Deck
 					<br><input type="radio" name="spaceType" value="Rooftop/Penthouse"> Rooftop/Penthouse
+					<br><input type="radio" checked="checked" name="spaceType" value="0"> Any
 
 				</li>
 				<br>
@@ -183,36 +183,40 @@ $("#query").click(function(){
 					<br> <input type="radio" name="price" value="100"> &lt; $100
 					<br> <input type="radio" name="price" value="150"> &lt; $150
 					<br> <input type="radio" name="price" value="200"> &lt; $200	
-					<br> <input type="radio" checked="checked" name="price" value="250"> &lt; $250	
-					<br> <input type="radio" name="price" value="250"> &gt; $250 
+					<br> <input type="radio" name="price" value="250"> &lt; $250	
+					<br> <input type="radio" checked="checked" name="price" value="0"> &gt; Any
 				</li>
 
 				<br>
 				<li>Rating
-					<br> <input type="radio" checked="checked" name="rating" value="0"> No selection
 					<br> <input type="radio" name="rating" value="1"> &gt; 1
 					<br> <input type="radio" name="rating" value="2"> &gt; 2
 					<br> <input type="radio" name="rating" value="3"> &gt; 3
 					<br> <input type="radio" name="rating" value="4"> &gt; 4	
 					<br> <input type="radio" name="rating" value="5"> &gt; 5
+					<br> <input type="radio" checked="checked" name="rating" value="0"> Any
 				
 				<br>
 				<li>Pets Permitted: 
-					<br> <input type="radio" checked="checked" name="pets" value="1"> Yes
+					<br> <input type="radio" name="pets" value="1"> Yes
 					<br> <input type="radio" name="pets" value="0"> No	
+					<br> <input type="radio" checked="checked" name="pets" value="-1"> Any
 				<li>Alcohol Permitted: 
 					<br> <input type="radio" name="alcohol" value="1"> Yes
-					<br> <input type="radio" checked="checked" name="alcohol" value="0"> No
+					<br> <input type="radio" name="alcohol" value="0"> No
+					<br> <input type="radio" checked="checked" name="alcohol" value="-1"> Any
 				<li>WheelchairAccessible:
-
-					<br> <input type="radio" checked="checked" name="wheelchair" value="1"> Yes
-					<br> <input type="radio" name="wheelchair" value="0"> No
+					<br> <input type="radio" name="wheelchair" value="1"> Yes
+					<br> <input type="radio" name="wheelchair" value="-1"> No
+					<br> <input type="radio" checked="checked" name="wheelchair" value="-1"> Any
 				<li>Smoking Permitted:
-					<br> <input type="radio" checked="checked" name="smoking" value="1"> Yes
+					<br> <input type="radio" name="smoking" value="1"> Yes
 					<br> <input type="radio" name="smoking" value="0"> No
+					<br> <input type="radio" checked="checked" name="smoking" value="-1"> Any
 				<li>Outdoor Access:
-					<br> <input type="radio" checked="checked" name="outdoors" value="1"> Yes
-					<br> <input type="radio" name="outdoors" value="0"> No	
+					<br> <input type="radio" name="outdoors" value="1"> Yes
+					<br> <input type="radio" name="outdoors" value="0"> No
+					<br> <input type="radio" checked="checked" name="outdoors" value="-1"> Any
 			</ul>
 			<button id="submit" type="submit">Filter</button>
 		</form >	
