@@ -1,9 +1,8 @@
 <?php
 // session_start();
-	include("../php/session.php");
+    include("../php/session.php");
    // echo ($_SESSION['login_user']);
 // phpinfo();
-
 $servername = "localhost";
 $usernamedb = "root";
 $password = "pnpdbpassword1";
@@ -19,17 +18,14 @@ $usernamePerson = $_SESSION['login_user'];
             $wheelchair = intval($_POST["wheelchair"]);
             $smoking = intval($_POST["smoking"]);
             $outdoors = intval($_POST["outdoors"]);
-
         try{ 
         
             $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             // Prepare the sql statement
             // keep in mind this is a security flaw
             // !!! fix before release TODO
-
             $sql = "";
             if($space === "0") {
                 $sql = "SELECT * FROM Places";
@@ -48,15 +44,14 @@ $usernamePerson = $_SESSION['login_user'];
             }
             // Get result set from db
             $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
              if(count($result) == 0){
               echo "No results match your search...party pooper :(";
              }
           for($x=0, $n=count($result); $x<$n; $x++){
               echo '<section id="placeContainer"
-				<div id="placeImage">
-					<img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
-					</div>
+                <div id="placeImage">
+                    <img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
+                    </div>
                         <div class="details">
                         <div> <strong> '. $result[$x]["TypeOfSpace"] .' </strong> </div>
                         <div>  <strong> '. $result[$x]["Desciption"] .' </strong>  </div>';
@@ -92,7 +87,7 @@ $usernamePerson = $_SESSION['login_user'];
                         </div>
                 </div>
                 </section>';
-				
+                
             } 
         } catch(PDOException $e) {
             echo $e;
@@ -100,6 +95,4 @@ $usernamePerson = $_SESSION['login_user'];
         }
     }
 }
-
-
 ?>
