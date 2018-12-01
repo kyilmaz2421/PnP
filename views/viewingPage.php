@@ -53,6 +53,10 @@
 	});
 	$("#submit").click();
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 61e2bdeff4bf18f336acc5eb71753a830d63a6a7
 $("#query").click(function(){
 	// var formArr = new Array();
 	// for (i = 0; i < document.getElementById('#selectFilter').length; i++) {
