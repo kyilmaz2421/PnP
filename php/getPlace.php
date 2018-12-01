@@ -58,9 +58,23 @@ $usernamePerson = $_SESSION['login_user'];
 					<img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
 					</div>
                         <div class="details">
-                            <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
-						<div> '. $result[$x]["Desciption"] .'
-						</div>
+                        <div> <strong> '. $result[$x]["TypeOfSpace"] .' </strong> </div>
+                        <div>  <strong> '. $result[$x]["Desciption"] .' </strong>  </div>';
+                      
+                        for($k=13, $j=count($result[$x]); $k<$j; $k++){
+                            if($k== 13){
+                                echo  ' <div> ';
+                            }
+                            if(strcmp($result[$x][$k],'0')){
+                                $result[$x][$k]= "";
+                            }
+                            if($k== 17){
+                                echo  ' </div> ';
+                            }
+                        }
+                echo ' <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
+                        <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
+
 					<div> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
                     </div> 
                     <div class = "userInfo">
