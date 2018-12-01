@@ -53,7 +53,7 @@
 	});
 	$("#submit").click();
 });
-<<<<<<< HEAD
+
 $("#query").click(function(){
 	// var formArr = new Array();
 	// for (i = 0; i < document.getElementById('#selectFilter').length; i++) {
@@ -93,7 +93,7 @@ $("#query").click(function(){
 	$("#main").load("php/getPlace.php", {query});
 		
 });
-=======
+
 // $("#query").click(function(){
 // 	var form = $('#query');
 // 	ev.preventDefault();
@@ -139,7 +139,6 @@ $("#query").click(function(){
 // 	}
 
 
->>>>>>> 475cbd040f7e4794d8b19fd2582d1c2d1f18150e
 </script> 
 
 <body>
