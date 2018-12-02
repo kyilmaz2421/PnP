@@ -53,45 +53,45 @@
 	});
 	$("#submit").click();
 });
-$("#query").click(function(){
-	// var formArr = new Array();
-	// for (i = 0; i < document.getElementById('#selectFilter').length; i++) {
-	// 	if((document.getElementById('selectFilter')[i].checked)||(i===0)){
-	// 		formArr.push(document.getElementById("selectFilter").elements[i].value);
-	// 	}
-	// }
-	//  var query =  {
-	// 	bookDate: formArr[0]
-	//  space: formArr[1],
-	// 	price: formArr[2],
-	// 	rating: formArr[3],
-	// 	pets: formArr[4],
-	// 	alcohol: formArr[5],
-	// 	wheelchair: formArr[6],
-	// 	smoking: formArr[7],
-	// 	outdoor: formArr[8]
-	//   }; 
-	// console.log(formArr);
-	// console.log(query);
-	$.ajax({
-	  type: 'POST',
-	  url: 'http://localhost/pnp/php/getPlace.php',
-	  data: form.serialize(),
-	  success: function (response) {
-	   // We get the element having id of display_info and put the response inside it
-			if(response === 'NotFalse') {
-				alert('NotFalse');
-				alert(query)
-			} else {
-				$( '#main' ).html(response);
-				alert(query);
-			}
-		}
-	});
+// $("#query").click(function(){
+// 	// var formArr = new Array();
+// 	// for (i = 0; i < document.getElementById('#selectFilter').length; i++) {
+// 	// 	if((document.getElementById('selectFilter')[i].checked)||(i===0)){
+// 	// 		formArr.push(document.getElementById("selectFilter").elements[i].value);
+// 	// 	}
+// 	// }
+// 	//  var query =  {
+// 	// 	bookDate: formArr[0]
+// 	//  space: formArr[1],
+// 	// 	price: formArr[2],
+// 	// 	rating: formArr[3],
+// 	// 	pets: formArr[4],
+// 	// 	alcohol: formArr[5],
+// 	// 	wheelchair: formArr[6],
+// 	// 	smoking: formArr[7],
+// 	// 	outdoor: formArr[8]
+// 	//   }; 
+// 	// console.log(formArr);
+// 	// console.log(query);
+// 	$.ajax({
+// 	  type: 'POST',
+// 	  url: 'http://localhost/pnp/php/getPlace.php',
+// 	  data: form.serialize(),
+// 	  success: function (response) {
+// 	   // We get the element having id of display_info and put the response inside it
+// 			if(response === 'NotFalse') {
+// 				alert('NotFalse');
+// 				alert(query)
+// 			} else {
+// 				$( '#main' ).html(response);
+// 				alert(query);
+// 			}
+// 		}
+// 	});
 	 
-	$("#main").load("php/getPlace.php", {query});
+// 	$("#main").load("php/getPlace.php", {query});
 		
-});
+// });
 </script> 
 
 <body>
@@ -115,7 +115,7 @@ $("#query").click(function(){
 		<section class = "sideFilter">
 			<ul>	
 				<li> Date Of booking:
-				<input Type="date" name="bookDate">
+				<input Type="date" name="bookDate" id="bookDate" min='<?php echo date('Y-m-d');?>' value='<?php echo date('Y-m-d');?>' required>
 				</li>
 				<br>
 				<li>Type of Space: 
