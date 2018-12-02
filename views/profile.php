@@ -23,7 +23,7 @@
 
 <header>
   <h1>PnP</h1>
-  <p> - - - Place n Party</p>
+  <!-- <p>  Place n Party</p> -->
 
   <div style="float: right"> 
   	<?php echo ($_SESSION['login_lastName'])?>,  <?php echo ($_SESSION['login_firstName']) ?>
