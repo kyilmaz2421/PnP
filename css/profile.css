@@ -2,6 +2,10 @@ h2 {
   	margin: 0px;
 }
 
+body{
+   color:#154360;
+}
+
 /* Style the tab */
 .tab {
     overflow: hidden;
@@ -49,6 +53,10 @@ h2 {
 	width: 45%;
 	display: inline-block; 
 	vertical-align: top;
+}
+
+#myplace{
+    color:
 }
 
 #aboutYou {
