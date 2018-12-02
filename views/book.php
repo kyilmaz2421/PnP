@@ -21,6 +21,7 @@ $usernamePerson = $_SESSION['login_user'];
 
 	  
 try {   
+    $placeId = $_POST['placeId'];
 
 		// if($_SERVER['REQUEST_METHOD'] === "POST"){
 		// 	$bookDate = False;
@@ -58,23 +59,29 @@ try {
         <title>Book</title>
         
         <link rel="stylesheet" type="text/css" href="../css/general.css">
-        <header>
-        <h1>PnP</h1> 
 
-        </header>
+        <header>
+        <h1>PnP</h1>
+        <!-- <p>  Place n Party</p> -->
+      
+        <div style="float: right"> 
+        '.$_SESSION['login_lastName'].' ,  '.$_SESSION['login_firstName'].'
+          <a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a>
+        </div>
+        <!-- <a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a> -->
+      
+      </header>
         <body>
 
-       <p>
-       '.$_POST['bookDate'].'   
-       <br> 
-       '.$_POST['placeId'].'
-       <br>
-       '.$_POST['booker'].'
-       '.$_POST['owner'].'
+       <p id="bookingConfirmation">
+       '.$_POST['booker'].' Please confirm your booking of '.$_POST['owner'].'\'s place on '.$_POST['bookDate'].'   
        </p>
 
         <form method="POST" action="http://localhost/pnp/php/book_place.php">     
-            <input type="date" id="booking" name="bookDate" required>
+            <input type="hidden" name="placeId" value="'. $placeId .'">
+            <input type="hidden" name="owner" value="'.$_POST['owner'].'">
+            <input  type="hidden"name="booker" value="'.$_POST['booker'].'">
+            <input  type="hidden" name="bookDate" value="'.$_POST['bookDate'].'">
             <button type="submit" id="postbtn">Confirm Booking</button>
         </form>
         

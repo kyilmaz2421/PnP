@@ -23,6 +23,11 @@ header {
   padding: 20px;
 }*/
 
+#bookingConfirmation {
+  padding: 12px;
+  background: #F1F2F1;
+}
+
 /* Full-width input fields */
 input[type=text], input[type=password], input[type=date], input[type=email], input[type=tel], input[type=number], input[type=file] {
   width: 100%;
