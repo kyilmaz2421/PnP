@@ -46,14 +46,14 @@
 
   <header>
     <h1>PnP</h1>
-    <p> - - - Place n Party</p>
+    <p style="padding-left: 1%;"> Place n Party</p>
   </header>
 
   <div id="formHolder">
     <form action="" method="POST" >
       <div class="container">
         <h1>Sign In</h1>
-        <p>Please fill in this form to <b>sign in</b>.</p>
+        <p>Please <b>sign in</b> to get your party on</p>
         <hr>
 
         <label for="username"><b>Username</b></label>
@@ -72,7 +72,7 @@
   <form method="POST" action="php/create_user.php" style="border-left:1px solid #154360">
     <div class="container">
       <h1>Sign Up</h1>
-      <p>Please fill in this form to <b>create an account</b>.</p>
+      <p>Please <b>create an account</b> to get this party started</p>
       <hr>
         <label for="firstname"><b>First Name</b></label>
         <input type="text" placeholder="First Name" name="firstname" required>
