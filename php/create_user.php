@@ -41,19 +41,18 @@ try {
 		    // Populate the session variables with respective user entries from the $_POST
 		    // array
 
-		    $_SESSION['login_user'] = part1[0];
-		    $_SESSION['login_firstName'] = part1[1];
-		    $_SESSION['login_lastName'] = part1[2];
-		    $_SESSION['login_email'] = part1[3];
-		    $_SESSION['login_phoneNumber'] = part2[0]; 
-		    $_SESSION['login_phoneNumber]'] = part2[1];
+		    $_SESSION['login_user'] = $part1[0];
+		    $_SESSION['login_firstName'] = $part1[1];
+		    $_SESSION['login_lastName'] = $part1[2];
+		    $_SESSION['login_email'] = $part1[3];
+		    $_SESSION['login_phoneNumber]'] = $part2[1];
 
 		    // We formart the number nicely so that it is easily to print to the webpage
 		    $_SESSION['login_phoneNumFormatted'] = substr(( $_SESSION['login_phoneNumber']), 0,3) .
 								'-' . substr(( $_SESSION['login_phoneNumber']), 3,3) .
 							       	'-' . substr(( $_SESSION['login_phoneNumber']), 6,4);
 
-		    $_SESSION['login_gender'] = part2[3];
+		    $_SESSION['login_gender'] = $part2[2];
 
 		    if($_SESSION['login_gender'] === 1) {
 		    	$_SESSION['login_genderFormatted'] = "Female";
@@ -61,14 +60,15 @@ try {
 		    	$_SESSION['login_genderFormatted'] = 'Male';
 		    }
 		    
+		    $_SESSION['login_description'] = $part2[3];
+
 		    // To properly format the Birthdate:
-		    $_SESSION['login_birthdate'] = part2[4];
+		    $_SESSION['login_birthdate'] = $part2[4];
 
 		    $_SESSION['login_bdayFormatted'] = substr(( $_SESSION['login_birthdate']), 0,4) .
 							'/' . substr(( $_SESSION['login_birthdate']), 4,2) .
 						       	'/' . substr(( $_SESSION['login_birthdate']), 6,2);
 
-		    $_SESSION['login_description'] = $db->query( "SELECT Description FROM Users WHERE Username='$unameEntry';" )->fetchAll(PDO::FETCH_COLUMN)[0];
 				
 		    header('Location: http://localhost/pnp/views/viewingPage.php');
 
