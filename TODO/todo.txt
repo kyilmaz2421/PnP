@@ -27,5 +27,5 @@ repurpose
 redistribute tasks
 execute
 
-Nov 30
-Need to fix user session when they sign up
+Dec 2
+ajax call to prevent same user sign up
