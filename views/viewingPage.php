@@ -97,7 +97,7 @@ $("#query").click(function(){
 <body>
 	<header>
 	  <h1>PnP</h1>
-	  <p> - - - Place n Party</p>
+	  <!-- <p> - - - Place n Party</p> -->
 	  <div style="float: right"> 
 	  	<?php echo ($_SESSION['login_lastName'])?>,  <?php echo ($_SESSION['login_firstName']) ?>
 		<a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a>
@@ -108,10 +108,10 @@ $("#query").click(function(){
 		<a href="profile.php"><button id="myProfile"> My Profile </button></a>
 		<a href="post.php"><button id="post"> Post a Place </button></a>
 	</section>
-	<div><h3 id = "filterhead">Filters</h3></div>
 	</div>
 	<section class = "pageBody"> 
 	<form id="query" method="post" action="../php/getPlace.php">
+	<div><h3 id = "filterhead">Filters</h3></div>
 		<section class = "sideFilter">
 			<ul>	
 				<li> Date Of booking:

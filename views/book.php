@@ -9,7 +9,7 @@
 
 <header>
   <h1>PnP</h1>
-  <p> - - - Place n Party</p>
+  <!-- <p> - - - Place n Party</p> -->
 </header>
 <div id="Calander">
 <TABLE BORDER=3 CELLSPACING=3 CELLPADDING=3> 

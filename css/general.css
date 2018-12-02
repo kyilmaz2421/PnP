@@ -11,7 +11,7 @@ body {
 
 header {
   background-color: #FEFEFE;
-  color: #079D84;
+  color: #00e1e1;
   padding: 6px;
   padding-left: 35px;
 }
@@ -42,7 +42,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 hr {
-  border: 1px solid #154360;
+  border: 1px solid #003030;
   margin-bottom: 25px;
 }
 
@@ -59,7 +59,7 @@ h2 {
 button {
   font-variant: small-caps;
   font-size: 100%;
-  background-color: #06C4A5;
+  background-color: #00cdcd;
   color: white;
   padding: 14px 20px;
   margin: 8px;
@@ -100,8 +100,8 @@ header > p {
   padding-left: 35px;
   padding-right: 35px;
   width: 100%;
-  color: #FCF3CF;
-  background-color: #008080;
+  color: #154360;
+  background-color: #f5f5f7;
   display: inline-block;
 
 }
@@ -121,7 +121,7 @@ header > p {
 
 /*Log Out button for the top of every page*/
 .logoutbtn {
-  background-color: #347076;
+  background-color: #00cdcd;
   width: 100px;
   height: 50px;
   /*float: right;*/

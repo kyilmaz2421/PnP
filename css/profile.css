@@ -2,6 +2,10 @@ h2 {
   	margin: 0px;
 }
 
+body{
+   color:#154360;
+}
+
 /* Style the tab */
 .tab {
     overflow: hidden;
@@ -10,7 +14,7 @@ h2 {
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
-    background-color: inherit;
+    background-color: #acffff;
     float: left;
     vertical-align: top;
     border: none;
@@ -24,13 +28,13 @@ h2 {
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-    background-color: #42AD92;
+    background-color:#00e7e7;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-    background-color: #5FCAAF;
-    color: #FCF3CF;
+    background-color: #00cdcd;
+    color: white;
 }
 
 /* Style the tab content */

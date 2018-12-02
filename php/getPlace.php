@@ -52,31 +52,32 @@ $usernamePerson = $_SESSION['login_user'];
                 <div id="placeImage">
                     <img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
                     </div>
-                        <div class="details">
-                        <div id = "title" > <strong> '. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Desciption"] .' </strong>  </div>
-                        <br>
-                    <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
+                <div id="details">
+                            <div id = "title" > <strong> '. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Desciption"] .' </strong>  </div>
+                            <br>
                         <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
+                        <br>
+                        <br>
+                        <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div id = "userInfo">
+                        <div id = "rating">  
+                            Rated  '. $result[$x]["Rating"] .'
+                        </div>
+                        <div id "host">
+                            Hosted by '. $result[$x]["Username"] .'
+                        </div>
+                </div> 
+                <div>
+                <button id = "book"> Book </button>
+                </div>         
+                    </div>
 
-					<div> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
-                    </div> 
-                    <div class = "userInfo">
-                        <div>  
-                                Hosted by: '. $result[$x]["Username"] .'
-                        </div>
-                        <div>
-                            Rating: '. $result[$x]["Rating"] .'
-                        </div>
-                    </div>            
-                    <div class="bookButton">
-                    <button id = bookButton onclick = \'showBooking()\'> Book </button>
-                        <div id= "book" style = "display: none">
-                            <form method = "POST" action = "php/book_place.php">                        
-                        </div>
-                </div>
                 </section>';
                 
-            } 
+           } 
         } catch(PDOException $e) {
             echo $e;
             exit();
