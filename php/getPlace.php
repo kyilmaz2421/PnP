@@ -1,9 +1,8 @@
 <?php
 // session_start();
-	include("../php/session.php");
+    include("../php/session.php");
    // echo ($_SESSION['login_user']);
 // phpinfo();
-
 $servername = "localhost";
 $usernamedb = "root";
 $password = "pnpdbpassword1";
@@ -19,17 +18,14 @@ $usernamePerson = $_SESSION['login_user'];
             $wheelchair = intval($_POST["wheelchair"]);
             $smoking = intval($_POST["smoking"]);
             $outdoors = intval($_POST["outdoors"]);
-
         try{ 
         
             $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             // Prepare the sql statement
             // keep in mind this is a security flaw
             // !!! fix before release TODO
-
             $sql = "";
             if($space === "0") {
                 $sql = "SELECT * FROM Places";
@@ -48,44 +44,44 @@ $usernamePerson = $_SESSION['login_user'];
             }
             // Get result set from db
             $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
              if(count($result) == 0){
               echo "No results match your search...party pooper :(";
              }
           for($x=0, $n=count($result); $x<$n; $x++){
               echo '<section id="placeContainer"
-				<div id="placeImage">
-					<img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
-					</div>
-                        <div class="details">
-                            <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
-						<div> '. $result[$x]["Desciption"] .'
-						</div>
-					<div> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
-                    </div> 
-                    <div class = "userInfo">
-                        <div>  
-                                Hosted by: '. $result[$x]["Username"] .'
+                <div id="placeImage">
+                    <img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
+                    </div>
+                <div id="details">
+                            <div id = "title" > <strong> '. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Desciption"] .' </strong>  </div>
+                            <br>
+                        <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
+                        <br>
+                        <br>
+                        <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div id = "userInfo">
+                        <div id = "rating">  
+                            Rated  '. $result[$x]["Rating"] .'
                         </div>
-                        <div>
-                            Rating: '. $result[$x]["Rating"] .'
+                        <div id "host">
+                            Hosted by '. $result[$x]["Username"] .'
                         </div>
-                    </div>            
-                    <div class="bookButton">
-                    <button id = bookButton onclick = \'showBooking()\'> Book </button>
-                        <div id= "book" style = "display: none">
-                            <form method = "POST" action = "php/book_place.php">                        
-                        </div>
-                </div>
+                </div> 
+                <div>
+                <button id = "book"> Book </button>
+                </div>         
+                    </div>
+
                 </section>';
-				
-            } 
+                
+           } 
         } catch(PDOException $e) {
             echo $e;
             exit();
         }
     }
 }
-
-
 ?>

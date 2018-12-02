@@ -4,14 +4,14 @@
 }
 
 body {
-  background-color: #82E0AA;
-  color : #154360;
+  background-color: #FEFEFE;
+  color : black;
   margin: 0;
 }
 
 header {
-  background-color: #154360;
-  color: #FCF3CF;
+  background-color: #FEFEFE;
+  color: #00e1e1;
   padding: 6px;
   padding-left: 35px;
 }
@@ -30,7 +30,7 @@ input[type=text], input[type=password], input[type=date], input[type=email], inp
   margin: 5px 0 10px 0;
   display: inline-block;
   border: none;
-  background: #D5F5E3;
+  background: #F1F2F1;
 }
 
 input[type=file] {
@@ -42,7 +42,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 hr {
-  border: 1px solid #154360;
+  border: 1px solid #003030;
   margin-bottom: 25px;
 }
 
@@ -57,7 +57,9 @@ h2 {
 
 /* Set a style for all buttons */
 button {
-  background-color: #28B463;
+  font-variant: small-caps;
+  font-size: 100%;
+  background-color: #00cdcd;
   color: white;
   padding: 14px 20px;
   margin: 8px;
@@ -98,9 +100,10 @@ header > p {
   padding-left: 35px;
   padding-right: 35px;
   width: 100%;
-  color: #FCF3CF;
-  background-color: #008080;
+  color: #154360;
+  background-color: #f5f5f7;
   display: inline-block;
+
 }
 
 /* Extra styles for the cancel button */
@@ -118,8 +121,8 @@ header > p {
 
 /*Log Out button for the top of every page*/
 .logoutbtn {
-  background-color: #347076;
-  width: 90px;
+  background-color: #00cdcd;
+  width: 100px;
   height: 50px;
   /*float: right;*/
   margin-right: 35px;

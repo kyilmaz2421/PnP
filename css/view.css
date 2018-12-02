@@ -25,8 +25,6 @@ h1 {
 .mainView{
 	width: 78%;
 	height: 100%;
-	border-style: solid;
-	border-width: 1px;
 	position: absolute;
     top: 25%;
 	right: 0;
@@ -38,8 +36,6 @@ h1 {
 .sideFilter{
 	width: 19.8%;
 	height: 100%;
-	border-style: solid;
-	border-width: 1px;
 	position: absolute;
 	top: 25%;
 	left: 2;
@@ -49,43 +45,65 @@ h1 {
 	padding-right: 1%;
 }
 
+#filterhead{
+	padding-left: 1%;
+	margin-bottom: 3%;
+	padding-bottom: 5%;
+	overflow-y:scroll;
+}
+
 #placeContainer{
 	margin-top: 5%;
 	margin-bottom: 5%;
 	margin-left: 5%;
 	margin-right: 5%;
 	border-style:solid;
-    border-width: 1px;
+	border-width: 1px;
+	border-color: #BED1CE;
+	width: 88%;
+	height: 35%;
 }
 
 #placeImage{
-    float:left;
+	display: inline-block;
     margin-top: 0.5%;
 	margin-left: 0.5%;
     height: 50%;
 	width: 75%;
-	text-align: center;
 }
 
-.details{
-	padding-top: 4%;
-	padding-right: 30%;
-	float: right;
-	float: top;
-    position: absolute;
-    right: 0;
+#details{
+	display: inline-block;
+	padding-left: 1%;
 }
 
-.userInfo{
-    left:2;
+#userInfo{
 	margin-top: 2%;
-	padding-left: 2%;
-    width: 25%;
-    height: 10%;
+    width: 100%;
+	height: 20%;
 }
 
 #pic{
-	float: left;
-	padding-left: 2%;
-	padding-top: 2%;
+	height: 100%;
+	width: 40%;
+}
+
+#price{
+	font-size: large;
+	display: inline-block;
+}
+
+#rating{
+	font-variant: small-caps;
+}
+
+
+#title{
+	font-variant: small-caps;
+	font-size: x-large;
+}
+
+#book{
+	display: inline-block;
+	margin-left: 112%;
 }

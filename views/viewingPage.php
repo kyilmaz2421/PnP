@@ -53,72 +53,66 @@
 	});
 	$("#submit").click();
 });
-// $("#query").click(function(){
-// 	var form = $('#query');
-// 	ev.preventDefault();
-// 	$.ajax({
-// 	  type: 'POST',
-// 	  url: 'http://localhost/pnp/php/getPlace.php',
-// 	  data: form.serialize(),
-// 	  success: function (response) {
-// 	   // We get the element having id of display_info and put the response inside it
-// 			if(response === 'NotFalse') {
-// 				alert('NotFalse');
-// 				alert(query)
-// 			} else {
-// 				$( '#main' ).html(response);
-// 				alert(query);
-// 			}
-// 		}
-// 	});
-//$("#main").load("php/getPlace.php", {query});
-// });
-
-
-// window.onload = function(){
-// 		// Pick a default tab to have open on first page load:
-// 		var form = $('#query');
-// 		//document.getElementById("defaultOpen").click();
-// 		// document.fillMyPlaces();
-// 		$.ajax({
-// 		  type: 'POST',
-// 		  url: 'http://localhost/pnp/php/getPlace.php',
-// 		  data: form.serialize(),
-// 		  success: function (response) {
-// 		   // We get the element having id of display_info and put the response inside it
-// 				if(response === 'NotFalse') {
-// 					alert('NotFalse');
-// 				} else {
-// 					$( '#myPlaces' ).html(response);
-// 				}
-// 			}
-// 		});
-		 
-// 		$("#main").load("php/getPlace.php", {query});
-// 	}
-
-
+$("#query").click(function(){
+	// var formArr = new Array();
+	// for (i = 0; i < document.getElementById('#selectFilter').length; i++) {
+	// 	if((document.getElementById('selectFilter')[i].checked)||(i===0)){
+	// 		formArr.push(document.getElementById("selectFilter").elements[i].value);
+	// 	}
+	// }
+	//  var query =  {
+	// 	bookDate: formArr[0]
+	//  space: formArr[1],
+	// 	price: formArr[2],
+	// 	rating: formArr[3],
+	// 	pets: formArr[4],
+	// 	alcohol: formArr[5],
+	// 	wheelchair: formArr[6],
+	// 	smoking: formArr[7],
+	// 	outdoor: formArr[8]
+	//   }; 
+	// console.log(formArr);
+	// console.log(query);
+	$.ajax({
+	  type: 'POST',
+	  url: 'http://localhost/pnp/php/getPlace.php',
+	  data: form.serialize(),
+	  success: function (response) {
+	   // We get the element having id of display_info and put the response inside it
+			if(response === 'NotFalse') {
+				alert('NotFalse');
+				alert(query)
+			} else {
+				$( '#main' ).html(response);
+				alert(query);
+			}
+		}
+	});
+	 
+	$("#main").load("php/getPlace.php", {query});
+		
+});
 </script> 
 
 <body>
 	<header>
 	  <h1>PnP</h1>
-	  <p> - - - Place n Party</p>
+	  <!-- <p> - - - Place n Party</p> -->
 	  <div style="float: right"> 
 	  	<?php echo ($_SESSION['login_lastName'])?>,  <?php echo ($_SESSION['login_firstName']) ?>
 		<a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a>
 	  </div>
 	</header>
+	<div>
 	<section class = "navBar">
 		<a href="profile.php"><button id="myProfile"> My Profile </button></a>
 		<a href="post.php"><button id="post"> Post a Place </button></a>
 	</section>
-	
+	</div>
 	<section class = "pageBody"> 
-
 	<form id="query" method="post" action="../php/getPlace.php">
+	<div><h3 id = "filterhead">Filters</h3></div>
 		<section class = "sideFilter">
-			<h3>Filters</h3>
 			<ul>	
 				<li> Date Of booking:
 				<input Type="date" name="bookDate">

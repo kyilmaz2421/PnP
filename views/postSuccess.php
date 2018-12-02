@@ -18,7 +18,7 @@
 
 <header>
   <h1>PnP</h1>
-  <p> - - - Place n Party</p>
+  <!-- <p> - - - Place n Party</p> -->
 </header>
 YEET
 
