@@ -108,10 +108,10 @@ $("#query").click(function(){
 		<a href="profile.php"><button id="myProfile"> My Profile </button></a>
 		<a href="post.php"><button id="post"> Post a Place </button></a>
 	</section>
-	<div><h3 id = "filterhead">Filters</h3></div>
 	</div>
 	<section class = "pageBody"> 
 	<form id="query" method="post" action="../php/getPlace.php">
+	<div><h3 id = "filterhead">Filters</h3></div>
 		<section class = "sideFilter">
 			<ul>	
 				<li> Date Of booking:

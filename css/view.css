@@ -46,7 +46,9 @@ h1 {
 }
 
 #filterhead{
-	padding-bottom: 3%;
+	padding-left: 1%;
+	margin-bottom: 3%;
+	padding-bottom: 5%;
 	overflow-y:scroll;
 }
 
@@ -56,40 +58,52 @@ h1 {
 	margin-left: 5%;
 	margin-right: 5%;
 	border-style:solid;
-    border-width: 1px;
+	border-width: 1px;
+	border-color: #BED1CE;
+	width: 88%;
+	height: 35%;
 }
 
 #placeImage{
-    float:left;
+	display: inline-block;
     margin-top: 0.5%;
 	margin-left: 0.5%;
     height: 50%;
 	width: 75%;
-	text-align: center;
 }
 
-.details{
-	padding-top: 1%;
-	padding-right: 18%;
-	float: right;
-	float: top;
-	right: 0;
-	position: absolute;
+#details{
+	display: inline-block;
+	padding-left: 1%;
 }
 
-.userInfo{
+#userInfo{
 	margin-top: 2%;
-	padding-left: 2%;
-    width: 25%;
-    height: 10%;
+    width: 100%;
+	height: 20%;
 }
 
 #pic{
-	float: left;
-	width: 50%;
 	height: 100%;
+	width: 40%;
 }
+
+#price{
+	font-size: large;
+	display: inline-block;
+}
+
+#rating{
+	font-variant: small-caps;
+}
+
 
 #title{
 	font-variant: small-caps;
+	font-size: x-large;
+}
+
+#book{
+	display: inline-block;
+	margin-left: 112%;
 }
