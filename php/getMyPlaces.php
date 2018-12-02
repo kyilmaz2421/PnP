@@ -53,72 +53,92 @@ if(isset($_SERVER['REQUEST_METHOD'])) {
 //     echo $my_array;
 // }
 
-function myprint_r2($my_array) {
-    foreach ($my_array as $k => $v) {
-        echo '<div style="border-style: solid; border-width: 1px;">';
-        foreach($v as $x => $x_value) {
-            // Don't need this to show since you are always the owner:
-            // if ($x == "Username") {
-            //     echo "Owner: " . $x_value;
-            //     echo "<br>";
-            // }
-            if ($x == "StreetNumber") {
-                echo $x_value;
-            }
-            if ($x == "StreetName") {
-                echo " " . $x_value;
-            }
-            if ($x == "ApartmentNumber") {
-                echo " Apt. " . $x_value;
-                echo "<br>";
-            }
-            if ($x == "City") {
+function myprint_r2($result) {
+    for($x=0, $n=count($result); $x<$n; $x++){
+        echo '
+        <div id="placeImage">
+            <img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
+            </div>
+                <div class="details">
+                <div id = "title" > <strong> '. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Desciption"] .' </strong>  </div>
+            <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ', ' .$result[$x]["Province"]. ', ' .$result[$x]["Country"] . ' ' .$result[$x]["PostalCode"].'</div>
+            <div> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
+            </div> 
+            <div class = "userInfo">
+                <div>  
+                        Hosted by: '. $result[$x]["Username"] .'
+                </div>
+                <div>
+                    Rating: '. $result[$x]["Rating"] .'
+                </div>
+            </div>    
+            <br>        
+        </div>';
 
-            }
-            if ($x == "Province") {
-                
-            }
-            if ($x == "Country") {
-                
-            }
-            if ($x == "PostalCode") {
-                
-            }
-            if ($x == "TypeOfSpace") {
-                
-            }
-            if ($x == "Description") {
-                
-            }
-            if ($x == "PrivePerNight") {
-                
-            }
-            if ($x == "Rating") {
-                
-            }
-            if ($x == "Pets") {
-                
-            }
-            if ($x == "Alcohol") {
-                
-            }
-            if ($x == "Wheelchair") {
-                
-            }
-            if ($x == "Smoking") {
-                
-            }
-            if ($x == "OutdoorAccess") {
-                
-            }
-            if ($x == "Availabilities") {
-                
-            }
-        }
-        echo '</div>';
-    }
-    return;
+    } 
 }
+
+// function myprint_r2($my_array) {
+//     foreach ($my_array as $k => $v) {
+//         echo '<div style="border-style: solid; border-width: 1px;">';
+//         foreach($v as $x => $x_value) {
+//             // if ($x == "StreetNumber") {
+//             //     echo $x_value;
+//             // }
+//             // if ($x == "StreetName") {
+//             //     echo " " . $x_value;
+//             // }
+//             // if ($x == "ApartmentNumber") {
+//             //     echo " Apt. " . $x_value;
+//             //     echo "<br>";
+//             // }
+//             // if ($x == "City") {
+
+//             // }
+//             // if ($x == "Province") {
+                
+//             // }
+//             // if ($x == "Country") {
+                
+//             // }
+//             // if ($x == "PostalCode") {
+                
+//             // }
+//             // if ($x == "TypeOfSpace") {
+                
+//             // }
+//             // if ($x == "Description") {
+                
+//             // }
+//             // if ($x == "PrivePerNight") {
+                
+//             // }
+//             // if ($x == "Rating") {
+                
+//             // }
+//             // if ($x == "Pets") {
+                
+//             // }
+//             // if ($x == "Alcohol") {
+                
+//             // }
+//             // if ($x == "Wheelchair") {
+                
+//             // }
+//             // if ($x == "Smoking") {
+                
+//             // }
+//             // if ($x == "OutdoorAccess") {
+                
+//             // }
+//             // if ($x == "Availabilities") {
+                
+//             // }
+//         }
+//         echo '</div>';
+//     }
+//     return;
+// }
 
 ?>
 
