@@ -10,6 +10,7 @@ $usernamePerson = $_SESSION['login_user'];
     // handle error thrown for dev
     if(isset($_SERVER['REQUEST_METHOD'])) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $bookDate = $_POST["bookDate"];
             $space = strval($_POST["spaceType"]);
             $price = intval($_POST["price"]); 
             $rating = floatval($_POST["rating"]);
@@ -69,14 +70,19 @@ $usernamePerson = $_SESSION['login_user'];
                         <div id "host">
                             Hosted by '. $result[$x]["Username"] .'
                         </div>
-                </div> 
-                <div>
-                <button id = "book"> Book </button>
-                </div>         
-                    </div>
-
-                </section>';
-                
+                </div>
+                        <form action="http://localhost/pnp/views/book.php" method="post">
+                        <div>
+                          <input type="hidden" name="placeId" value="'. $result[$x]["PlaceID"] .'">
+                          <input type="hidden" name="owner" value="'. $result[$x]["Username"] .'">
+                          <input  type="hidden"name="booker" value="'. $_SESSION['login_user'] .'">
+                          <input  type="hidden" name="bookDate" value="'. $bookDate .'">
+                           <button type="submit" id = "book"> Book </button>
+                        </div>
+                      </form>         
+                        </div>
+      
+                      </section>';      
            } 
         } catch(PDOException $e) {
             echo $e;

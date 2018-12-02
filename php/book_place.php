@@ -1,8 +1,10 @@
 <?php
+ include("../php/session.php");
+
 $servername = "localhost";
 $usernamedb = "root";
 $password = "pnpdbpassword1";
-$usernamePerson = "bilbo";
+$usernamePerson = $_SESSION['login_user'];
 
 
 	  

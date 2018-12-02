@@ -93,11 +93,15 @@
 		<div id="PastBookings" class="tabcontent">
 		  <h3 style="font-size: 31px">Past Bookings</h3>
 		  <!-- Show all past bookings here (from DB) -->
+		  <div id="past">
+		  </div>
 		</div>
 
 		<div id="UpcomingBookings" class="tabcontent">
 		  <h3 style="font-size: 31px">Upcoming Bookings</h3>
 		  <!-- Show all upcoming bookings here (from DB) -->
+		  <div id="upcoming">
+		  </div>
 		</div>
 
 	</div>
@@ -110,6 +114,7 @@
 		// Pick a default tab to have open on first page load:
 		document.getElementById("defaultOpen").click();
 		// document.fillMyPlaces();
+		// Ajax call for the My Places sections of the Profile page:
 		$.ajax({
 		  type: 'POST',
 		  url: 'http://localhost/pnp/php/getMyPlaces.php',
@@ -123,8 +128,38 @@
 				}
 			}
 		});
+		// Ajax call for the Upcoming Bookings sections of the Profile page:
+		$.ajax({
+		  type: 'POST',
+		  url: 'http://localhost/pnp/php/getUpcomingBookings.php',
+		//   data: query,
+		  success: function (response) {
+		   // We get the element having id of display_info and put the response inside it
+				if(response === 'NotFalse') {
+					alert('NotFalse');
+				} else {
+					$( '#upcoming' ).html(response);
+				}
+			}
+		});
+		// Ajax call for the Past Bookings sections of the Profile page:
+		$.ajax({
+		  type: 'POST',
+		  url: 'http://localhost/pnp/php/getPastBookings.php',
+		//   data: query,
+		  success: function (response) {
+		   // We get the element having id of display_info and put the response inside it
+				if(response === 'NotFalse') {
+					alert('NotFalse');
+				} else {
+					$( '#past' ).html(response);
+				}
+			}
+		});
 		 
 		$("#myPlaces").load("php/getMyPlaces.php", {query});
+		$("#UpcomingBookings").load("php/getUpcomingBookings.php", {query});
+		$("#PastBookings").load("php/getPastBookings.php", {query});
 	}
 
 	// function fillMyPlaces() {
