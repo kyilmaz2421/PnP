@@ -111,8 +111,6 @@ ul{
 
 #priceandBook{
 	float:right;
-	/* margin-top: 3%;
-	position: absolute; */
 }
 
 #book{
@@ -120,4 +118,30 @@ ul{
 }
 #noMatch{
 	text-align: center;
+}
+
+
+@media screen and (max-width:1000px) {  
+	.pageBody{
+	  display: none;
+	}
+}
+@media screen and (max-width: 1000px) {
+		.mainView{
+		  width: 100%;
+		  float: left;
+		  vertical-align: middle;
+		}
+		#book{
+			margin-left: 0;
+		}
+		#priceandBook{
+			float:right;
+		}
+  }
+
+@media screen and (max-height: 500px){
+	#filterhead{
+		display: none;
+	}
 }
