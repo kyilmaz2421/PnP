@@ -37,7 +37,6 @@ $usernamePerson = $_SESSION['login_user'];
             // remove bookDate because it's not part of the query
             unset($_POST['bookDate']);
 
-
             // key is the db column name
             // val is the row item
             // this for loop builds the sql string query
@@ -83,7 +82,9 @@ $usernamePerson = $_SESSION['login_user'];
             // Get result set from db
             $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
              if(count($result) == 0) {
-              echo "No results match your search...party pooper :(";
+              echo  '<div id="noMatch">
+              No places match your search...party pooper :(
+              </div> ';
              }
 
             /*
@@ -103,43 +104,44 @@ $usernamePerson = $_SESSION['login_user'];
             // Displays the places search result from the filters the user specified
           for($x=0, $n=count($result); $x<$n; $x++){
               echo '<section id="placeContainer"
-                <div id="placeImage">
-                    <img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
+                    <div id="placeImage">
+                        <img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
                     </div>
-                <div id="details">
-                            <div id = "title" > <strong> '. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Desciption"] .' </strong>  </div>
-                            <br>
+
+                    <div id = "details">
+                        <div id = "title" > <strong>'. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Desciption"] .'</strong>  </div>
                         <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
                         <br>
-                        
-                        <div id= "pets"> Pets Permitted: '. displayYN($result[$x]["Pets"]) .'  </div>
-                        <div id= "alcohol"> Alcohol Permitted: '. displayYN($result[$x]["Alcohol"]) .'  </div>
-                        <div id= "wheelchair"> Wheelchair Accessible: '. displayYN($result[$x]["Wheelchair"]) .'  </div>
-                        <div id= "smoking"> Smoking Permitted: '. displayYN($result[$x]["Smoking"]) .'  </div>
-                        <div id= "outdoors"> Outdoor Access: '. displayYN($result[$x]["OutdoorAccess"]).'  </div>
+                        <ul id= "pets"> Pets: '. displayYN($result[$x]["Pets"]) .'  |   </ul>
+                        <ul id= "alcohol"> Alcohol: '. displayYN($result[$x]["Alcohol"]) .' |  </ul>
+                        <ul id= "wheelchair"> Wheelchair: '. displayYN($result[$x]["Wheelchair"]) .' |  </ul>
+                        <ul id= "smoking"> Smoking: '. displayYN($result[$x]["Smoking"]) .' |  </ul>
+                        <ul id= "outdoors"> Outdoor: '. displayYN($result[$x]["OutdoorAccess"]).'  </ul>
+
                         <br>
-                        <div id = "userInfo"></div>
+                        <br>
+                        <br>
+                        <br>
                         <div id = "rating">
-                            Rated:  '. $result[$x]["Rating"] .'
+                            Hosted by '. $result[$x]["Username"] .', rated '. $result[$x]["Rating"] .'
                         </div>
-                        <div id "host">
-                            Hosted by: '. $result[$x]["Username"] .'
-                        </div>
-                        <ul> <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div> </ul>
-                        <ul> <button type="submit" id = "book"> Book </button> </ul>
+                        <br>
+                        <br>
+                        <div id = "priceandBook">
+                        <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
+                        <br>
                         <form action="http://localhost/pnp/views/book.php" method="post">
-                        <div>
-                          <input type="hidden" name="placeId" value="'. $result[$x]["PlaceID"] .'">
-                          <input type="hidden" name="owner" value="'. $result[$x]["Username"] .'">
-                          <input  type="hidden"name="booker" value="'. $_SESSION['login_user'] .'">
-                          <input  type="hidden" name="bookDate" value="'. $bookDate .'">
+                            <div>
+                         <ul> <button type="submit" id = "book"> Book </button> </ul>
+                              <input type="hidden" name="placeId" value="'. $result[$x]["PlaceID"] .'">
+                              <input type="hidden" name="owner" value="'. $result[$x]["Username"] .'">
+                              <input  type="hidden"name="booker" value="'. $_SESSION['login_user'] .'">
+                              <input  type="hidden" name="bookDate" value="'. $bookDate .'">
+                            </div>
+                          </form>
                         </div>
-                      </form>
-                </div>
-
-                        </div>
-
-                      </section>';
+                     </div>
+                </section>';
            }
         } catch(PDOException $e) {
             echo $e;
