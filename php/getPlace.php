@@ -71,20 +71,29 @@ $usernamePerson = $_SESSION['login_user'];
                     }
                 } // otherwise val === -1 and we do nothing
             }
-
             // build query string
             if(strlen($conditionals) === 0) {
                 // All filters are specified
-                $sql = "SELECT * FROM Places" . $conditionals;
+                $sql = "SELECT * FROM Places WHERE NOT Username = '" . $usernamePerson ."'" .$conditionals;
             } else {
-                $sql = "SELECT *  FROM Places WHERE " . $conditionals;
+                $sql = "SELECT *  FROM Places WHERE NOT Username = '" . $usernamePerson . "'". " AND ". $conditionals;
             }
+
             // Get result set from db
             $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
              if(count($result) == 0) {
               echo  '<div id="noMatch">
               No places match your search...party pooper :(
               </div> ';
+             }
+             for($k=0, $t=count($result); $k<$t; $k++){
+                $query =  "SELECT *  FROM Bookings WHERE PlaceID = '". $result[$k]["PlaceID"] . "' AND BookDate = '" . $bookDate . "' AND UsernameOwner = '" . $result[$k]["Username"] . "'";
+                $queryBooking = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($queryBooking as $indexes) {
+                    array_splice($result, $k, 1);
+                    $t--;
+                    break;
+                }
              }
 
             /*
