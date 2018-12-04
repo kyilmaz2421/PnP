@@ -141,7 +141,7 @@ ul{
 		}
   }
 /* reformatting for window resize*/
-@media screen and (max-height: 500px){
+@media screen and (min-width: 64.063em){
 	#filterhead{
 		display: none;
 	}
