@@ -111,7 +111,7 @@ $usernamePerson = $_SESSION['login_user'];
                             <br>
                         <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
                         <br>
-                        <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
+                        
                         <div id= "pets"> Pets Permitted: '. displayYN($result[$x]["Pets"]) .'  </div>
                         <div id= "alcohol"> Alcohol Permitted: '. displayYN($result[$x]["Alcohol"]) .'  </div>
                         <div id= "wheelchair"> Wheelchair Accessible: '. displayYN($result[$x]["Wheelchair"]) .'  </div>
@@ -125,13 +125,14 @@ $usernamePerson = $_SESSION['login_user'];
                         <div id "host">
                             Hosted by: '. $result[$x]["Username"] .'
                         </div>
+                        <ul> <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div> </ul>
+                        <ul> <button type="submit" id = "book"> Book </button> </ul>
                         <form action="http://localhost/pnp/views/book.php" method="post">
                         <div>
                           <input type="hidden" name="placeId" value="'. $result[$x]["PlaceID"] .'">
                           <input type="hidden" name="owner" value="'. $result[$x]["Username"] .'">
                           <input  type="hidden"name="booker" value="'. $_SESSION['login_user'] .'">
                           <input  type="hidden" name="bookDate" value="'. $bookDate .'">
-                           <button type="submit" id = "book"> Book </button>
                         </div>
                       </form>
                 </div>
