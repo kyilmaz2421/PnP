@@ -10,7 +10,7 @@ $usernamePerson = $_SESSION['login_user'];
     // handle error thrown for dev
     if(isset($_SERVER['REQUEST_METHOD'])) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            //$bookDate = $_POST["bookDate"];
+            $bookDate = $_POST["bookDate"];
             $space = strval($_POST["TypeOfSpace"]);
             $price = intval($_POST["PricePerNight"]);
             $rating = floatval($_POST["Rating"]);
@@ -35,6 +35,10 @@ $usernamePerson = $_SESSION['login_user'];
             // Loop through form data in POST
             // depending on the value from the form concatenate strings for sql query
             // this loop isn't generic and depends on the html ie name="TypeOfSpace"
+
+            // remove bookDate because it's not part of the query
+            unset($_POST['bookDate']);
+
             foreach($_POST as $key => $val) {
                 // for ints in db
                 // TODO can't have 1 be a rating cause this will get triggered
@@ -45,39 +49,46 @@ $usernamePerson = $_SESSION['login_user'];
                     } else {
                         $conditionals .= " AND " . $key . "=" . $val;
                     }
-                } else if ($val === "-1") {
-                    if(strlen($columns) === 0) {
-                        $columns .= $key . " ";
-                    } else {
-                        $columns .= ", " . $key . " ";
-                    }
+                } else if ($val !== "-1") {
                     // TypeOfSpace, Rating, and Price Have more potential values to handle
-                } else {
+                    // rating price and type need special where
                     if(strlen($conditionals) === 0) {
                         $conditionals .= $key . "='" . $val . "'";
                     } else {
                         $conditionals .= " AND " . $key .  "='" . $val . "'";
                     }
-                }
+                } // otherwise val === -1 and we do nothing
             }
 
             if(strlen($conditionals) === 0) {
-                $sql = "SELECT " . $columns . " FROM Places" . $conditionals;
+                // All filters are specified
+                $sql = "SELECT * FROM Places" . $conditionals;
             } else {
-                $sql = "SELECT " . $columns . " FROM Places WHERE " . $conditionals;
+                $sql = "SELECT *  FROM Places WHERE " . $conditionals;
             }
 
-            echo ($sql);
             // Get result set from db
             $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-             if(count($result) == 0){
+             if(count($result) == 0) {
               echo "No results match your search...party pooper :(";
              }
+// TODO: Ratings // FIXME: by making the ratings a certain value
 
-// TODO get the result set and display it correctyl
-// currently result data for displaying is incomplete.
-// need to get the correct info for each respective placeId
-// maybe use an ajax call
+            /*
+             * purpose: displays yes or no or any for 1, 0, -1 respectively
+             * $array 2d array of resultset
+             */
+            function displayYN($intVal) {
+                if($intVal === "-1") {
+                    return "Any";
+                } else if ($intVal === "0" ) {
+                    return "No";
+                } else {
+                    return "Yes";
+                }
+            }
+
+            //
           for($x=0, $n=count($result); $x<$n; $x++){
               echo '<section id="placeContainer"
                 <div id="placeImage">
@@ -88,17 +99,20 @@ $usernamePerson = $_SESSION['login_user'];
                             <br>
                         <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
                         <br>
-                        <br>
                         <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
-                        <br>
-                        <br>
+                        <div id= "rating"> '. $result[$x]["Rating"] .' or above </div>
+                        <div id= "pets"> Pets Permitted: '. displayYN($result[$x]["Pets"]) .'  </div>
+                        <div id= "alcohol"> Alcohol Permitted: '. displayYN($result[$x]["Alcohol"]) .'  </div>
+                        <div id= "wheelchair"> Wheelchair Accessible: '. displayYN($result[$x]["Wheelchair"]) .'  </div>
+                        <div id= "smoking"> Smoking Permitted: '. displayYN($result[$x]["Smoking"]) .'  </div>
+                        <div id= "outdoors"> Outdoor Access: '. displayYN($result[$x]["OutdoorAccess"]).'  </div>
                         <br>
                         <div id = "userInfo">
                         <div id = "rating">
-                            Rated  '. $result[$x]["Rating"] .'
+                            Rated:  '. $result[$x]["Rating"] .'
                         </div>
                         <div id "host">
-                            Hosted by '. $result[$x]["Username"] .'
+                            Hosted by: '. $result[$x]["Username"] .'
                         </div>
                 </div>
                         <form action="http://localhost/pnp/views/book.php" method="post">

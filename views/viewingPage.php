@@ -115,7 +115,7 @@
 		<section class = "sideFilter">
 			<ul>
 				<li> Date Of booking:
-				<!-- <input Type="date" name="bookDate" id="bookDate" min='<?php echo date('Y-m-d');?>' value='<?php echo date('Y-m-d');?>' required> -->
+				<input Type="date" name="bookDate" id="bookDate" min='<?php echo date('Y-m-d');?>' value='<?php echo date('Y-m-d');?>' required>
 				</li>
 				<br>
 				<li>Type of Space:
