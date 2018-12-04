@@ -120,13 +120,14 @@ ul{
 	text-align: center;
 }
 
-
-@media screen and (max-width:1000px) {  
+/* collapsing filter bar if window resizes  */
+@media screen and (max-width:700px) {  
 	.pageBody{
 	  display: none;
 	}
 }
-@media screen and (max-width: 1000px) {
+/* reformatting listings if window too small */
+@media screen and (max-width: 700px) {
 		.mainView{
 		  width: 100%;
 		  float: left;
@@ -139,7 +140,7 @@ ul{
 			float:right;
 		}
   }
-
+/* reformatting for window resize*/
 @media screen and (max-height: 500px){
 	#filterhead{
 		display: none;
