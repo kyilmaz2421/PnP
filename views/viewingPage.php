@@ -141,7 +141,6 @@
 
 				<br>
 				<li>Rating
-					<br> <input type="radio" name="Rating" value="1"> &gt; 1
 					<br> <input type="radio" name="Rating" value="2"> &gt; 2
 					<br> <input type="radio" name="Rating" value="3"> &gt; 3
 					<br> <input type="radio" name="Rating" value="4"> &gt; 4

@@ -25,8 +25,6 @@ $usernamePerson = $_SESSION['login_user'];
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // Prepare the sql statement
-            // keep in mind this is a security flaw
-            // !!! fix before release TODO
             // query String var
             $sql = ""; // /the final query
             $columns = ""; // columns to query
@@ -39,9 +37,13 @@ $usernamePerson = $_SESSION['login_user'];
             // remove bookDate because it's not part of the query
             unset($_POST['bookDate']);
 
+
+            // key is the db column name
+            // val is the row item
+            // this for loop builds the sql string query
+            // viewingPage.php contains the values that populate $_POST
             foreach($_POST as $key => $val) {
-                // for ints in db
-                // TODO can't have 1 be a rating cause this will get triggered
+                // 0 means no. 1 means yes. -1 means either
                 if($val === "0" || $val === "1" ) {
                     // only build the string when $conditionals is empty
                     if(strlen($conditionals) === 0) {
@@ -50,29 +52,39 @@ $usernamePerson = $_SESSION['login_user'];
                         $conditionals .= " AND " . $key . "=" . $val;
                     }
                 } else if ($val !== "-1") {
-                    // TypeOfSpace, Rating, and Price Have more potential values to handle
-                    // rating price and type need special where
                     if(strlen($conditionals) === 0) {
-                        $conditionals .= $key . "='" . $val . "'";
+                        // Rating and PricePerNight aren't '=' there greater than filters
+                        if($key === "Rating") {
+                            $conditionals .= $key . ">=" . $val;
+                        } else if ($key === "PricePerNight") {
+                            $conditionals .= $key . ">=" . $val;
+                        } else {
+                            $conditionals .= $key . "='" . $val . "'";
+                        }
                     } else {
-                        $conditionals .= " AND " . $key .  "='" . $val . "'";
+                        if($key === "Rating") {
+                            $conditionals .= " AND " . $key . ">=" . $val;
+                        } else if ($key === "PricePerNight") {
+                            $conditionals .= " AND " . $key . ">=" . $val;
+                        } else {
+                            $conditionals .= " AND " . $key .  "='" . $val . "'";
+                        }
                     }
                 } // otherwise val === -1 and we do nothing
             }
 
+            // build query string
             if(strlen($conditionals) === 0) {
                 // All filters are specified
                 $sql = "SELECT * FROM Places" . $conditionals;
             } else {
                 $sql = "SELECT *  FROM Places WHERE " . $conditionals;
             }
-
             // Get result set from db
             $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
              if(count($result) == 0) {
               echo "No results match your search...party pooper :(";
              }
-// TODO: Ratings // FIXME: by making the ratings a certain value
 
             /*
              * purpose: displays yes or no or any for 1, 0, -1 respectively
@@ -88,7 +100,7 @@ $usernamePerson = $_SESSION['login_user'];
                 }
             }
 
-            //
+            // Displays the places search result from the filters the user specified
           for($x=0, $n=count($result); $x<$n; $x++){
               echo '<section id="placeContainer"
                 <div id="placeImage">
@@ -106,14 +118,13 @@ $usernamePerson = $_SESSION['login_user'];
                         <div id= "smoking"> Smoking Permitted: '. displayYN($result[$x]["Smoking"]) .'  </div>
                         <div id= "outdoors"> Outdoor Access: '. displayYN($result[$x]["OutdoorAccess"]).'  </div>
                         <br>
-                        <div id = "userInfo">
+                        <div id = "userInfo"></div>
                         <div id = "rating">
                             Rated:  '. $result[$x]["Rating"] .'
                         </div>
                         <div id "host">
                             Hosted by: '. $result[$x]["Username"] .'
                         </div>
-                </div>
                         <form action="http://localhost/pnp/views/book.php" method="post">
                         <div>
                           <input type="hidden" name="placeId" value="'. $result[$x]["PlaceID"] .'">
@@ -123,6 +134,8 @@ $usernamePerson = $_SESSION['login_user'];
                            <button type="submit" id = "book"> Book </button>
                         </div>
                       </form>
+                </div>
+
                         </div>
 
                       </section>';
