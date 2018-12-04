@@ -134,19 +134,14 @@ $usernamePerson = $_SESSION['login_user'];
                         <div id = "rating">
                             Hosted by '. $result[$x]["Username"] .', rated '. $result[$x]["Rating"] .'
                         </div>
-                        <br>
-                        <br>
-                        <div id = "priceandBook">
-                        <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
+                        <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD /night </div>
                         <br>
                         <form action="http://localhost/pnp/views/book.php" method="post">
-                            <div>
-                         <ul> <button type="submit" id = "book"> Book </button> </ul>
+                            <button type="submit" id = "book"> Book </button> </ul>
                               <input type="hidden" name="placeId" value="'. $result[$x]["PlaceID"] .'">
                               <input type="hidden" name="owner" value="'. $result[$x]["Username"] .'">
                               <input  type="hidden"name="booker" value="'. $_SESSION['login_user'] .'">
                               <input  type="hidden" name="bookDate" value="'. $bookDate .'">
-                            </div>
                           </form>
                         </div>
                      </div>
