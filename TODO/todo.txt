@@ -29,3 +29,5 @@ execute
 
 Dec 2
 ajax call to prevent same user sign up
+
+Details - redirect when user not logged in prettify

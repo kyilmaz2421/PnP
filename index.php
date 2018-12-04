@@ -90,10 +90,10 @@
         <input type="password" placeholder="Enter Password" name="password" required>
 
         <label for="bday"><b>Birthday</b></label> 
-        <input type="date" name="bday"> 
+        <input type="date" name="bday" required> 
 
         <label for="tel"><b>Telephone Number</b></label> 
-        <input type="tel" placeholder="Enter Phone Number" name="tel"> 
+        <input type="tel" placeholder="Enter Phone Number" name="tel" required> 
 
         <label for="gender"><b>Gender</b></label> <br>
         <form action="">
