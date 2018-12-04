@@ -143,6 +143,6 @@ ul{
 /* reformatting for window resize*/
 @media screen and (min-width: 64.063em){
 	#book{
-		margin-left: 20%;
+		margin-left: 170%;
 	}
 }
