@@ -59,7 +59,7 @@ h1 {
 	border-width: 1px;
 	border-color: #BED1CE;
 /* 	width: 90%; */
-	height: 40%;
+	height: 50%;
 }
 
 #placeImage{
@@ -90,8 +90,10 @@ h1 {
 }
 
 #price{
+	padding-right: 2%;
 	font-size: large;
-	display: inline-block;
+	position: absolute;
+	right: 0;
 }
 
 #rating{
@@ -106,7 +108,8 @@ h1 {
 }
 
 #book{
-/* 	display: inline-block; */
-/* 	margin-left: 112%; */
-	margin: 2% 0;
+	margin-top: 3%;
+	position: absolute;
+	right: 0;
 }
+
