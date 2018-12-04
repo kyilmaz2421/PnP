@@ -72,18 +72,27 @@ $usernamePerson = $_SESSION['login_user'];
                     }
                 } // otherwise val === -1 and we do nothing
             }
-
             // build query string
             if(strlen($conditionals) === 0) {
                 // All filters are specified
-                $sql = "SELECT * FROM Places" . $conditionals;
+                $sql = "SELECT * FROM Places WHERE NOT Username = '" . $usernamePerson ."'" .$conditionals;
             } else {
-                $sql = "SELECT *  FROM Places WHERE " . $conditionals;
+                $sql = "SELECT *  FROM Places WHERE NOT Username = '" . $usernamePerson . "'". " AND ". $conditionals;
             }
+
             // Get result set from db
             $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
              if(count($result) == 0) {
               echo "No results match your search...party pooper :(";
+             }
+             for($k=0, $t=count($result); $k<$t; $k++){
+                $query =  "SELECT *  FROM Bookings WHERE PlaceID = '". $result[$k]["PlaceID"] . "' AND BookDate = '" . $bookDate . "' AND UsernameOwner = '" . $result[$k]["Username"] . "'";
+                $queryBooking = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($queryBooking as $indexes) {
+                    array_splice($result, $k, 1);
+                    $t--;
+                    break;
+                }
              }
 
             /*
@@ -126,13 +135,13 @@ $usernamePerson = $_SESSION['login_user'];
                             Hosted by: '. $result[$x]["Username"] .'
                         </div>
                         <ul> <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div> </ul>
-                        <ul> <button type="submit" id = "book"> Book </button> </ul>
                         <form action="http://localhost/pnp/views/book.php" method="post">
                         <div>
                           <input type="hidden" name="placeId" value="'. $result[$x]["PlaceID"] .'">
                           <input type="hidden" name="owner" value="'. $result[$x]["Username"] .'">
                           <input  type="hidden"name="booker" value="'. $_SESSION['login_user'] .'">
                           <input  type="hidden" name="bookDate" value="'. $bookDate .'">
+                          <ul> <button type="submit" id = "book"> Book </button> </ul>
                         </div>
                       </form>
                 </div>
