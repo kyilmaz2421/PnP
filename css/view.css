@@ -142,7 +142,7 @@ ul{
   }
 /* reformatting for window resize*/
 @media screen and (min-width: 64.063em){
-	#filterhead{
-		display: none;
+	#book{
+		margin-left: 0;
 	}
 }
