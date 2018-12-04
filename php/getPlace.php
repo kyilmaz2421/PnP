@@ -30,9 +30,9 @@ $usernamePerson = $_SESSION['login_user'];
             if($space === "0") {
                 $sql = "SELECT * FROM Places";
             } else {
-                $s0 = "SELECT * FROM Places WHERE PricePerNight = '". $price."' ";
+                $s0 = "SELECT * FROM Places";
                 //AND PricePerNight <= '". $space ."' AND Pets ='". $pets ."' AND Alcohol = '". $alc ."' AND Wheelchair = '". $wheelchair ."'  
-                // $s1 = "TypeOfSpace ='" . $space . "'" ; 
+                $s1 = "TypeOfSpace = '" . $space . "' " ; 
                 // $s2 = " AND PricePerNight <=' ". $price . " '";
                 // $s3 = " AND Pets = ' " . $pets . " ' ";
                 // $s4 = " AND Alcohol = ' " . $alc . " ' ";
@@ -40,7 +40,7 @@ $usernamePerson = $_SESSION['login_user'];
                 // $s6 = " AND Smoking = ' " . $smoking . " ' ";
                 // $s7 = " AND OutdoorAccess = ' " . $outdoors . " ' ";
                 //. $s1 . $s2 . $s3 . $s4 . $s5 . $s6 . $s7
-                $sql = $s0;
+                $sql = $s0 . $s1;
             }
             // Get result set from db
             $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
