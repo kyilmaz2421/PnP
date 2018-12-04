@@ -100,7 +100,6 @@ $usernamePerson = $_SESSION['login_user'];
                         <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
                         <br>
                         <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
-                        <div id= "rating"> '. $result[$x]["Rating"] .' or above </div>
                         <div id= "pets"> Pets Permitted: '. displayYN($result[$x]["Pets"]) .'  </div>
                         <div id= "alcohol"> Alcohol Permitted: '. displayYN($result[$x]["Alcohol"]) .'  </div>
                         <div id= "wheelchair"> Wheelchair Accessible: '. displayYN($result[$x]["Wheelchair"]) .'  </div>
