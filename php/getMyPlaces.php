@@ -13,7 +13,7 @@ $usernamePerson = $_SESSION['login_user'];
 if(isset($_SERVER['REQUEST_METHOD'])) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        try{ 
+        try{
             $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -22,7 +22,7 @@ if(isset($_SERVER['REQUEST_METHOD'])) {
             $username = $_SESSION['login_user'];
             // The sql query string:
             $sql = "SELECT * FROM Places WHERE Username = '$username'";
-            
+
             // Get result set from db
             $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
@@ -54,28 +54,30 @@ if(isset($_SERVER['REQUEST_METHOD'])) {
 // }
 
 function myprint_r2($result) {
+
     for($x=0, $n=count($result); $x<$n; $x++){
+		$url = (strval($result[$x]["ImgUrl"])) . "0.jpg";
         echo '
         <div id="placeImage">
-            <img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
+            <img id ="pic" src = ' . $url . ' alt = "house" style="width: 25vw; height 20vh;"/>
             </div>
                 <div class="details">
-                <div id = "title" > <strong> '. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Desciption"] .' </strong>  </div>
+                <div id = "title" > <strong> '. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Description"] .' </strong>  </div>
             <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ', ' .$result[$x]["Province"]. ', ' .$result[$x]["Country"] . ' ' .$result[$x]["PostalCode"].'</div>
             <div> $ '. $result[$x]["PricePerNight"] .' CAD  per night </div>
-            </div> 
+            </div>
             <div class = "userInfo">
-                <div>  
+                <div>
                         Hosted by: '. $result[$x]["Username"] .'
                 </div>
                 <div>
                     Rating: '. $result[$x]["Rating"] .'
                 </div>
-            </div>    
-            <br>        
+            </div>
+            <br>
         </div>';
 
-    } 
+    }
 }
 
 // function myprint_r2($my_array) {
@@ -96,43 +98,43 @@ function myprint_r2($result) {
 
 //             // }
 //             // if ($x == "Province") {
-                
+
 //             // }
 //             // if ($x == "Country") {
-                
+
 //             // }
 //             // if ($x == "PostalCode") {
-                
+
 //             // }
 //             // if ($x == "TypeOfSpace") {
-                
+
 //             // }
 //             // if ($x == "Description") {
-                
+
 //             // }
 //             // if ($x == "PrivePerNight") {
-                
+
 //             // }
 //             // if ($x == "Rating") {
-                
+
 //             // }
 //             // if ($x == "Pets") {
-                
+
 //             // }
 //             // if ($x == "Alcohol") {
-                
+
 //             // }
 //             // if ($x == "Wheelchair") {
-                
+
 //             // }
 //             // if ($x == "Smoking") {
-                
+
 //             // }
 //             // if ($x == "OutdoorAccess") {
-                
+
 //             // }
 //             // if ($x == "Availabilities") {
-                
+
 //             // }
 //         }
 //         echo '</div>';
@@ -144,5 +146,5 @@ function myprint_r2($result) {
 
 
 <script>
-    
+
 </script>

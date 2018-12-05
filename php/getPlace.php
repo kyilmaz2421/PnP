@@ -74,7 +74,8 @@ $usernamePerson = $_SESSION['login_user'];
             // build query string
             if(strlen($conditionals) === 0) {
                 // All filters are specified
-                $sql = "SELECT * FROM Places WHERE NOT Username = '" . $usernamePerson ."'" .$conditionals;
+                // Don't load places of the person logged in
+                $sql = "SELECT * FROM Places WHERE NOT Username = '" . $usernamePerson ."'" ;
             } else {
                 $sql = "SELECT *  FROM Places WHERE NOT Username = '" . $usernamePerson . "'". " AND ". $conditionals;
             }

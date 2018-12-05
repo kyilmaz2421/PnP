@@ -21,17 +21,18 @@ try {
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    //echo "Connected successfully ";
 		$placeId = randomGen();
-		$imgDir = generateImgUrl($usernamePerson, $placeId);
-		// execute a bash script create a dir for this file and put the user's file in it after renameing the file
+
 		$placeId = strtoupper($placeId);
 
+		$imgDir = generateImgUrl($usernamePerson, $placeId);
+		// execute a bash script create a dir for this file and put the user's file in it after renameing the file
+
 		$rootPath = __DIR__; // gets the root of the current project from from C:\ or /
-		echo ($rootPath);
 		//$uploaddir = "" . $rootPath . '/place_images/' . $usernamePerson . '/' . $placeId . '/';
 		$uploaddir = 'C:\\xampp\\htdocs\\pnp\\place_images\\' . $usernamePerson . '\\' . $placeId . '\\';
-		mkdir($uploaddir);
 		$_FILES['photos1']['name'] = "0.jpg";
 		$uploadfile = $uploaddir . basename($_FILES['photos1']['name']);
+		mkdir($uploaddir);
 		move_uploaded_file($_FILES['photos1']['tmp_name'], $uploadfile);
 
 		//echo $placeId;
