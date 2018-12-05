@@ -22,36 +22,6 @@ $usernamePerson = $_SESSION['login_user'];
 	  
 try {   
     $placeId = $_POST['placeId'];
-
-		// if($_SERVER['REQUEST_METHOD'] === "POST"){
-		// 	$bookDate = False;
-		// 	if(isset($_POST['bookDate'])){
-		// 		 $bookDate == explode("-", $_POST['bookDate']);
-		// 	}
-		// }	
-	    // $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
-
-		// $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		// $stmt = $conn->prepare('SELECT * FROM Bookings WHERE UsernameClient = :username AND PlaceID = :placeId');
-		// $stmt->execute(['username' => $usernamePerson, 'placeId' => $placeId]);
-		// $result = $stmt->fetch(PDO::FETCH_ASSOC);
-		
-		// if($result === False){
-		// echo "Query doesnt exist";
-		// }
-		// $entryNum = 0;
-		// $createDate = explode("-", $_POST['creationDate']);
-
-		// if(( (int)$bookDate[0])-((int)$createdate[0] )===0){
-		// 	if(((int)$bookDate[1] )-((int)$createdate[1] )===0){
-		// 		if(((int)$bookDate[2] )-((int)$createdate[2] )===0){
-		// 			$entryNum = 0;
-		// 		}		
-		
-		// 	}
-		// }	
-
-       // $availabilities = str_split($result['Availabilities']);
         
         echo '<!DOCTYPE html>
         <html>
@@ -59,18 +29,23 @@ try {
         <title>Book</title>
         
         <link rel="stylesheet" type="text/css" href="../css/general.css">
-
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         <header>
         <h1>PnP</h1>
-        <!-- <p>  Place n Party</p> -->
+        <!-- <p>  Place n Party </p> -->
       
         <div style="float: right"> 
         '.$_SESSION['login_lastName'].' ,  '.$_SESSION['login_firstName'].'
           <a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a>
         </div>
-        <!-- <a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a> -->
       
       </header>
+      <div>
+      <section class = "navBar">
+          <a id="cancel" href="viewingPage.php"><button id="post"> Cancel </button></a>
+      </section>
+      </div>
+
         <body>
 
        <p id="bookingConfirmation">

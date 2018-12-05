@@ -24,7 +24,7 @@ header {
 }*/
 
 #bookingConfirmation {
-  padding: 12px;
+    padding: 12px;
   background: #F1F2F1;
 }
 
@@ -159,6 +159,10 @@ i {
   content: "";
   clear: both;
   display: table;
+}
+
+#cancel{
+  float:right;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
