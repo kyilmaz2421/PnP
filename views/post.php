@@ -97,7 +97,7 @@ $("#submit").click();
       <p>Please fill in this form to post a new place.</p>
     <p>
       <label for="photos"><b>Photos: </b></label>
-      <input type="file" accept="image/*" placeholder="Add Photos" name="photos1" >
+      <input type="file" accept="image/*" placeholder="Add Photos" name="photos1" required>
       <!-- <input type="file" accept="image/*" placeholder="Add Photos" name="photos2" > -->
       <!-- <input type="file" accept="image/*" placeholder="Add Photos" name="photos3" > -->
     </p>

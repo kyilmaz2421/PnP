@@ -13,7 +13,7 @@ $usernamePerson = $_SESSION['login_user'];
 if(isset($_SERVER['REQUEST_METHOD'])) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        try{ 
+        try{
             $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -22,7 +22,7 @@ if(isset($_SERVER['REQUEST_METHOD'])) {
             $username = $_SESSION['login_user'];
             // The sql query string:
             $sql = "SELECT * FROM Bookings WHERE UsernameClient = '$username'";
-            
+
             // Get result set from db
             $result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
@@ -52,7 +52,7 @@ function myprint_r($result) {
             // Make the counter not null, so that we don't show the "no bookings" message:
             $counter ++;
 
-            try{ 
+            try{
                 $servername = "localhost";
                 $usernamedb = "root";
                 $password = "pnpdbpassword1";
@@ -71,31 +71,34 @@ function myprint_r($result) {
                 exit();
             }
 
+
+            $url = "" . $place[0]["ImgUrl"] . "0.jpg";
+
             echo '
             <div id="placeImage">
-                <img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
+                <img id ="pic" src =' . $url . ' alt = "house" style="width: 25vw; height: 23vh;"/>
             </div>
             <div class="details">
-                <div id = "title" > 
-                    <strong> '. $result[$x]["BookDate"] .' </strong>  
+                <div id = "title" >
+                    <strong> '. $result[$x]["BookDate"] .' </strong>
                 </div>
-                <div> 
-                    ' . $place[0]["StreetName"] . 
+                <div>
+                    ' . $place[0]["StreetName"] .
                     '<br> Host: '. $result[$x]["UsernameOwner"] .'
                 </div>
-                <div> 
-                    $ '. $place[0]["PricePerNight"] .' CAD  per night 
+                <div>
+                    $ '. $place[0]["PricePerNight"] .' CAD  per night
                 </div>
-            </div> 
+            </div>
             <div class = "userInfo">
                 <div>
                     Rating: '. $place[0]["Rating"] .'
                 </div>
-            </div>    
+            </div>
             <br>';
 
         }
-    } 
+    }
 
     // If there were no places, give the user a message:
     if ($counter == 0) {

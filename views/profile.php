@@ -40,7 +40,9 @@
 		<!-- Back button to viewing page:  -->
 		<a href="viewingPage.php"><button id="backToView" class="backbtn"><i class="left"></i> Back To Viewing Page</button></a>
 	</div>
-	<div class="pageTitle"> My Profile
+
+	<div class="pageTitle"> My Profile</div>
+		<a href="post.php"><button id="post" style="float: right;"> Post a Place </button></a>
 </section>
 
 <div id="mainBody">

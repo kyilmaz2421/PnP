@@ -31,52 +31,59 @@ try {
 
 	    try {
 		// when we successfully insert data, redirect and start a session
-		$result = $conn->prepare($query);
-		if($result->execute($formArray)) {
-		    
-		    include("session.php");
+			$result = $conn->prepare($query);
+			if($result->execute($formArray)) {
 
-		    // start the session for the user
-		    // There is similar code in sign_up_page.php	
-		    // Populate the session variables with respective user entries from the $_POST
-		    // array
+		    	include("session.php");
+				// make directory for user files
+				// windows
+				$userImgDir = 'C:\\xampp\\htdocs\\pnp\\place_images\\' . $part1[0] . '\\';
+				// production/linux
+				// $userImgDir = /var/www/html/pnp
+				// OSX dev with xampp
+				// $userImgDir = /Applications/XAMPP/htdocs/pnp/place_images/
+				echo (mkdir($userImgDir));
 
-		    $_SESSION['login_user'] = $part1[0];
-		    $_SESSION['login_firstName'] = $part1[1];
-		    $_SESSION['login_lastName'] = $part1[2];
-		    $_SESSION['login_email'] = $part1[3];
-		    $_SESSION['login_phoneNumber]'] = $part2[1];
+		    	// start the session for the user
+		    	// There is similar code in sign_up_page.php
+		    	// Populate the session variables with respective user entries from the $_POST
+		    	// array
 
-		    // We formart the number nicely so that it is easily to print to the webpage
-		    $_SESSION['login_phoneNumFormatted'] = substr(( $_SESSION['login_phoneNumber']), 0,3) .
-								'-' . substr(( $_SESSION['login_phoneNumber']), 3,3) .
-							       	'-' . substr(( $_SESSION['login_phoneNumber']), 6,4);
+		    	$_SESSION['login_user'] = $part1[0];
+		    	$_SESSION['login_firstName'] = $part1[1];
+		    	$_SESSION['login_lastName'] = $part1[2];
+		    	$_SESSION['login_email'] = $part1[3];
+		    	$_SESSION['login_phoneNumber]'] = $part2[1];
 
-		    $_SESSION['login_gender'] = $part2[2];
+		    	// We formart the number nicely so that it is easily to print to the webpage
+		    	$_SESSION['login_phoneNumFormatted'] = substr(( $_SESSION['login_phoneNumber']), 0,3) .
+									'-' . substr(( $_SESSION['login_phoneNumber']), 3,3) .
+							       		'-' . substr(( $_SESSION['login_phoneNumber']), 6,4);
 
-		    if($_SESSION['login_gender'] === 1) {
-		    	$_SESSION['login_genderFormatted'] = "Female";
-		    } else {
-		    	$_SESSION['login_genderFormatted'] = 'Male';
-		    }
-		    
-		    $_SESSION['login_description'] = $part2[3];
+		    				$_SESSION['login_gender'] = $part2[2];
 
-		    // To properly format the Birthdate:
-		    $_SESSION['login_birthdate'] = $part2[4];
+		    	if($_SESSION['login_gender'] === 1) {
+		    		$_SESSION['login_genderFormatted'] = "Female";
+		    	} else {
+		    		$_SESSION['login_genderFormatted'] = 'Male';
+		    	}
 
-		    $_SESSION['login_bdayFormatted'] = substr(( $_SESSION['login_birthdate']), 0,4) .
-							'/' . substr(( $_SESSION['login_birthdate']), 4,2) .
-						       	'/' . substr(( $_SESSION['login_birthdate']), 6,2);
+		    	$_SESSION['login_description'] = $part2[3];
 
-				
-		    header('Location: http://localhost/pnp/views/viewingPage.php');
+		    	// To properly format the Birthdate:
+		    	$_SESSION['login_birthdate'] = $part2[4];
 
-		    exit();
-		} 
+		    	$_SESSION['login_bdayFormatted'] = substr(( $_SESSION['login_birthdate']), 0,4) .
+								'/' . substr(( $_SESSION['login_birthdate']), 4,2) .
+						       		'/' . substr(( $_SESSION['login_birthdate']), 6,2);
+
+
+		    		//	header('Location: http://localhost/pnp/views/viewingPage.php');
+
+		    	exit();
+			}
 	    } catch (PDOException $e) {
-
-		echo ($e);
+			echo ($e);
 	    }
     }
 catch(PDOException $e)
