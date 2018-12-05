@@ -99,19 +99,20 @@ $usernamePerson = $_SESSION['login_user'];
                     return "Yes";
                 }
             }
-
             // Displays the places search result from the filters the user specified
           for($x=0, $n=count($result); $x<$n; $x++){
+
+              $url = strval($result[$x]["ImgUrl"]) . "0.jpg";
               echo '<section id="placeContainer"
                 <div id="placeImage">
-                    <img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
+                    <img id ="pic" src = ' . $url . ' alt = "house"/>
                     </div>
                 <div id="details">
                             <div id = "title" > <strong> '. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Desciption"] .' </strong>  </div>
                             <br>
                         <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
                         <br>
-                        
+
                         <div id= "pets"> Pets Permitted: '. displayYN($result[$x]["Pets"]) .'  </div>
                         <div id= "alcohol"> Alcohol Permitted: '. displayYN($result[$x]["Alcohol"]) .'  </div>
                         <div id= "wheelchair"> Wheelchair Accessible: '. displayYN($result[$x]["Wheelchair"]) .'  </div>
