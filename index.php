@@ -81,7 +81,7 @@
         <input type="text" placeholder="Last Name" name="lastname" required>
 
         <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Create A Username" name="username" required>
+        <input type="text" placeholder="Create A Username" name="username" id="usernameBox" required >
 
         <label for="email"><b>Email</b></label>
         <input type="email" placeholder="Enter Email" name="email" required>
@@ -89,11 +89,11 @@
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
 
-        <label for="bday"><b>Birthday</b></label> 
-        <input type="date" name="bday" required> 
+        <label for="bday"><b>Birthday</b></label>
+        <input type="date" name="bday" required>
 
-        <label for="tel"><b>Telephone Number</b></label> 
-        <input type="tel" placeholder="Enter Phone Number" name="tel" required> 
+        <label for="tel"><b>Telephone Number</b></label>
+        <input type="tel" placeholder="Enter Phone Number" name="tel" required>
 
         <label for="gender"><b>Gender</b></label> <br>
         <form action="">
@@ -135,7 +135,7 @@
                         window.location = 'http://localhost/pnp/views/viewingPage.php';
                       }
                       else {
-                          alert(data);
+                          // alert(data);
                          $(".clearfix").after("<h3 style='color: red;'>Invalid Credentials</h3>");
                       }
                    }
@@ -145,3 +145,39 @@
 </body>
 </html>
 
+
+<script>
+  var uniqueUsername = document.getElementById("usernameBox");
+
+  uniqueUsername.addEventListener("focusin", myFocusFunction);
+  uniqueUsername.addEventListener("focusout", myBlurFunction);
+
+  function myFocusFunction() {
+    // Nothing happens when you click on input box.
+  }
+
+  function myBlurFunction() {
+    $.ajax({
+         type: "POST",
+         url: 'php/checkUniqueUsername.php',
+         data: {
+            username: $('#usernameBox').val(),
+          },
+         success: function(data)
+         {
+            // alert(username.value);
+            if (data === 'ValidCredentials') {
+              $(".clearfix").after("<div style='color: red;'></div>");
+              // alert(data);
+            }
+            else if (data === 'InvalidCredentials'){
+              // TO DO: Make sure don't let the user keep going!
+              // alert(data);
+              $(".clearfix").after("<div style='color: red;'>This username is already taken :(</div>");
+              // document.getElementById("usernameBox").innerHTML = "This username is already taken :(";
+            }
+         }
+    });
+
+  }
+</script>
