@@ -44,3 +44,16 @@ booking/post
     needs to query the images
 debug session
 split work
+
+
+
+
+TONIGHT
+correctly display imgs on view page from images_places directory.   DONE
+post images to a place
+    when posting
+        upload img to directory
+        mkdir of the place id for that user
+        change it's name so that it is numbered
+        add to the photo id directory
+        view place with photo on display page

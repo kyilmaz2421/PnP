@@ -1,10 +1,4 @@
 <?php
-// session_start();
-	include("../php/session.php");
-	echo ($_SESSION['login_user']);
-?>
-
-<?php
 $servername = "localhost";
 $usernamedb = "root";
 $password = "pnpdbpassword1";
@@ -15,16 +9,36 @@ try {
 	    $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
 	    // set the PDO error mode to exception
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	    //echo "Connected successfully "; 
+	    //echo "Connected successfully ";
 		$placeId = randomGen();
+		$imgDir = generateImgUrl($usernamePerson, $placeId);
 		//echo $placeId;
-	    $sql = "INSERT INTO Places VALUES ('{$usernamePerson}', '{$placeId}', '{$_POST["adr"]}','{$_POST["aptNum"]}','{$_POST["city"]}','{$_POST["province"]}','{$_POST["country"]}','{$_POST["postalCode"]}','{$_POST["spaceType"]}','{$_POST["description"]}','{$_POST["price"]}','0','0','{$_POST["pets"]}', '{$_POST["alcohol"]}','{$_POST["wheelchair"]}','{$_POST["smoking"]}','{$_POST["outdoors"]}')";
-	    
+	    $sql = "INSERT INTO Places VALUES ('{$usernamePerson}',
+			 								'{$placeId}',
+											 '{$_POST["adr"]}',
+											 '{$_POST["aptNum"]}',
+											 '{$_POST["city"]}',
+											 '{$_POST["province"]}',
+											 '{$_POST["country"]}',
+											 '{$_POST["postalCode"]}',
+											 '{$_POST["spaceType"]}',
+											 '{$_POST["description"]}',
+											 '{$_POST["price"]}',
+											 '0',
+											 '0',
+											 '{$_POST["pets"]}',
+											 '{$_POST["alcohol"]}',
+											 '{$_POST["wheelchair"]}',
+											 '{$_POST["smoking"]}',
+											 '{$_POST["outdoors"]}',
+											 '{$imgDir}')";
+
 		$conn->exec($sql);
 
 		header('Location: http://localhost/pnp/views/postSuccess.php');
+		echo ($sql);
 		exit();
-	   
+
     }
 catch(PDOException $e)
     {
@@ -34,13 +48,20 @@ catch(PDOException $e)
 		$chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$length = strlen($chars);
 		$random = "";
-	
+
 		for ($i = 0; $i < 50; $i++) {
 			$random = $random . $chars[rand(0, $length - 1)];
 		}
-	
+
 		return $random;
 	}
 
+	/*
+	 * purpose: generate the url for the imgs the user uploads
+	 * params: none
+	 */
+	 function generateImgUrl($uname, $pId) {
+		return "http://localhost/pnp/place_images/" . $uname . "/" . $pId . "/";
+	 }
 
 ?>

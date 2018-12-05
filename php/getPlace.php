@@ -119,7 +119,7 @@ $usernamePerson = $_SESSION['login_user'];
                     </div>
 
                     <div id = "details">
-                        <div id = "title" > <strong>'. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Desciption"] .'</strong>  </div>
+                        <div id = "title" > <strong>'. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Description"] .'</strong>  </div>
                         <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
                         <br>
 

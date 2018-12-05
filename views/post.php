@@ -1,10 +1,15 @@
-<?php 
-    include("../php/sign_in_page.php");
+<?php
 
-    // If no session is started, redirect to index page:
-    if(!isset($_SESSION['login_user'])) {
-        header("Location: ../index.php");
-    }
+	include("../php/sign_in_page.php");
+    
+	$_SESSION['redirect'] = FALSE; //for debugging purposes
+
+	// If no session is started, redirect to index page:
+	if(!isset($_SESSION['login_user'])) {
+        echo($_SERVER['login_user']);
+//		header("Location: ../index.php");
+		$_SESSION['redirect'] = TRUE; //for debugging purposes
+	}
 ?>
 
 
@@ -54,7 +59,7 @@ form.submit( function (ev) {
 });
 
 $("#submit").click();
-});   
+});
 </script>
 <body>
 <!-- <nav>
@@ -64,7 +69,7 @@ $("#submit").click();
   <h1>PnP</h1>
   <!-- <p> - - - Place n Party</p> -->
 
-  <div style="float: right"> 
+  <div style="float: right">
     <?php echo ($_SESSION['login_lastName'])?>,  <?php echo ($_SESSION['login_firstName']) ?>
     <a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a>
   </div>
@@ -78,12 +83,12 @@ $("#submit").click();
 <!-- NEW HEADER (CONSISTENT W/ OTHER PAGES): -->
 
     <section class="navBar">
-        <div class="leftRightNavBar"> 
+        <div class="leftRightNavBar">
             <!-- <button id="backToView" class="backbtn"><i class="left"></i> Cancel</button> -->
             <a href="viewingPage.php"><button type="button" class="cancelbtn">Cancel</button></a>
         </div>
         <div class="pageTitle">Post A Place</div>
-        <div class="leftRightNavBar" style="text-align: right"> 
+        <div class="leftRightNavBar" style="text-align: right">
             <button type="submit" class="postbtn">Submit Place</button>
         </div>
     </section>
@@ -95,17 +100,17 @@ $("#submit").click();
       <input type="file" accept="image/*" placeholder="Add Photos" name="photos1" >
       <input type="file" accept="image/*" placeholder="Add Photos" name="photos2" >
       <input type="file" accept="image/*" placeholder="Add Photos" name="photos3" >
-    </p> 
-    
+    </p>
+
     <p>
         <label for="adr"><b>Address: </b></label>
         <input type="text" placeholder="Address" name="adr" required>
-    </p> 
+    </p>
 
     <p>
         <label for="aptNum"><b>Apartment Number: </b></label>
         <input type="number" placeholder="Apartment Number" name="aptNum">
-    </p>   
+    </p>
 
     <p>
       <label for="city"><b>City: </b></label>

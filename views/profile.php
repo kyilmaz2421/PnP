@@ -25,7 +25,7 @@
   <h1>PnP</h1>
   <!-- <p>  Place n Party</p> -->
 
-  <div style="float: right"> 
+  <div style="float: right">
   	<?php echo ($_SESSION['login_lastName'])?>,  <?php echo ($_SESSION['login_firstName']) ?>
 	<a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a>
   </div>
@@ -36,11 +36,11 @@
 <body>
 
 <section class="navBar">
-	<div class="leftRightNavBar"> 
+	<div class="leftRightNavBar">
 		<!-- Back button to viewing page:  -->
 		<a href="viewingPage.php"><button id="backToView" class="backbtn"><i class="left"></i> Back To Viewing Page</button></a>
 	</div>
-	<div class="pageTitle"> My Profile 
+	<div class="pageTitle"> My Profile
 </section>
 
 <div id="mainBody">
@@ -51,7 +51,7 @@
 			<h3 style="font-size: 31px">About You</u></h3>
 			<p style="font-size: 19px">
 				<!-- Show user all of their account info: -->
-				<div style="width: 40%; text-align: right; display: inline-block; font-size: 19px"> 
+				<div style="width: 40%; text-align: right; display: inline-block; font-size: 19px">
 					<b>Username:</b> <br>
 					<b>First Name:</b> <br>
 					<b>Last Name:</b> <br>
@@ -61,7 +61,7 @@
 					<b>Birthdate:</b> <br>
 					<b>About You:</b> <br>
 				</div>
-				<div style="width: 40%; text-align: left; display: inline-block; font-size: 19px"> 
+				<div style="width: 40%; text-align: left; display: inline-block; font-size: 19px">
 					<?php echo ($_SESSION['login_user']) ?> <br>
 					<?php echo ( $_SESSION['login_firstName']) ?> <br>
 					<?php echo ( $_SESSION['login_lastName']) ?> <br>
@@ -69,21 +69,21 @@
 					<?php echo ( $_SESSION['login_phoneNumFormatted']) ?> <br>
 					<?php echo ( $_SESSION['login_genderFormatted'])?> <br>
 					<?php echo ( $_SESSION['login_bdayFormatted']) ?> <br>
-					<?php echo ( $_SESSION['login_description']) ?> 
+					<?php echo ( $_SESSION['login_description']) ?>
 				</div>
 			</p>
 		</div>
 		<!-- Your Places box: -->
 		<div style="border-top:solid 1px">
 			<h3 style="font-size: 31px">Your Places</h3>
-			<div id="myPlaces"> 
+			<div id="myPlaces">
 			</div>
 		</div>
 	</div>
 
 	<!-- Right half of main section -->
 	<div id="half">
-		
+
 		<div class="tab">
 		  <button class="tablinks" onclick="openView(event, 'PastBookings')" id="defaultOpen">Past Bookings</button>
 		  <button class="tablinks" onclick="openView(event, 'UpcomingBookings')">Upcoming Bookings</button>
@@ -156,14 +156,14 @@
 				}
 			}
 		});
-		 
+
 		$("#myPlaces").load("php/getMyPlaces.php", {query});
 		$("#UpcomingBookings").load("php/getUpcomingBookings.php", {query});
 		$("#PastBookings").load("php/getPastBookings.php", {query});
 	}
 
 	// function fillMyPlaces() {
-		
+
 	// }
 
 	function openView(evt, toView) {
