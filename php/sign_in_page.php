@@ -55,6 +55,7 @@
 			}
 
 			// redirect user if they are in db
+			// Set all session variables with their info: 
 			if($isUser && $hasPass) {
 				$_SESSION['login_user'] = $unameEntry;
 				$_SESSION['login_firstName'] = $db->query( "SELECT FirstName FROM Users WHERE Username='$unameEntry';" )->fetchAll(PDO::FETCH_COLUMN)[0];

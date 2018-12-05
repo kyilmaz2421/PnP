@@ -29,7 +29,7 @@ try {
         <title>Book</title>
         
         <link rel="stylesheet" type="text/css" href="../css/general.css">
-        <link rel="stylesheet" type="text/css" href="../css/view.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         <header>
         <h1>PnP</h1>
         <!-- <p>  Place n Party </p> -->
@@ -38,12 +38,11 @@ try {
         '.$_SESSION['login_lastName'].' ,  '.$_SESSION['login_firstName'].'
           <a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a>
         </div>
-        <!-- <a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a> -->
       
       </header>
       <div>
       <section class = "navBar">
-          <a href="viewingPage.php"><button id="post"> Cancel </button></a>
+          <a id="cancel" href="viewingPage.php"><button id="post"> Cancel </button></a>
       </section>
       </div>
 
