@@ -59,3 +59,15 @@ post images to a place
         view place with photo on display page
 
         fix post.php so that only correct info can be posted no incorrect db entries
+
+
+index.php
+no duplicate Usernames
+
+viewing page css
+filter shows on resize
+
+    populate db with places and photos for users?
+
+deploy to gemini
+no duplicate bookings???
