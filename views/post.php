@@ -1,7 +1,7 @@
 <?php
 
 	include("../php/sign_in_page.php");
-    
+
 	$_SESSION['redirect'] = FALSE; //for debugging purposes
 
 	// If no session is started, redirect to index page:
@@ -76,7 +76,7 @@ $("#submit").click();
 
 </header>
 
-<form action="../php/create_place.php" method="post">
+<form action="../php/create_place.php" method="post" enctype="multipart/form-data">
 <!-- <div>
     <h1>Post A Place</h1>
 </div> -->
@@ -98,8 +98,8 @@ $("#submit").click();
     <p>
       <label for="photos"><b>Photos: </b></label>
       <input type="file" accept="image/*" placeholder="Add Photos" name="photos1" >
-      <input type="file" accept="image/*" placeholder="Add Photos" name="photos2" >
-      <input type="file" accept="image/*" placeholder="Add Photos" name="photos3" >
+      <!-- <input type="file" accept="image/*" placeholder="Add Photos" name="photos2" > -->
+      <!-- <input type="file" accept="image/*" placeholder="Add Photos" name="photos3" > -->
     </p>
 
     <p>
