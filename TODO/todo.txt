@@ -63,8 +63,8 @@ post images to a place
 
 index.phpo
 
-update db
 no duplicate Usernames
+no duplicate bookings - check if the booking alread exists
 
 viewing page css
 filter shows on resize

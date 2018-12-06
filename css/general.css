@@ -171,3 +171,8 @@ i {
     width: 100%;
   }
 }
+
+#unameTaken {
+    display: none;
+    color: red;
+}
