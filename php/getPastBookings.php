@@ -71,9 +71,10 @@ function myprint_r($result) {
                 exit();
             }
 
+            $url = "" . $place[0]["ImgUrl"] . "0.jpg";
             echo '
             <div id="placeImage">
-                <img id ="pic" src = "http://localhost/pnp/img/house.jpeg" alt = "house"/>
+                  <img id ="pic" src = ' . $url . ' alt = "house"/>
             </div>
             <div class="details">
                 <div id = "title" > 
