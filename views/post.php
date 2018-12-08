@@ -180,7 +180,7 @@ $("#submit").click();
 
     <p>
             <label for="description"><b>Brief Description: </b></label>
-            <input type="text" placeholder="Brief Description" name="description" style = "width: 400px; height: 100px; padding-top: 50 px;" required>
+            <input type="text" placeholder="Brief Description" maxlength="40" name="description" style = "width: 400px; height: 100px; padding-top: 50 px; overflow: scroll;" required>
     </p>
 
     <div class="clearfix">
