@@ -25,7 +25,7 @@ try {
 		$conn->exec($sql);
 
 		echo "<script type='text/javascript'>alert('Your booking has been succesfully confirmed');</script>";
-		header('Location: http://localhost/pnp/views/viewingPage.php');
+		header('Location: http://34.213.205.49/pnp/views/viewingPage.php');
 		exit();	
 
 // 	    $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);

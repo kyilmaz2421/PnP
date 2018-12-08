@@ -135,7 +135,7 @@ $usernamePerson = $_SESSION['login_user'];
                         </div>
                         <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD /night </div>
                         <br>
-                        <form action="http://localhost/pnp/views/book.php" method="post">
+                        <form action="http://34.213.205.49/pnp/views/book.php" method="post">
                             <button type="submit" id = "book"> Book </button> </ul>
                               <input type="hidden" name="placeId" value="'. $result[$x]["PlaceID"] .'">
                               <input type="hidden" name="owner" value="'. $result[$x]["Username"] .'">

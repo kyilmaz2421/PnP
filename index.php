@@ -23,9 +23,12 @@
         session_unset();
     }
 
-    if($_SESSION['redirect'] == TRUE){
-        echo "You must login before accessing the page you tried to access.";
-    }
+	if(isset($_SESSION['redirect']))
+	{
+	    if($_SESSION['redirect'] == TRUE){
+	        echo "You must login before accessing the page you tried to access.";
+	    }
+	}
 
 ?>
 <!DOCTYPE html>
@@ -132,7 +135,7 @@
                    success: function(data)
                    {
                       if (data === 'ValidCredentials') {
-                        window.location = 'http://localhost/pnp/views/viewingPage.php';
+                        window.location = 'http://34.213.205.49/pnp/views/viewingPage.php';
                       }
                       else {
                           // alert(data);

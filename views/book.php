@@ -52,7 +52,7 @@ try {
        '.$_POST['booker'].' Please confirm your booking of '.$_POST['owner'].'\'s place on '.$_POST['bookDate'].'   
        </p>
 
-        <form method="POST" action="http://localhost/pnp/php/book_place.php">     
+        <form method="POST" action="http://34.213.205.49/pnp/php/book_place.php">     
             <input type="hidden" name="placeId" value="'. $placeId .'">
             <input type="hidden" name="owner" value="'.$_POST['owner'].'">
             <input  type="hidden"name="booker" value="'.$_POST['booker'].'">

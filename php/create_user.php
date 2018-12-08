@@ -37,12 +37,15 @@ try {
 		    	include("session.php");
 				// make directory for user files
 				// windows
-				$userImgDir = 'C:\\xampp\\htdocs\\pnp\\place_images\\' . $part1[0] . '\\';
+				//$userImgDir = 'C:\\xampp\\htdocs\\pnp\\place_images\\' . $part1[0] . '\\';
 				// production/linux
-				// $userImgDir = /var/www/html/pnp
+				 $userImgDir = '/var/www/html/pnp/place_images/' . $part1[0] . '/';
 				// OSX dev with xampp
 				// $userImgDir = /Applications/XAMPP/htdocs/pnp/place_images/
-				//echo (mkdir($userImgDir));
+				//print_r($part1[0]);
+				echo($userImgDir);
+				echo '<br>';
+				echo (mkdir($userImgDir, 0775, true));
 
 		    	// start the session for the user
 		    	// There is similar code in sign_up_page.php
@@ -76,7 +79,7 @@ try {
 		    	$_SESSION['login_bdayFormatted'] = str_replace("-", "/", $_SESSION['login_birthdate']);
 
 
-		    	header('Location: http://localhost/pnp/views/viewingPage.php');
+		    	header('Location: http://34.213.205.49/pnp/views/viewingPage.php');
 
 		    	exit();
 			}

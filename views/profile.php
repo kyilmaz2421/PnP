@@ -119,7 +119,7 @@
 		// Ajax call for the My Places sections of the Profile page:
 		$.ajax({
 		  type: 'POST',
-		  url: 'http://localhost/pnp/php/getMyPlaces.php',
+		  url: 'http://34.213.205.49/pnp/php/getMyPlaces.php',
 		//   data: query,
 		  success: function (response) {
 		   // We get the element having id of display_info and put the response inside it
@@ -133,7 +133,7 @@
 		// Ajax call for the Upcoming Bookings sections of the Profile page:
 		$.ajax({
 		  type: 'POST',
-		  url: 'http://localhost/pnp/php/getUpcomingBookings.php',
+		  url: 'http://34.213.205.49/pnp/php/getUpcomingBookings.php',
 		//   data: query,
 		  success: function (response) {
 		   // We get the element having id of display_info and put the response inside it
@@ -147,7 +147,7 @@
 		// Ajax call for the Past Bookings sections of the Profile page:
 		$.ajax({
 		  type: 'POST',
-		  url: 'http://localhost/pnp/php/getPastBookings.php',
+		  url: 'http://34.213.205.49/pnp/php/getPastBookings.php',
 		//   data: query,
 		  success: function (response) {
 		   // We get the element having id of display_info and put the response inside it

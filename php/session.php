@@ -8,7 +8,7 @@
 
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	// query db if it has user's entries
+	// query db if it has User's entries
 	$sql1 = "SELECT * FROM Users WHERE Username='"  . $user_check . "'";
 
 	$dbUsername = $db->query($sql1)->fetchAll(PDO::FETCH_COLUMN);

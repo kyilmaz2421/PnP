@@ -29,10 +29,13 @@ try {
 
 		$rootPath = __DIR__; // gets the root of the current project from from C:\ or /
 		//$uploaddir = "" . $rootPath . '/place_images/' . $usernamePerson . '/' . $placeId . '/';
-		$uploaddir = 'C:\\xampp\\htdocs\\pnp\\place_images\\' . $usernamePerson . '\\' . $placeId . '\\';
+		//$uploaddir = 'C:\\xampp\\htdocs\\pnp\\place_images\\' . $usernamePerson . '\\' . $placeId . '\\';
+		$uploaddir = '/var/www/html/pnp/place_images/' . $usernamePerson . '/' . $placeId . '/';
 		$_FILES['photos1']['name'] = "0.jpg";
 		$uploadfile = $uploaddir . basename($_FILES['photos1']['name']);
-		mkdir($uploaddir);
+		echo '<br> dir';
+		var_dump($_FILES);
+		mkdir($uploaddir, 0775, true);	
 		move_uploaded_file($_FILES['photos1']['tmp_name'], $uploadfile);
 
 		//echo $placeId;
@@ -58,9 +61,7 @@ try {
 
 		$conn->exec($sql);
 
-		header('Location: http://localhost/pnp/views/postSuccess.php');
-		var_dump($_FILES);
-		echo ($sql);
+		//header('Location: http://34.213.205.49/pnp/views/postSuccess.php');
 		exit();
 
     }
@@ -85,7 +86,7 @@ catch(PDOException $e)
 	 * params: none
 	 */
 	 function generateImgUrl($uname, $pId) {
-		return "http://localhost/pnp/place_images/" . $uname . "/" . $pId . "/";
+		return "http://34.213.205.49/pnp/place_images/" . $uname . "/" . $pId . "/";
 	 }
 
 ?>
