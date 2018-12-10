@@ -120,7 +120,7 @@
 						<br> <input type="radio" checked="checked" name="Alcohol" value="-1"> Any
 						<li>WheelchairAccessible:
 						<br> <input type="radio" name="Wheelchair" value="1"> Yes
-						<br> <input type="radio" name="Wheelchair" value="-1"> No
+						<br> <input type="radio" name="Wheelchair" value="0"> No
 						<br> <input type="radio" checked="checked" name="Wheelchair" value="-1"> Any
 						<li>Smoking Permitted:
 						<br> <input type="radio" name="Smoking" value="1"> Yes
