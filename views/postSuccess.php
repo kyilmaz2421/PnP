@@ -50,8 +50,5 @@
 		</section>
 	</div>
 	<h1>Thank you for posting your place</h1>
-	<!-- <?php phpinfo() ?> -->
-	<?php print_r ($_FILES); ?>
-	<?php echo ($_FILES['photos1']['name']); ?>
 </body>
 </html>

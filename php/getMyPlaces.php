@@ -59,7 +59,7 @@ function myprint_r2($result) {
 		$url = (strval($result[$x]["ImgUrl"])) . "0.jpg";
         echo '
         <div id="placeImage">
-            <img id ="pic" src = ' . $url . ' alt = "house" style="width: 25vw; height 20vh;"/>
+            <img id ="pic" src = ' . $url . ' alt = "house" style="width: 25vw; height: 20vh;"/>
             </div>
                 <div class="details">
                 <div id = "title" > <strong> '. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Description"] .' </strong>  </div>
