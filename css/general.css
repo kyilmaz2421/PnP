@@ -67,7 +67,7 @@ button {
   background-color: #00cdcd;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 8px;
   border: none;
   cursor: pointer;
   opacity: 0.85;
@@ -116,12 +116,12 @@ header > p {
   padding: 14px 20px;
   background-color: #f44336;
   float: left;
-  width: 50%;
+  width: 46%;
 }
 
 .signupbtn {
   float: right;
-  width: 50%;
+  width: 46%;
 }
 
 /*Log Out button for the top of every page*/
