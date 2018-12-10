@@ -31,13 +31,15 @@ try {
 		//$uploaddir = "" . $rootPath . '/place_images/' . $usernamePerson . '/' . $placeId . '/';
 		//$uploaddir = 'C:\\xampp\\htdocs\\pnp\\place_images\\' . $usernamePerson . '\\' . $placeId . '\\';
 		$uploaddir = '/var/www/html/pnp/place_images/' . $usernamePerson . '/' . $placeId . '/';
+		print_r($_FILES);
+		echo '<br>';
 		$_FILES['photos1']['name'] = "0.jpg";
 		$uploadfile = $uploaddir . basename($_FILES['photos1']['name']);
 		echo '<br> dir';
-		var_dump($_FILES);
+		print_r($_FILES);
 		mkdir($uploaddir, 0775, true);	
 		move_uploaded_file($_FILES['photos1']['tmp_name'], $uploadfile);
-
+		//phpinfo();
 		//echo $placeId;
 	    $sql = "INSERT INTO Places VALUES ('{$usernamePerson}',
 			 								'{$placeId}',
@@ -61,7 +63,7 @@ try {
 
 		$conn->exec($sql);
 
-		//header('Location: http://34.213.205.49/pnp/views/postSuccess.php');
+		header('Location: http://34.213.205.49/pnp/views/postSuccess.php');
 		exit();
 
     }
