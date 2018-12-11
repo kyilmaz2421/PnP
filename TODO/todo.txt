@@ -60,6 +60,7 @@ post images to a place
 
         fix post.php so that only correct info can be posted no incorrect db entries
 
+<<<<<<< HEAD
 DECEMBER 8 --Alana
 Post a Place and MyProfile buttons -> margins so they don't overlap
 Log out Button width, Username margin
@@ -78,3 +79,20 @@ delete unnecessary/unclean code
 do we want to add anything to booking page? i.e. picture
 past bookings! what's the deal?
 sign up: use "date" as input type for birthday so user is forced to enter a certain way --> Right now you can enter Lalala 
+=======
+
+index.phpo
+
+no duplicate Usernames
+no duplicate bookings - check if the booking alread exists
+
+viewing page css
+filter shows on resize
+
+    populate db with places and photos for users?
+
+deploy to gemini
+
+
+no duplicate bookings???
+>>>>>>> 7bd87e5ba9ff5cfd517a6d46c1c6e238ca0b9f09

@@ -67,7 +67,7 @@ button {
   background-color: #00cdcd;
   color: white;
   padding: 14px 20px;
-  margin: 8px;
+  margin: 8px 0;
   border: none;
   cursor: pointer;
   opacity: 0.85;
@@ -78,7 +78,7 @@ button:hover {
 }
 
 header > h1 {
-  font-size: 40px; 
+  font-size: 40px;
   display: inline-block;
 }
 
@@ -170,4 +170,9 @@ i {
   .cancelbtn, .signupbtn {
     width: 100%;
   }
+}
+
+#unameTaken {
+    display: none;
+    color: red;
 }

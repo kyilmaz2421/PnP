@@ -63,7 +63,7 @@
         <input id="password" type="password" placeholder="Enter Password" name="password" required>
 
         <div class="clearfix">
-          <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+          <button id="invalidCred" type="button" class="cancelbtn" style="display: none;" disabled>Invalid username or password</button>
           <button id="signIn" type="button" class="signupbtn">Sign In</button>
         </div>
       </div>
@@ -80,7 +80,7 @@
         <label for="lastname"><b>Last Name</b></label>
         <input type="text" placeholder="Last Name" name="lastname" required>
 
-        <label for="username"><b>Username</b></label>
+        <label for="username"><b>Username</b><b id="unameTaken"> Pick a unique username to sign up!</b></label>
         <input type="text" placeholder="Create A Username" name="username" id="usernameBox" required >
 
         <label for="email"><b>Email</b></label>
@@ -93,7 +93,7 @@
         <input type="date" name="bday" required>
 
         <label for="tel"><b>Telephone Number</b></label>
-        <input type="tel" placeholder="Enter Phone Number" name="tel" required>
+        <input type="tel" placeholder="Enter Phone Number ie 5142328879" name="tel" required pattern="[0-9]{10}">
 
         <label for="gender"><b>Gender</b></label> <br>
         <form action="">
@@ -104,11 +104,11 @@
         <label for="info"><b>Tell Us A Bit About You</b></label>
         <input type="text" placeholder="Description" name="info" maxlength="100" required>
 
-        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+        <p>By creating an account you agree to our <a href="disclaimer.html" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
         <div class="clearfix">
           <!-- <button type="button" class="cancelbtn">Cancel</button> -->
-          <button id="signup-form" type="submit" class="signupbtn">Sign Up</button>
+          <button id="signup-form" type="submit" class="signupbtn" >Sign Up</button>
         </div>
       </div>
     </form>
@@ -136,7 +136,7 @@
                       }
                       else {
                           // alert(data);
-                         $(".clearfix").after("<h3 style='color: red;'>Invalid Credentials</h3>");
+                         $("#invalidCred").show();
                       }
                    }
                });
@@ -146,7 +146,8 @@
 </html>
 
 
-<script>
+<script type="text/javascript">
+
   var uniqueUsername = document.getElementById("usernameBox");
 
   uniqueUsername.addEventListener("focusin", myFocusFunction);
@@ -167,17 +168,19 @@
          {
             // alert(username.value);
             if (data === 'ValidCredentials') {
-              $(".clearfix").after("<div style='color: red;'></div>");
-              // alert(data);
+              $("#unameTaken").hide();
+              // show the sugn up button if uname unique
+              $("#signup-form").show();
             }
             else if (data === 'InvalidCredentials'){
               // TO DO: Make sure don't let the user keep going!
-              // alert(data);
-              $(".clearfix").after("<div style='color: red;'>This username is already taken :(</div>");
+              $("#unameTaken").show();
+              $("#signup-form").hide();
+
               // document.getElementById("usernameBox").innerHTML = "This username is already taken :(";
             }
          }
     });
-
   }
+
 </script>

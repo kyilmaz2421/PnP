@@ -42,7 +42,7 @@ try {
 				// $userImgDir = /var/www/html/pnp
 				// OSX dev with xampp
 				// $userImgDir = /Applications/XAMPP/htdocs/pnp/place_images/
-				echo (mkdir($userImgDir));
+				//echo (mkdir($userImgDir));
 
 		    	// start the session for the user
 		    	// There is similar code in sign_up_page.php
@@ -53,10 +53,10 @@ try {
 		    	$_SESSION['login_firstName'] = $part1[1];
 		    	$_SESSION['login_lastName'] = $part1[2];
 		    	$_SESSION['login_email'] = $part1[3];
-		    	$_SESSION['login_phoneNumber]'] = $part2[1];
+		    	$_SESSION['login_phoneNumber'] = strval($part2[1]);
 
 		    	// We formart the number nicely so that it is easily to print to the webpage
-		    	$_SESSION['login_phoneNumFormatted'] = substr(( $_SESSION['login_phoneNumber']), 0,3) .
+		    	$_SESSION['login_phoneNumFormatted'] = substr( $_SESSION['login_phoneNumber'], 0,3) .
 									'-' . substr(( $_SESSION['login_phoneNumber']), 3,3) .
 							       		'-' . substr(( $_SESSION['login_phoneNumber']), 6,4);
 
@@ -73,12 +73,10 @@ try {
 		    	// To properly format the Birthdate:
 		    	$_SESSION['login_birthdate'] = $part2[4];
 
-		    	$_SESSION['login_bdayFormatted'] = substr(( $_SESSION['login_birthdate']), 0,4) .
-								'/' . substr(( $_SESSION['login_birthdate']), 4,2) .
-						       		'/' . substr(( $_SESSION['login_birthdate']), 6,2);
+		    	$_SESSION['login_bdayFormatted'] = str_replace("-", "/", $_SESSION['login_birthdate']);
 
 
-		    		//	header('Location: http://localhost/pnp/views/viewingPage.php');
+		    	header('Location: http://localhost/pnp/views/viewingPage.php');
 
 		    	exit();
 			}
