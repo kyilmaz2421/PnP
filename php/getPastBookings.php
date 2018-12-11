@@ -94,7 +94,16 @@ function myprint_r($result) {
             </div>
             <div class = "userInfo">
                 <div>
-                    Rating: '. $place[0]["Rating"] .'
+                <form id="rate" method="post" action="../php/set_rating.php">
+                    Rate the Party Experience: 
+						<li style = "display: inline"><input type="radio" name="rating" value="1"> 1</li>
+						<li style="display: inline"><input type="radio" name="rating" value="2"> 2</li>
+						<li style="display: inline"><input type="radio" name="rating" value="3"> 3</li>
+						<li style="display: inline"><input type="radio" name="rating" value="4"> 4</li>
+                        <li style="display: inline"><input type="radio" checked = "checked" name="rating" value="5"> 5</li>
+                        <input type="hidden" name="placeId" value="'. $placeID .'">
+                        <button id="submit" type="submit">Rate</button>
+                </form>
                 </div>
             </div>
             <br>';
