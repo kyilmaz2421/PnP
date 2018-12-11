@@ -1,25 +1,28 @@
 <?php
+// Purpose: Create a users
+// Associated with: index.php
+// Authors: Eric Anderson
 $servername = "localhost";
 $usernamedb = "root";
 $password = "pnpdbpassword1";
 
 
 try {
-
 	    $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
 	    // set the PDO error mode to exception
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	     	$sql = "INSERT INTO Places VALUES ('{$_POST["username"]}', '{$_POST["firstname"]}', '{$_POST["lastname"]}','{$_POST["email"]}','{$_POST["password"]}','{$_POST["tel"]}','0','0','{$_POST["gender"]}','{$_POST["info"]}','{$_POST["bday"]}','0')";
+	    $sql = "INSERT INTO Places VALUES ('{$_POST["username"]}', '{$_POST["firstname"]}', '{$_POST["lastname"]}','{$_POST["email"]}','{$_POST["password"]}','{$_POST["tel"]}','0','0','{$_POST["gender"]}','{$_POST["info"]}','{$_POST["bday"]}','0')";
 
 	    // Prepare sql query
 	    $query0 = "INSERT INTO Users";
-	    $query1 = "(Username, FirstName, LastName,	    Email, Password, Phone,	Gender, Description, Birthdate)";
+	    $query1 = "(Username, FirstName, LastName,	    Email, Password, Phone,		Gender, Description, Birthdate)";
 	    $query2 = "VALUES (?, ?, ?,			    ?, ?, ?,			?, ?, ?)";
 
+		// Concatenate query
 	    $query = $query0 . $query1 . $query2;
 
-	    // Get post variables
+	    // Get post variables and so we can populate the 'VALUES' in the query
 	    // Following syntax for readability
 	    $formArray = array();
 	    $part1 = array($_POST['username'], $_POST['firstname'], $_POST['lastname'], $_POST['email']);
@@ -27,10 +30,8 @@ try {
 
 	    $formArray = array_merge($part1, $part2);
 
-
-
 	    try {
-		// when we successfully insert data, redirect and start a session
+			// when we successfully insert data, we redirect and start a session
 			$result = $conn->prepare($query);
 			if($result->execute($formArray)) {
 
@@ -39,10 +40,9 @@ try {
 				// windows
 				//$userImgDir = 'C:\\xampp\\htdocs\\pnp\\place_images\\' . $part1[0] . '\\';
 				// production/linux
-				 $userImgDir = '/var/www/html/pnp/place_images/' . $part1[0] . '/';
+			 	$userImgDir = '/var/www/html/pnp/place_images/' . $part1[0] . '/';
 				// OSX dev with xampp
 				// $userImgDir = /Applications/XAMPP/htdocs/pnp/place_images/
-				//print_r($part1[0]);
 				echo($userImgDir);
 				echo '<br>';
 				echo (mkdir($userImgDir, 0775, true));
@@ -75,9 +75,7 @@ try {
 
 		    	// To properly format the Birthdate:
 		    	$_SESSION['login_birthdate'] = $part2[4];
-
 		    	$_SESSION['login_bdayFormatted'] = str_replace("-", "/", $_SESSION['login_birthdate']);
-
 
 		    	header('Location: http://34.213.205.49/pnp/views/viewingPage.php');
 

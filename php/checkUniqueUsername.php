@@ -1,12 +1,13 @@
-<?php 
-
+<?php
+// Purpose: Verify that we do not try to populate the db with the same USERNAME
+// Associated with: index.
+// Authors: Andrea Hyder, Eric Anderson
   include("server_config.php");
   include("session.php");
 
   ValidCredentials();
 
 	function ValidCredentials() {
-
 		// For now, assume the username has not been taken:
     	$success = true;
 
@@ -34,24 +35,14 @@
 			if (sizeof($dbUsername) === 0) {
 				$success = true;
 				echo 'ValidCredentials';
-				// echo ' & Username: ';
-
-				// echo ($unameEntry);
-			} 
-
-			else if (sizeof($dbUsername) === 1) {
+			} else if (sizeof($dbUsername) === 1) {
 				$success = false;
 				echo 'InvalidCredentials';
-				// echo ' & Username: ';
-				// echo $unameEntry;
 			}
-
 		}
-
 		catch (PDOException $e) {
 			echo $e->getMessage();
 			return $success;
 		}
-
 	}
 ?>

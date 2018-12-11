@@ -1,6 +1,9 @@
 <?php
+// Purpose: Display the users places
+// Associated with: Profile.php
+// Authors: Andrea Hyder
+
     include("../php/session.php");
-    // include("php/sign_in_page.php");
 ?>
 <?php
 $servername = "localhost";

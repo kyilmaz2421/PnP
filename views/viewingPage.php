@@ -1,9 +1,12 @@
 <?php
-	// session_start();
-	// include("../php/session.php");
+	// Purpose: Display the logged in users viewing page
+	// Associated with: getPlace.php, book.
+	// Authors, Eric Anderson, Kaan Yilmaz, Alana Ceci
+
 	include("../php/sign_in_page.php");
 	$_SESSION['redirect'] = FALSE; //for debugging purposes
-	// If no session is started, redirect to index page:
+
+	// If no session is started, redirect to index page because the user is not logged in
 	if(!isset($_SESSION['login_user'])) {
 		header("Location: ../index.php");
 		$_SESSION['redirect'] = TRUE; //for debugging purposes
@@ -134,11 +137,8 @@
 						<button id="submit" type="submit">Filter</button>
 				</section>
 	</section>
-
+	<!-- getPlace.php return values go here -->
 	<section class = "mainView" id = "main">
 	</section>
-
 </body>
-
-
 </html>

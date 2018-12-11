@@ -1,8 +1,11 @@
 <?php
-// session_start();
+    // Purpose: Query the pnpdb and return the places that match the users search
+    // Associated with viewingPage.php
+    // Authors: Eric Anderson, Alana Ceci
+    //
+
+    // retain the user's session
     include("../php/session.php");
-   // echo ($_SESSION['login_user']);
-// phpinfo();
 $servername = "localhost";
 $usernamedb = "root";
 $password = "pnpdbpassword1";
@@ -19,6 +22,7 @@ $usernamePerson = $_SESSION['login_user'];
             $wheelchair = intval($_POST["Wheelchair"]);
             $smoking = intval($_POST["Smoking"]);
             $outdoors = intval($_POST["OutdoorAccess"]);
+
         try{
 
             $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
@@ -87,6 +91,7 @@ $usernamePerson = $_SESSION['login_user'];
               No places match your search...party pooper :(
               </div> ';
              }
+
              for($k=0, $t=count($result); $k<$t; $k++){
                 $query =  "SELECT *  FROM Bookings WHERE PlaceID = '". $result[$k]["PlaceID"] . "' AND BookDate = '" . $bookDate . "' AND UsernameOwner = '" . $result[$k]["Username"] . "'";
                 $queryBooking = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
@@ -100,6 +105,7 @@ $usernamePerson = $_SESSION['login_user'];
             /*
              * purpose: displays yes or no or any for 1, 0, -1 respectively
              * $array 2d array of resultset
+             * This is a helper function form building the correct sql query
              */
             function displayYN($intVal) {
                 if($intVal === "-1") {
@@ -111,40 +117,39 @@ $usernamePerson = $_SESSION['login_user'];
                 }
             }
             // Displays the places search result from the filters the user specified
-          for($x=0, $n=count($result); $x<$n; $x++){
+            for($x=0, $n=count($result); $x<$n; $x++){
+                $url = strval($result[$x]["ImgUrl"]) . "0.jpg";
+                echo    '<section id="placeContainer"
+                            <div id="placeImage">
+                                <img id ="pic" src = ' . $url . ' alt = "house"/>
+                            </div>
 
-              $url = strval($result[$x]["ImgUrl"]) . "0.jpg";
-              echo '<section id="placeContainer"
-                <div id="placeImage">
-                    <img id ="pic" src = ' . $url . ' alt = "house"/>
-                    </div>
+                            <div id = "details">
+                            <div id = "title" > <strong>'. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Description"] .'</strong>  </div>
+                            <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
+                                <br>
 
-                    <div id = "details">
-                        <div id = "title" > <strong>'. $result[$x]["TypeOfSpace"] . ' , '. $result[$x]["Description"] .'</strong>  </div>
-                        <div> '. $result[$x]["StreetName"] . ', ' . $result[$x]["City"]  .  ',  ' .$result[$x]["Province"]. '</div>
-                        <br>
-
-                        <div id= "pets"> Pets Permitted: '. displayYN($result[$x]["Pets"]) .'  </div>
-                        <div id= "alcohol"> Alcohol Permitted: '. displayYN($result[$x]["Alcohol"]) .'  </div>
-                        <div id= "wheelchair"> Wheelchair Accessible: '. displayYN($result[$x]["Wheelchair"]) .'  </div>
-                        <div id= "smoking"> Smoking Permitted: '. displayYN($result[$x]["Smoking"]) .'  </div>
-                        <div id= "outdoors"> Outdoor Access: '. displayYN($result[$x]["OutdoorAccess"]).'  </div>
-                        <br>
-                        <div id = "rating">
-                            Hosted by '. $result[$x]["Username"] .', rated '. $result[$x]["Rating"] .'
-                        </div>
-                        <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD /night </div>
-                        <br>
-                        <form action="http://34.213.205.49/pnp/views/book.php" method="post">
-                            <button type="submit" id = "book"> Book </button> </ul>
-                              <input type="hidden" name="placeId" value="'. $result[$x]["PlaceID"] .'">
-                              <input type="hidden" name="owner" value="'. $result[$x]["Username"] .'">
-                              <input  type="hidden"name="booker" value="'. $_SESSION['login_user'] .'">
-                              <input  type="hidden" name="bookDate" value="'. $bookDate .'">
-                          </form>
-                        </div>
-                     </div>
-                </section>';
+                            <div id= "pets"> Pets Permitted: '. displayYN($result[$x]["Pets"]) .'  </div>
+                            <div id= "alcohol"> Alcohol Permitted: '. displayYN($result[$x]["Alcohol"]) .'  </div>
+                            <div id= "wheelchair"> Wheelchair Accessible: '. displayYN($result[$x]["Wheelchair"]) .'  </div>
+                            <div id= "smoking"> Smoking Permitted: '. displayYN($result[$x]["Smoking"]) .'  </div>
+                            <div id= "outdoors"> Outdoor Access: '. displayYN($result[$x]["OutdoorAccess"]).'  </div>
+                                <br>
+                            <div id = "rating">
+                                Hosted by '. $result[$x]["Username"] .', rated '. $result[$x]["Rating"] .'
+                            </div>
+                            <div id= "price"> $ '. $result[$x]["PricePerNight"] .' CAD /night </div>
+                                <br>
+                            <form action="http://34.213.205.49/pnp/views/book.php" method="post">
+                                <button type="submit" id = "book"> Book </button> </ul>
+                                <input type="hidden" name="placeId" value="'. $result[$x]["PlaceID"] .'">
+                                <input type="hidden" name="owner" value="'. $result[$x]["Username"] .'">
+                                <input  type="hidden"name="booker" value="'. $_SESSION['login_user'] .'">
+                                <input  type="hidden" name="bookDate" value="'. $bookDate .'">
+                            </form>
+                            </div>
+                            </div>
+                        </section>';
            }
         } catch(PDOException $e) {
             echo $e;

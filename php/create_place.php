@@ -1,5 +1,7 @@
 <?php
-
+// Purpose: Create a place for the logged in user
+// Associated with viewingPage.php profile.php
+// Authors: Kaan Yilmaz Eric Anderson
 	include("../php/sign_in_page.php");
 	$_SESSION['redirect'] = FALSE; //for debugging purposes
 
@@ -13,9 +15,9 @@ $servername = "localhost";
 $usernamedb = "root";
 $password = "pnpdbpassword1";
 $usernamePerson = $_SESSION['login_user'];
+
 try {
-
-
+		// DB operations
 	    $conn = new PDO("mysql:host=$servername;dbname=pnpdb", $usernamedb, $password);
 	    // set the PDO error mode to exception
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -25,22 +27,17 @@ try {
 		$placeId = strtoupper($placeId);
 
 		$imgDir = generateImgUrl($usernamePerson, $placeId);
-		// execute a bash script create a dir for this file and put the user's file in it after renameing the file
 
-		$rootPath = __DIR__; // gets the root of the current project from from C:\ or /
+		// This block creates the directory for the place the user is posting
 		//$uploaddir = "" . $rootPath . '/place_images/' . $usernamePerson . '/' . $placeId . '/';
 		//$uploaddir = 'C:\\xampp\\htdocs\\pnp\\place_images\\' . $usernamePerson . '\\' . $placeId . '\\';
 		$uploaddir = '/var/www/html/pnp/place_images/' . $usernamePerson . '/' . $placeId . '/';
-		print_r($_FILES);
-		echo '<br>';
 		$_FILES['photos1']['name'] = "0.jpg";
 		$uploadfile = $uploaddir . basename($_FILES['photos1']['name']);
-		echo '<br> dir';
-		print_r($_FILES);
-		mkdir($uploaddir, 0775, true);	
+		mkdir($uploaddir, 0775, true);
 		move_uploaded_file($_FILES['photos1']['tmp_name'], $uploadfile);
-		//phpinfo();
-		//echo $placeId;
+
+		// prepare query
 	    $sql = "INSERT INTO Places VALUES ('{$usernamePerson}',
 			 								'{$placeId}',
 											 '{$_POST["adr"]}',
@@ -71,6 +68,10 @@ catch(PDOException $e)
     {
     	echo "Connection failed: " . $e->getMessage();
 	}
+
+	/*
+	 * Function to generate a unique place id
+	 */
 	function randomGen() {
 		$chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$length = strlen($chars);

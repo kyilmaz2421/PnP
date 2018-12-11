@@ -1,3 +1,6 @@
+/* styles for profile page */
+/* Authors: Andrea Hyder */
+
 h2 {
   	margin: 0px;
 }
@@ -51,7 +54,7 @@ body{
 
 #half {
 	width: 45%;
-	display: inline-block; 
+	display: inline-block;
 	vertical-align: top;
 }
 
@@ -62,4 +65,3 @@ body{
 #yourPlaces {
 
 }
-

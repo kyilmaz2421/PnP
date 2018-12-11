@@ -1,27 +1,28 @@
 <?php
-  // include("php/session.php");
-  include("php/sign_in_page.php");
-  // echo (isset($_SESSION['login_user']));
-  // include("php/server_config.php");
+    // Purpose: Landing page for PnP
+    // Associated with sign_in_page.php and create_user.php
+    // Authors: Eric Anderson, Andrea Hyder, Alana Ceci
 
+    // manage the users sessions
+    include("php/sign_in_page.php");
 
-  if(isset($_SESSION['logout']) && $_SESSION['logout'] == TRUE){
-        unset($_SESSION['login_user']);
-        unset($_SESSION['login_firstName']);
-        unset($_SESSION['login_lastName']);
-        unset($_SESSION['login_email']);
-        unset($_SESSION['login_phoneNumFormatted']);
-        unset($_SESSION['login_phoneNumber']);
-        unset($_SESSION['login_genderFormatted']);
-        unset($_SESSION['login_gender']);
-        unset($_SESSION['login_bdayFormatted']);
-        unset($_SESSION['login_birthdate']);
-        unset($_SESSION['login_description']);
-        echo "You have been successfully logged out.";
+    if(isset($_SESSION['logout']) && $_SESSION['logout'] == TRUE){
+            unset($_SESSION['login_user']);
+            unset($_SESSION['login_firstName']);
+            unset($_SESSION['login_lastName']);
+            unset($_SESSION['login_email']);
+            unset($_SESSION['login_phoneNumFormatted']);
+            unset($_SESSION['login_phoneNumber']);
+            unset($_SESSION['login_genderFormatted']);
+            unset($_SESSION['login_gender']);
+            unset($_SESSION['login_bdayFormatted']);
+            unset($_SESSION['login_birthdate']);
+            unset($_SESSION['login_description']);
+            echo "You have been successfully logged out.";
 
-        session_destroy();
-        session_unset();
-    }
+            session_destroy();
+            session_unset();
+        }
 
 	if(isset($_SESSION['redirect']))
 	{
@@ -122,7 +123,6 @@
                   // alert("complete");
               });
 
-
               $('#signIn').click(function(e) {
                 e.preventDefault();
                 $.ajax({
@@ -147,7 +147,6 @@
       </script>
 </body>
 </html>
-
 
 <script type="text/javascript">
 
@@ -176,11 +175,8 @@
               $("#signup-form").show();
             }
             else if (data === 'InvalidCredentials'){
-              // TO DO: Make sure don't let the user keep going!
               $("#unameTaken").show();
               $("#signup-form").hide();
-
-              // document.getElementById("usernameBox").innerHTML = "This username is already taken :(";
             }
          }
     });

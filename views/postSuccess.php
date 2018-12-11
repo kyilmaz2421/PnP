@@ -1,4 +1,8 @@
 <?php
+	// Purpose: Notify user of successful new posting
+	// Associated with: post.php create_place.
+	// Authors: Kaan Yilmaz
+
 	include("../php/sign_in_page.php");
 	$_SESSION['redirect'] = FALSE; //for debugging purposes
 

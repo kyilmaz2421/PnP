@@ -1,4 +1,7 @@
 <?php
+	// Purpose: posting a place page
+	// Associated with: post.php create_place.
+	// Authors: Kaan Yilmaz
 
 	include("../php/sign_in_page.php");
 
@@ -62,12 +65,8 @@ $("#submit").click();
 });
 </script>
 <body>
-<!-- <nav>
-    <h1>PnP</h1>
-</nav> -->
 <header>
-  <h1>PnP</h1>
-  <!-- <p> - - - Place n Party</p> -->
+ <h1>PnP</h1>
 
   <div style="float: right">
     <?php echo ($_SESSION['login_lastName'])?>,  <?php echo ($_SESSION['login_firstName']) ?>
@@ -77,9 +76,6 @@ $("#submit").click();
 </header>
 
 <form action="../php/create_place.php" method="post" enctype="multipart/form-data">
-<!-- <div>
-    <h1>Post A Place</h1>
-</div> -->
 <!-- NEW HEADER (CONSISTENT W/ OTHER PAGES): -->
 
     <section class="navBar">
@@ -95,109 +91,102 @@ $("#submit").click();
 
     <div class="container">
       <p>Please fill in this form to post a new place.</p>
-    <p>
-      <label for="photos"><b>Photos: </b></label>
-      <input type="file" accept="image/*" placeholder="Add Photos" name="photos1" required>
-      <!-- <input type="file" accept="image/*" placeholder="Add Photos" name="photos2" > -->
-      <!-- <input type="file" accept="image/*" placeholder="Add Photos" name="photos3" > -->
-    </p>
+    	<p>
+      		<label for="photos"><b>Photos: </b></label>
+      		<input type="file" accept="image/*" placeholder="Add Photos" name="photos1" required>
+    	</p>
 
-    <p>
-        <label for="adr"><b>Address: </b></label>
-        <input type="text" placeholder="Address" name="adr" required>
-    </p>
+    	<p>
+        	<label for="adr"><b>Address: </b></label>
+        	<input type="text" placeholder="Address" name="adr" required>
+    	</p>
 
-    <p>
-        <label for="aptNum"><b>Apartment Number: </b></label>
-        <input type="number" placeholder="Apartment Number" name="aptNum">
-    </p>
+    	<p>
+        	<label for="aptNum"><b>Apartment Number: </b></label>
+        	<input type="number" placeholder="Apartment Number" name="aptNum">
+    	</p>
 
-    <p>
-      <label for="city"><b>City: </b></label>
-      <input type="text" placeholder="City" name="city" required>
-    </p>
+    	<p>
+      	<label for="city"><b>City: </b></label>
+      	<input type="text" placeholder="City" name="city" required>
+    	</p>
 
-    <p>
-      <label for="province"><b>Province: </b></label>
-      <input type="text" placeholder="Province" name="province" required>
-    </p>
+    	<p>
+      	<label for="province"><b>Province: </b></label>
+      	<input type="text" placeholder="Province" name="province" required>
+    	</p>
 
-    <p>
-        <label for="country"><b>Country: </b></label>
-        <input type="text" placeholder="Country" name="country" required>
-    </p>
+    	<p>
+        	<label for="country"><b>Country: </b></label>
+        	<input type="text" placeholder="Country" name="country" required>
+    	</p>
 
-    <p>
-        <label for="postalCode"><b>Postal Code: </b></label>
-        <input type="text" placeholder="Postal Code" name="postalCode" required>
-    </p>
+    	<p>
+        	<label for="postalCode"><b>Postal Code: </b></label>
+        	<input type="text" placeholder="Postal Code" name="postalCode" required>
+    	</p>
 
-    <p>
-    <label for="spaceType"><b>Type Of Space: </b></label>
-        <input type="radio" checked="checked" name="spaceType" style="margin-bottom:15px"> Home
-        <input type="radio" name="spaceType" style="margin-bottom:15px" value="Apartment"> Apartment
-        <input type="radio" name="spaceType" style="margin-bottom:15px" value="Loft"> Loft
-        <input type="radio" name="spaceType" style="margin-bottom:15px" value="Large Space"> Large Space (i.e warehouse, gym)
-        <input type="radio" name="spaceType" style="margin-bottom:15px" value="Backyard/Deck"> Backyard/Deck
-        <input type="radio" name="spaceType" style="margin-bottom:15px" value="Rooftop/Penthouse"> Rooftop/Penthouse
-    </label>
-    </p>
+    	<p>
+    	<label for="spaceType"><b>Type Of Space: </b></label>
+        	<input type="radio" checked="checked" name="spaceType" style="margin-bottom:15px"> Home
+        	<input type="radio" name="spaceType" style="margin-bottom:15px" value="Apartment"> Apartment
+        	<input type="radio" name="spaceType" style="margin-bottom:15px" value="Loft"> Loft
+        	<input type="radio" name="spaceType" style="margin-bottom:15px" value="Large Space"> Large Space (i.e warehouse, gym)
+        	<input type="radio" name="spaceType" style="margin-bottom:15px" value="Backyard/Deck"> Backyard/Deck
+        	<input type="radio" name="spaceType" style="margin-bottom:15px" value="Rooftop/Penthouse"> Rooftop/Penthouse
+    	</label>
+    	</p>
 
-    <p>
-        <label for="price"><b>Price Per Night: </b></label>
-        <input type="number" placeholder="Price Per Night" name="price" required>
-    </p>
+    	<p>
+        	<label for="price"><b>Price Per Night: </b></label>
+        	<input type="number" placeholder="Price Per Night" name="price" required>
+    	</p>
 
-    <p>
-            <label for="pets"><b>Pets Permited: </b></label>
-            <input type="radio" checked="checked" name="pets" style="margin-bottom:15px" value="FALSE"> No
-            <input type="radio" name="pets" style="margin-bottom:15px" value="TRUE"> Yes
-    </p>
+    	<p>
+            	<label for="pets"><b>Pets Permited: </b></label>
+            	<input type="radio" checked="checked" name="pets" style="margin-bottom:15px" value="FALSE"> No
+            	<input type="radio" name="pets" style="margin-bottom:15px" value="TRUE"> Yes
+    	</p>
 
-    <p>
-            <label for="alcohol"><b>Alcohol Permited: </b></label>
-            <input type="radio" checked="checked" name="alcohol" style="margin-bottom:15px" value="FALSE"> No
-            <input type="radio" name="alcohol" style="margin-bottom:15px" value="TRUE"> Yes
-    </p>
+    	<p>
+            	<label for="alcohol"><b>Alcohol Permited: </b></label>
+            	<input type="radio" checked="checked" name="alcohol" style="margin-bottom:15px" value="FALSE"> No
+            	<input type="radio" name="alcohol" style="margin-bottom:15px" value="TRUE"> Yes
+    	</p>
 
-    <p>
-            <label for="weelchair"><b>Weelchair Accessible: </b></label>
-            <input type="radio" checked="checked" name="wheelchair" style="margin-bottom:15px" value="FALSE"> No
-            <input type="radio" name="wheelchair" style="margin-bottom:15px" value="TRUE"> Yes
-    </p>
+    	<p>
+            	<label for="weelchair"><b>Weelchair Accessible: </b></label>
+            	<input type="radio" checked="checked" name="wheelchair" style="margin-bottom:15px" value="FALSE"> No
+            	<input type="radio" name="wheelchair" style="margin-bottom:15px" value="TRUE"> Yes
+    	</p>
 
-    <p>
-            <label for="smoking"><b>Smoking Permited: </b></label>
-            <input type="radio" checked="checked" name="smoking" style="margin-bottom:15px" value="FALSE"> No
-            <input type="radio" name="smoking" style="margin-bottom:15px" value="TRUE"> Yes
-    </p>
+    	<p>
+            	<label for="smoking"><b>Smoking Permited: </b></label>
+            	<input type="radio" checked="checked" name="smoking" style="margin-bottom:15px" value="FALSE"> No
+            	<input type="radio" name="smoking" style="margin-bottom:15px" value="TRUE"> Yes
+    	</p>
 
-    <p>
-            <label for="outdoors"><b>Outdoor Access: </b></label>
-            <input type="radio" checked="checked" name="outdoors" style="margin-bottom:15px" value="FALSE"> No
-            <input type="radio" name="outdoors" style="margin-bottom:15px" value="TRUE"> Yes
-    </p>
+    	<p>
+            	<label for="outdoors"><b>Outdoor Access: </b></label>
+            	<input type="radio" checked="checked" name="outdoors" style="margin-bottom:15px" value="FALSE"> No
+            	<input type="radio" name="outdoors" style="margin-bottom:15px" value="TRUE"> Yes
+    	</p>
 
-    <p>
-            <label for="description"><b>Brief Description: </b></label>
-            <input type="text" placeholder="Brief Description" maxlength="40" name="description" style = "width: 400px; height: 100px; padding-top: 50 px; overflow: scroll;" required>
-    </p>
+    	<p>
+            	<label for="description"><b>Brief Description: </b></label>
+            	<input type="text" placeholder="Brief Description" maxlength="40" name="description" style = "width: 400px; height: 100px; padding-top: 50 px; overflow: scroll;" required>
+    	</p>
 
-    <div class="clearfix">
-            <!-- <button type="button" class="cancelbtn">Cancel</button>
-            <button type="submit" class="postbtn">Submit Place</button> -->
-
-            <div style="text-align: center; float: none; display: flex; justify-content: center">
-                <div style="width: 25%; padding-right: 10px">
-                    <a href="viewingPage.php"><button type="button" class="cancelbtn" style="width: 100%;">Cancel</button></a>
-                </div>
-                <button type="submit" class="postbtn" style="width: 25%; padding-left: 10px">Submit Place</button>
-            </div>
-    </div>
-
+    	<div class="clearfix">
+            	<div style="text-align: center; float: none; display: flex; justify-content: center">
+                	<div style="width: 25%; padding-right: 10px">
+                    	<a href="viewingPage.php"><button type="button" class="cancelbtn" style="width: 100%;">Cancel</button></a>
+                	</div>
+                	<button type="submit" class="postbtn" style="width: 25%; padding-left: 10px">Submit Place</button>
+            	</div>
+    	</div>
     </div>
   </form>
-
 
 </body>
 </html>

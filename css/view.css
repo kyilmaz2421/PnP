@@ -1,3 +1,6 @@
+/* view styles */
+/* authors: Alana Ceci */
+
 * {
 	font-family: Courier New;
 }
@@ -116,14 +119,14 @@ ul{
 
  #book{
 	right: 0;
-} 
+}
 
 #noMatch{
 	text-align: center;
 }
 
 /* collapsing filter bar if window resizes  */
-@media screen and (max-width:1200px) {  
+@media screen and (max-width:1200px) {
 	.pageBody{
 	  display: none;
 	}
@@ -142,15 +145,3 @@ ul{
 			float:right;
 		}
   }
-
-  /* @media screen and (max-width: 900px) {
-	#details{
-
-	}
-} */
-/* reformatting for window resize*/
-/* @media screen and (min-width: 64.063em){
-	#book{
-		margin-left: 150%;
-	}
-} */

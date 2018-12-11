@@ -1,5 +1,7 @@
 <?php
-	// include("../php/session.php");
+	// Purpose: Personalized page for the users
+	// Associated with: getPastBookings.php getMyPlaces.php getUpcomingBookings.
+	// Authors: Andrea Hyder
 	include("../php/sign_in_page.php");
 
 	$_SESSION['redirect'] = FALSE; //for debugging purposes
@@ -30,7 +32,6 @@
 	<a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a>
   </div>
   <!-- <a href="../php/log_out.php"><button class="logoutbtn">Log Out</button></a> -->
-
 </header>
 
 <body>
@@ -109,8 +110,6 @@
 	</div>
 </div>
 
-
-
 <script>
 	window.onload = function(){
 		// Pick a default tab to have open on first page load:
@@ -164,10 +163,6 @@
 		$("#PastBookings").load("php/getPastBookings.php", {query});
 	}
 
-	// function fillMyPlaces() {
-
-	// }
-
 	function openView(evt, toView) {
 	    var i, tabcontent, tablinks;
 	    tabcontent = document.getElementsByClassName("tabcontent");
@@ -182,8 +177,5 @@
 	    evt.currentTarget.className += " active";
 	}
 </script>
-
-
 </body>
-
 </html>
