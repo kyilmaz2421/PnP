@@ -60,7 +60,7 @@ $usernamePerson = $_SESSION['login_user'];
                         if($key === "Rating") {
                             $conditionals .= $key . ">=" . $val;
                         } else if ($key === "PricePerNight") {
-                            $conditionals .= $key . ">=" . $val;
+                            $conditionals .= $key . "<=" . $val;
                         } else {
                             $conditionals .= $key . "='" . $val . "'";
                         }
@@ -68,7 +68,7 @@ $usernamePerson = $_SESSION['login_user'];
                         if($key === "Rating") {
                             $conditionals .= " AND " . $key . ">=" . $val;
                         } else if ($key === "PricePerNight") {
-                            $conditionals .= " AND " . $key . ">=" . $val;
+                            $conditionals .= " AND " . $key . "<=" . $val;
                         } else {
                             $conditionals .= " AND " . $key .  "='" . $val . "'";
                         }
