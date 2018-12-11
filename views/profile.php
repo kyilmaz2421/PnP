@@ -176,6 +176,7 @@
 	    document.getElementById(toView).style.display = "block";
 	    evt.currentTarget.className += " active";
 	}
+
 </script>
 </body>
 </html>

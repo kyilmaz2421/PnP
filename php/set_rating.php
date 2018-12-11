@@ -28,22 +28,24 @@ if(isset($_SERVER['REQUEST_METHOD'])) {
                 // Set the username to the current logged in user:
                 //$placeId = $_SESSION['login_user'];
                 // The sql query string:
-                $placeToUpdate = "SELECT * FROM Places WHERE PlaceId='" . $placeId . "'";
+                $placeToUpdate = "SELECT * FROM Places WHERE PlaceID='" . $placeId . "'";
 
                 // Get result set from db
                 $result = $conn->query($placeToUpdate)->fetchAll(PDO::FETCH_ASSOC);
 
                 // To get rating + num of ratings of this place:
-                $currentRating = intval($result['Rating']);
-                $currentNoRatings = intval($result['RatingNumber']);
+                $currentRating = floatval($result[0]['Rating']);
+                $currentNoRatings = floatval($result[0]['RatingNumber']);
 
                 $newNoRatings = $currentNoRatings + 1;
 
-                $newRating = (($currentRating * $currentNoRatings) + $rating) / $newNoRatings;
+                $newRating = floatval((($currentRating * $currentNoRatings) + $rating) / $newNoRatings);
 
-                $insertNewRating = "UPDATE Places SET Rating = '" . $newRating . "', RatingNumber = '" . $newNoRatings . "'";
+                $insertNewRating = "UPDATE Places SET Rating = '" . $newRating . "', RatingNumber = '" . $newNoRatings . "' WHERE PlaceId='" . $placeId . "'";
 
+		header('Location: ../views/profile.php');
                 $conn->exec($insertNewRating);
+		exit();
         }
 
         catch (PDOException $e){
