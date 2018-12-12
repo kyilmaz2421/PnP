@@ -26,7 +26,7 @@ Andrea
 
 Eric
 
-I setup the AWS config and edited the php.ini config files to enable image uploads. I built the initial sql database files: pnpdb.sql. I did at least 50% of the work on creat_user.php, create_place.php, sign_in_page.php, and getPlace.php. I did 50% or less of the work on viewingPage.php sessions.php. 
+I setup the AWS server and edited the php.ini config files to enable image uploads. I built the initial sql database files: pnpdb.sql. I did at least 50% of the work on creat_user.php, create_place.php, sign_in_page.php, and getPlace.php. I did 50% or less of the work on viewingPage.php sessions.php, and some ajax on index.php. 
 
 
 
@@ -46,3 +46,5 @@ worked on the files:
   post.php
   postSuccess.php
   Databases: Places, Users, Booking
+  
+  We all worked on the code together. If someone needed to edit the database, they did. If someone needed to add a feature on the files someone else was working on, they did. We pair programmed at times and all contributed to the design of the project from the backend to the frontend. 
