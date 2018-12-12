@@ -6,6 +6,11 @@ Access at: http://34.213.205.49/pnp/index.php
 
 Team members: Alana Ceci, Andrea Hyder, Eric Anderson, Kaan Yilmaz
 
+
+USAGE: Designed for Google Chrome, like any website after sign-in/sign-up you can follow the on page buttons/prompts to navigate the websites features.
+
+DISCLAIMER: We all worked on the code together. If someone needed to edit the database, they did. If someone needed to add a feature on the files someone else was working on, they did. We pair programmed at times and all contributed to the design of the project from the backend to the frontend with everyone touching everything. 
+
 Work breakdown by Team member
 Alana
 -viewingPage.php
