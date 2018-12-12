@@ -8,7 +8,7 @@ TEAM MEMBERS: Alana Ceci, Andrea Hyder, Eric Anderson, Kaan Yilmaz
 
 USAGE: Designed for Google Chrome, like any website after sign-in/sign-up you can follow the on page buttons/prompts to navigate the websites features.
 
-DISCLAIMER: The division of work does not follow the point break down specified on the Project.pdf, as per Professor Vybihal's suggestion. We divided the work into parts to ensure that each person was designated a task where they learned both front-end and back-end skills.  Each person was assigned their part, as outlined below, but ultimately we all worked on the code together. If someone needed to edit the database, they did. If someone needed to add a feature on the files someone else was working on, they did. We pair programmed/debugged (A LOT) at times and all contributed to the design of the project from the backend to the frontend with everyone touching everything. 
+DISCLAIMER: The division of work does not follow the point break down specified on the Project.pdf, as per Professor Vybihal's suggestion. We divided the work into parts to ensure that each person was designated a task where they learned both front-end and back-end skills.  Each person was assigned their part, as outlined below, but ultimately we all worked on the code together. If someone needed to edit the database, they did. If someone needed to add a feature on the files someone else was working on, they did. We pair programmed at times and all contributed to the design of the project from the backend to the frontend with everyone touching everything. 
 
 WORK BREAKDOWN BY TEAM MEMBER:
 Alana
@@ -28,17 +28,17 @@ Wrote HTML form to send rating from user selection (radio buttons) to set_rating
 
 Andrea
 
-I setup the initial look of the web app (html + css) and created the shell of the index page (login/signup). The files that I used/created/edited to do this are the following: 
-index.php
-index.css
-general.css
-Most of my work was creating the profile page from start to finish. This required use of html, css, php, javascript and Ajax calls to get the info from the database and then show it to the user on this page. The files I used/created/edited to make this page fully functional are the following: 
-profile.php
-getMyPlaces.php
-getPastBookings.php
-getUpcomingBookings.php
-profile.css
-Two smaller functionalities that I also got working were checking if a username is unique when creating an account (checkUniqueUsername.php), and loging out of the session, i.e. emptying all session variables (log_out.php).
+I setup the initial look of the web app (html + css) and created the shell of the index page (login/signup). The files that I used/created/edited to do this are the following:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.php  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.css  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;general.css  
+Most of my work was creating the profile page from start to finish. This required use of html, css, php, javascript and Ajax calls to get the info from the database and then show it to the user on this page. The files I used/created/edited to make this page fully functional are the following:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile.php  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getMyPlaces.php  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getPastBookings.php  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getUpcomingBookings.php  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile.css  
+Two smaller functionalities that I implemented were checking if a username is unique when creating an account (checkUniqueUsername.php), and loging out of the session, i.e. emptying all session variables (log_out.php).
 
 
 Eric
