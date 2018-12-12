@@ -31,10 +31,10 @@ Wrote HTML form to send rating from user selection (radio buttons) to set_rating
 
 Andrea
 
-I setup the initial look of the web app (html + css) and created the shell of the index page (login/signup). The files that I used/created/edited to do this are the following:  
-index.php  
-index.css  
-general.css  
+I setup the initial look of the web app (html + css) and created the shell of the index page (login/signup). The files that I used/created/edited to do this are the following:   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.php  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.css  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;general.css  
 Most of my work was creating the profile page from start to finish. This required use of html, css, php, javascript and Ajax calls to get the info from the database and then show it to the user on this page. The files I used/created/edited to make this page fully functional are the following:  
 profile.php  
 getMyPlaces.php  
