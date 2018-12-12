@@ -13,6 +13,7 @@ DISCLAIMER: The division of work does not follow the point break down specified 
 WORK BREAKDOWN BY TEAM MEMBER:
 
 Alana
+
 I formatted the viewing page of PnP (viewingPage.php), displaying the places from DB as well as formatting the filter bar, header and buttons using HTML and CSS. In getPlace.php, I pulled from Database with default filter settings (ignoring the date) to generate a general query and display the results by echoing HTML and appropriate DB column variables, using PHP and SQL. In general.css,  I formatted themes, colours, margins, padding, as well as the general style and resizing of windows using CSS. Similarly, in views.css, I formatted spacing of divs, sections and all elements for viewingPage.php. Made adjustments to view based on window size. In set_rating.php, I used a form, POST and queried database to find a place with a matching ID so that the user can add their rating to the Rating column in the Places Database, and also calculate the rating. Finally, in getMyPlaces.php I wrote an HTML a form to send a rating from user selection (radio buttons) to set_rating.php.
 
 Andrea
