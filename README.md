@@ -26,7 +26,7 @@ Andrea
 
 Eric
 
-I setup the AWS server and edited the php.ini config files to enable image uploads. I built the initial sql database files: pnpdb.sql. I did at least 50% of the work on creat_user.php, create_place.php, sign_in_page.php, and getPlace.php. I did 50% or less of the work on viewingPage.php sessions.php, and some ajax on index.php. 
+I setup the AWS server and edited the php.ini config files to enable image uploads. I built the initial sql database files: pnpdb.sql. I did at least 50% of the work on creat_user.php, create_place.php, sign_in_page.php, and getPlace.php. I did 50% or less of the work on viewingPage.php, sessions.php, and some ajax on index.php. On the viewingPage, I was responsible for the search functionality specifically.
 
 
 
