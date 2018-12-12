@@ -12,6 +12,8 @@ USAGE: Designed for Google Chrome, like any website after sign-in/sign-up you ca
 DISCLAIMER: We all worked on the code together. If someone needed to edit the database, they did. If someone needed to add a feature on the files someone else was working on, they did. We pair programmed at times and all contributed to the design of the project from the backend to the frontend with everyone touching everything. 
 
 Work breakdown by Team member
+
+
 Alana
 -viewingPage.php
 Formatted the viewing page of PnP, displaying the places from DB, filter bar, header and buttons using HTML and CSS. 
