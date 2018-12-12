@@ -30,9 +30,17 @@ Eric
 
 
 Kaan
-book_place.php
-create_place.php
-book.php
-post.php
-postSuccess.php
-Databases: Places, Users, Booking
+
+I built the posting and booking mechanisms this meant designing the Users,Places,and Bookings tables in the database.
+I also built the css and html along with the php pages that went along with these (Eric did most of the Images section for these pages). I also did the Ajax calls for these pages as well as for viewingPage.php
+
+worked on the files:
+  some general.css
+  index.html
+  viewingPage.php
+  book_place.php
+  create_place.php
+  book.php
+  post.php
+  postSuccess.php
+  Databases: Places, Users, Booking
