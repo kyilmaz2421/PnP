@@ -40,7 +40,7 @@ I setup the AWS config and edited the php.ini config files to enable image uploa
 
 Kaan
 
-I built the posting and booking mechanisms this meant designing the Users,Places,and Bookings tables in the database.
+I built the posting and booking mechanisms which meant designing the Users,Places,and Bookings tables in the database.
 I also built the css and html along with the php pages that went along with these (Eric did most of the Images section for these pages). I also did the Ajax calls for these pages as well as for viewingPage.php
 
 worked on the files:
