@@ -61,6 +61,7 @@ worked on the files:
   book_place.php
   create_place.php
   book.php
+  book_place.php
   post.php
   postSuccess.php
   Databases: Places, Users, Booking
