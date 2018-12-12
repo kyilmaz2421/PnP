@@ -36,11 +36,11 @@ I setup the initial look of the web app (html + css) and created the shell of th
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.css  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;general.css  
 Most of my work was creating the profile page from start to finish. This required use of html, css, php, javascript and Ajax calls to get the info from the database and then show it to the user on this page. The files I used/created/edited to make this page fully functional are the following:  
-profile.php  
-getMyPlaces.php  
-getPastBookings.php  
-getUpcomingBookings.php  
-profile.css  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile.php  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getMyPlaces.php  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getPastBookings.php  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getUpcomingBookings.php  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile.css  
 Two smaller functionalities that I also got working were checking if a username is unique when creating an account (checkUniqueUsername.php), and loging out of the session, i.e. emptying all session variables (log_out.php).
 
 
