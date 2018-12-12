@@ -15,7 +15,9 @@ Formatted themes, colours, margins, padding, and general syle and resizing of wi
 -view.css
 Formatted spacing of divs, sections and all elements for viewingPage.php. Made adjustments to view based on window size.
 -set_rating.php
-Used a form and POST to query database 
+Used a form and POST to query database to find Place with matching ID so that the user can add its rating to the Rating column in the Places Database, calculated 
+-getMyPlaces.php
+Wrote HTML form to send rating from user selection (radio buttons) to set_rating.php.
 
 
 Andrea
@@ -28,3 +30,9 @@ Eric
 
 
 Kaan
+book_place.php
+create_place.php
+book.php
+post.php
+postSuccess.php
+Databases: Places, Users, Booking
