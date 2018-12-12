@@ -3,7 +3,6 @@ Simple web app similar to AirBnb.
 Built with vanilla HTML/CSS/JS/JQUERY/PHP/LINUX/AWS
 
 ACCESS: http://34.213.205.49/pnp/index.php
-CODE: https://github.com/pingdink/pnp/
 
 TEAM MEMBERS: Alana Ceci, Andrea Hyder, Eric Anderson, Kaan Yilmaz
 
@@ -12,34 +11,23 @@ USAGE: Designed for Google Chrome, like any website after sign-in/sign-up you ca
 DISCLAIMER: The division of work does not follow the point break down specified on the Project.pdf, as per Professor Vybihal's suggestion. We divided the work into parts to ensure that each person was designated a task where they learned both front-end and back-end skills.  Each person was assigned their part, as outlined below, but ultimately we all worked on the code together. If someone needed to edit the database, they did. If someone needed to add a feature on the files someone else was working on, they did. We pair programmed at times and all contributed to the design of the project from the backend to the frontend with everyone touching everything. 
 
 WORK BREAKDOWN BY TEAM MEMBER:
-Alana
--viewingPage.php
-Formatted the viewing page of PnP, displaying the places from DB, filter bar, header and buttons using HTML and CSS. 
--getPlace.php
-Pulled from Database with default filter settings (ignoring date) to generate a general query and display the results by echoing HTML and appropriate DB column variables, using PHP and SQL. 
--general.css
-Formatted themes, colours, margins, padding, and general syle and resizing of windows using CSS.
--view.css
-Formatted spacing of divs, sections and all elements for viewingPage.php. Made adjustments to view based on window size.
--set_rating.php
-Used a form and POST to query database to find Place with matching ID so that the user can add its rating to the Rating column in the Places Database, calculated 
--getMyPlaces.php
-Wrote HTML form to send rating from user selection (radio buttons) to set_rating.php.
 
+Alana
+I formatted the viewing page of PnP (viewingPage.php), displaying the places from DB as well as formatting the filter bar, header and buttons using HTML and CSS. In getPlace.php, I pulled from Database with default filter settings (ignoring the date) to generate a general query and display the results by echoing HTML and appropriate DB column variables, using PHP and SQL. In general.css,  I formatted themes, colours, margins, padding, as well as the general style and resizing of windows using CSS. Similarly, in views.css, I formatted spacing of divs, sections and all elements for viewingPage.php. Made adjustments to view based on window size. In set_rating.php, I used a form, POST and queried database to find a place with a matching ID so that the user can add their rating to the Rating column in the Places Database, and also calculate the rating. Finally, in getMyPlaces.php I wrote an HTML a form to send a rating from user selection (radio buttons) to set_rating.php.
 
 Andrea
 
-I setup the initial look of the web app (html + css) and created the shell of the index page (login/signup). The files that I used/created/edited to do this are the following:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.php  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.css  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;general.css  
-Most of my work was creating the profile page from start to finish. This required use of html, css, php, javascript and Ajax calls to get the info from the database and then show it to the user on this page. The files I used/created/edited to make this page fully functional are the following:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile.php  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getMyPlaces.php  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getPastBookings.php  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getUpcomingBookings.php  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile.css  
-Two smaller functionalities that I implemented were checking if a username is unique when creating an account (checkUniqueUsername.php), and loging out of the session, i.e. emptying all session variables (log_out.php).
+I setup the initial look of the web app (html + css) and created the shell of the index page (login/signup). The files that I used/created/edited to do this are the following: 
+index.php
+index.css
+general.css
+Most of my work was creating the profile page from start to finish. This required use of html, css, php, javascript and Ajax calls to get the info from the database and then show it to the user on this page. The files I used/created/edited to make this page fully functional are the following: 
+profile.php
+getMyPlaces.php
+getPastBookings.php
+getUpcomingBookings.php
+profile.css
+Two smaller functionalities that I also got working were checking if a username is unique when creating an account (checkUniqueUsername.php), and loging out of the session, i.e. emptying all session variables (log_out.php).
 
 
 Eric
