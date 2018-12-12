@@ -2,6 +2,29 @@
 Simple web app similar to AirBnb.
 Built with vanilla HTML/CSS/JS/JQUERY/PHP/LINUX/AWS
 
-We built this project to learn about developing web apps.
-We also built it as a project for school.
+Team members: Alana Ceci, Andrea Hyder, Eric Anderson, Kaan Yilmaz
 
+Work breakdown by Team member
+Alana
+-viewingPage.php
+Formatted the viewing page of PnP, displaying the places from DB, filter bar, header and buttons using HTML and CSS. 
+-getPlace.php
+Pulled from Database with default filter settings (ignoring date) to generate a general query and display the results by echoing HTML and appropriate DB column variables, using PHP and SQL. 
+-general.css
+Formatted themes, colours, margins, padding, and general syle and resizing of windows using CSS.
+-view.css
+Formatted spacing of divs, sections and all elements for viewingPage.php. Made adjustments to view based on window size.
+-set_rating.php
+Used a form and POST to query database 
+
+
+Andrea
+
+
+
+Eric
+
+
+
+
+Kaan
