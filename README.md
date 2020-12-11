@@ -1,4 +1,4 @@
-# pnp
+# PNP
 Simple web app similar to AirBnb.
 Built with vanilla HTML/CSS/JS/JQUERY/PHP/LINUX/AWS
 
@@ -12,11 +12,11 @@ DISCLAIMER: The division of work does not follow the point break down specified 
 
 WORK BREAKDOWN BY TEAM MEMBER:
 
-Alana
+# Alana
 
 I formatted the viewing page of PnP (viewingPage.php), displaying the places from DB as well as formatting the filter bar, header and buttons using HTML and CSS. In getPlace.php, I pulled from Database with default filter settings (ignoring the date) to generate a general query and display the results by echoing HTML and appropriate DB column variables, using PHP and SQL. In general.css,  I formatted themes, colours, margins, padding, as well as the general style and resizing of windows using CSS. Similarly, in views.css, I formatted spacing of divs, sections and all elements for viewingPage.php. Made adjustments to view based on window size. In set_rating.php, I used a form, POST and queried database to find a place with a matching ID so that the user can add their rating to the Rating column in the Places Database, and also calculate the rating. Finally, in getMyPlaces.php I wrote an HTML a form to send a rating from user selection (radio buttons) to set_rating.php.
 
-Andrea
+# Andrea
 
 I setup the initial look of the web app (html + css) and created the shell of the index page (login/signup). The files that I used/created/edited to do this are the following:   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.php  
@@ -31,25 +31,28 @@ Most of my work was creating the profile page from start to finish. This require
 Two smaller functionalities that I also got working were checking if a username is unique when creating an account (checkUniqueUsername.php), and loging out of the session, i.e. emptying all session variables (log_out.php).  
 
 
-Eric
+# Eric
 
 I setup the AWS config and edited the php.ini config files to enable image uploads. I built the initial sql database files: pnpdb.sql. I did at least 50% of the work on creat_user.php, create_place.php, sign_in_page.php, and getPlace.php. I did 50% or less of the work on viewingPage.php sessions.php. 
 
 
 
 
-Kaan
+# Kaan
 
-I built the posting and booking mechanisms which meant designing the Users,Places,and Bookings tables in the database.
-I also built the css and html along with the php pages that went along with these. I also did the Ajax calls for these pages as well as for viewingPage.php
+- I built the API for booking event places, posting new event places, and worked on the API for getting the relevant listings in the explore page with Eric (including work on the search features)
 
-worked on the files:
-  some general.css
-  index.html
-  viewingPage.php
-  book_place.php
-  create_place.php
-  book.php
-  post.php
-  postSuccess.php
-  Databases: Places, Users, Booking
+- Designed the front end routes (Ajax calls) to the backend 
+
+- worked on the files:
+    - general.css
+    - index.html
+    - viewingPage.php
+    - book_place.php
+    - create_place.php
+    - book.php
+    - post.php
+    - postSuccess.php
+    
+    
+  - Designed the database tables  Places, Users, Booking (with Eric)
